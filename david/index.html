@@ -1504,6 +1504,10 @@
   // Init all backgrounds immediately
   SECTIONS.forEach(id => initBg(id));
 
+  // Randomize vinyl ring GIF on every load
+  const vinylImg = document.querySelector('#vinyl-ring img');
+  if (vinylImg) vinylImg.src = BG_POOL[Math.floor(Math.random() * BG_POOL.length)];
+
   // Rotate each section independently on staggered intervals
   const ROTATE_MS = 9000; // 9 seconds base
   SECTIONS.forEach((id, i) => {
