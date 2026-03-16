@@ -1081,7 +1081,7 @@
       <div class="vinyl-wrap" id="vinyl-wrap">
         <div class="vinyl-ring" id="vinyl-ring">
           <div class="vinyl-inner">
-            <img src="assets/gifs/bg/BLK0001.gif" alt="">
+            <img id="vinyl-gif" src="assets/gifs/bg/BLK0001.gif" alt="">
           </div>
         </div>
         <div class="vinyl-overlay" id="vinyl-overlay">▶</div>
@@ -1325,7 +1325,7 @@
 
   <div class="closing-inner">
     <div class="closing-gif-ring reveal" id="closing-ring">
-      <img src="assets/photo-feb-10.jpg" alt="Mikel Rosenthal / PBK">
+      <img src="assets/mikel-profile.jpg" alt="Mikel Rosenthal / PBK">
     </div>
     <p class="closing-bike reveal" style="font-family: var(--font-body); font-size: clamp(12px, 1.4vw, 15px); color: var(--dim); letter-spacing: .08em; margin-bottom: 40px; max-width: 420px;">You've been riding through cities since 1982, watching everything from eye level. I finally understand why.</p>
     <h2 class="closing-title reveal">Thank you,<br><span class="a">David.</span></h2>
@@ -1497,6 +1497,13 @@
     const pool = shuffle([...BG_POOL]);
     sectionState[id] = { pool, idx: 0, active: 'a' };
   });
+
+  // Randomize the vinyl ring GIF every page load
+  const vinylGif = document.getElementById('vinyl-gif');
+  if (vinylGif) {
+    const vinylPool = shuffle([...BG_POOL]);
+    vinylGif.src = vinylPool[Math.floor(Math.random() * vinylPool.length)];
+  }
 
   function pickNext(id) {
     const state = sectionState[id];
