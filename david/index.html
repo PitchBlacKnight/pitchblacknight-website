@@ -1341,11 +1341,36 @@
      JS
 ══════════════════════════════════════ -->
 <script>
+  // ── PATH DETECTION (live site vs local preview) ──────────
+  // On Vercel the page is served from /david (no trailing slash),
+  // so relative paths would resolve from root. We detect this and
+  // prepend /david/ so all assets load correctly in both environments.
+  const PATH_BASE = (location.hostname === 'pitchblacknight.com' ||
+                     location.hostname.endsWith('.vercel.app'))
+                    ? '/david/' : '';
+
+  // Fix static img src attributes for live site
+  if (PATH_BASE) {
+    document.querySelectorAll('img[src]:not([src=""])').forEach(img => {
+      const rel = img.getAttribute('src');
+      if (!rel.startsWith('/') && !rel.startsWith('http')) {
+        img.src = PATH_BASE + rel;
+      }
+    });
+    // Fix remix audio source
+    const remixSrc = document.querySelector('#audio-el source');
+    if (remixSrc) {
+      remixSrc.src = PATH_BASE + 'assets/audio/remix-for-david.mp3';
+      document.getElementById('audio-el').load();
+    }
+  }
+
   // ── AMBIENT MUSIC ───────────────────────
   const AMB_TRACKS = [
-    { src: 'assets/audio/dreams-of-dying.mp3',  title: 'Dreams of Dying'              },
-    { src: 'assets/audio/the-effect.mp3',        title: 'The Effect You Have On Others' },
-    { src: 'assets/audio/tiptoe-trip.mp3',       title: 'TipToe Trip'                  }
+    { src: PATH_BASE + 'assets/audio/dreams-of-dying.mp3',        title: 'Dreams of Dying'              },
+    { src: PATH_BASE + 'assets/audio/the-effect.mp3',              title: 'The Effect You Have On Others' },
+    { src: PATH_BASE + 'assets/audio/tiptoe-trip.mp3',             title: 'TipToe Trip'                  },
+    { src: PATH_BASE + 'assets/audio/touch-you-like-a-cactus.mp3', title: 'Touch You Like A Cactus'      }
   ];
 
   const AMB_TARGET   = 0.14;   // max volume (14%)
@@ -1478,7 +1503,7 @@
     'GRY0282.gif','GRY0290.gif','GRY0298.gif','GRY0306.gif','GRY0314.gif',
     'GRY0322.gif','GRY0330.gif','GRY0338.gif','GRY0346.gif','GRY0354.gif',
     'GRY0362.gif','peUNcIQ.gif'
-  ].map(f => 'assets/gifs/bg/' + f);
+  ].map(f => PATH_BASE + 'assets/gifs/bg/' + f);
 
   // Shuffle array in place (Fisher-Yates)
   function shuffle(arr) {
