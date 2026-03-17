@@ -906,11 +906,8 @@
   });
 
   // ── BACKGROUND GIFs ────────────────────
-  // Build pool of BLK0001–BLK0099
-  const GIF_POOL = Array.from({length: 99}, (_, i) => {
-    const n = String(i + 1).padStart(4, '0');
-    return `/david/assets/gifs/bg/BLK${n}.gif`;
-  });
+  const GIF_FILES = ["20cmotio.gif","3DVorono.gif","9squares.gif","BLK0001.gif","BLK0013.gif","BLK0025.gif","BLK0038.gif","BLK0050.gif","BLK0062.gif","BLK0074.gif","BLK0086.gif","BLK0098.gif","BLK0110.gif","BLK0122.gif","BLK0134.gif","BLK0146.gif","BLK0158.gif","BLK0170.gif","BLK0182.gif","BLK0194.gif","BLK0206.gif","BLK0218.gif","BLK0230.gif","BLK0242.gif","BLK0254.gif","BLK0266.gif","BLK0278.gif","BLK0290.gif","BLU0001.gif","BLU0005.gif","BLU0009.gif","BLU0013.gif","BLU0017.gif","BLU0021.gif","BLU0025.gif","BLU0029.gif","BLU0033.gif","BLU0037.gif","BLU0041.gif","BLU0045.gif","BLU0049.gif","CYN0001.gif","CYN0004.gif","CYN0007.gif","CYN0010.gif","CYN0013.gif","CYN0016.gif","CYN0019.gif","CYN0022.gif","CYN0025.gif","CYN0028.gif","CYN0031.gif","GRY0001.gif","GRY0009.gif","GRY0017.gif","GRY0025.gif","GRY0033.gif","GRY0041.gif","GRY0049.gif","GRY0057.gif","GRY0065.gif","GRY0073.gif","GRY0081.gif","GRY0089.gif","GRY0097.gif","GRY0105.gif","GRY0113.gif","GRY0121.gif","GRY0129.gif","GRY0137.gif","GRY0145.gif","GRY0153.gif","GRY0161.gif","GRY0169.gif","GRY0177.gif","GRY0185.gif","GRY0193.gif","GRY0201.gif","GRY0209.gif","GRY0217.gif","GRY0225.gif","GRY0233.gif","GRY0241.gif","GRY0249.gif","GRY0257.gif","GRY0266.gif","GRY0274.gif","GRY0282.gif","GRY0290.gif","GRY0298.gif","GRY0306.gif","GRY0314.gif","GRY0322.gif","GRY0330.gif","GRY0338.gif","GRY0346.gif","GRY0354.gif","GRY0362.gif","peUNcIQ.gif"];
+  const GIF_POOL = GIF_FILES.map(f => `/david/assets/gifs/bg/${f}`);
 
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
