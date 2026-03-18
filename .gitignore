@@ -1,6 +1,6 @@
 .vercel
 .DS_Store
 .claude/
-# Large audio files — upload directly to server, do not commit to git
+# Mixtape episodes are 68–145 MB each — upload directly to server, do not commit to git
+assets/mixes/*.mp3
 david/assets/mixes/*.mp3
-david/assets/audio/*.mp3
