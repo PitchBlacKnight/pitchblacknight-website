@@ -294,6 +294,43 @@
     .wp-cascade span:nth-child(4) { padding-left:6em; color:var(--steel); opacity:.75; }
     .wp-cascade em { font-style:italic; }
 
+    /* ══ MIXES — MIXTAPE ARCHIVE ══ */
+    #mixes { background:#040404; }
+    .mixes-badge { display:inline-block; font-family:var(--font-body); font-size:9px; letter-spacing:.3em; text-transform:uppercase; color:var(--coral); border:1px solid rgba(232,110,89,0.35); padding:4px 12px; margin-bottom:20px; border-radius:2px; }
+    .mixes-subtitle { font-family:var(--font-body); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); margin-top:20px; }
+    .mix-episode-list { margin-bottom:48px; }
+    .mix-ep { display:flex; align-items:center; gap:20px; padding:16px 0; border-bottom:1px solid #111; cursor:pointer; transition:background .2s ease; }
+    .mix-ep:first-child { border-top:1px solid #111; }
+    .mix-ep:hover { background:rgba(232,110,89,0.04); padding-left:8px; }
+    .mix-ep.active { background:rgba(232,110,89,0.07); padding-left:8px; }
+    .mix-ep-num { font-family:var(--font-display); font-size:clamp(22px,4vw,52px); line-height:1; color:#222; min-width:clamp(44px,7vw,80px); flex-shrink:0; transition:color .25s; }
+    .mix-ep:hover .mix-ep-num,
+    .mix-ep.active .mix-ep-num { color:var(--coral); }
+    .mix-ep-info { flex:1; min-width:0; }
+    .mix-ep-name { font-family:var(--font-display); font-size:clamp(16px,2.8vw,38px); line-height:1; color:#555; text-transform:uppercase; transition:color .25s; }
+    .mix-ep:hover .mix-ep-name { color:#ccc; }
+    .mix-ep.active .mix-ep-name { color:#fff; }
+    .mix-ep-sub { font-family:var(--font-body); font-size:10px; letter-spacing:.18em; color:var(--dim); margin-top:5px; text-transform:uppercase; }
+    .mix-ep-icon { width:34px; height:34px; border-radius:50%; border:1px solid #1e1e1e; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .25s; color:#333; }
+    .mix-ep:hover .mix-ep-icon,
+    .mix-ep.active .mix-ep-icon { border-color:var(--coral); color:var(--coral); }
+    .mix-ep-icon svg { width:10px; height:10px; fill:currentColor; }
+    .mix-player-card { background:#060606; border:1px solid #181818; position:relative; }
+    .mix-player-card::before { content:''; position:absolute; top:0;left:0;right:0;height:1px; background:linear-gradient(to right,transparent,var(--steel),var(--coral),transparent); }
+    .mix-player-top { padding:20px 24px 18px; }
+    .mix-now-label { font-family:var(--font-body); font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--dim); }
+    .mix-now-title { font-family:var(--font-display); font-size:clamp(16px,2.8vw,32px); color:#fff; margin-top:6px; line-height:1; }
+    .mix-progress-wrap { height:3px; background:#151515; cursor:pointer; margin:0 24px; }
+    .mix-progress-bar { height:100%; background:var(--coral); width:0%; transition:width .25s linear; }
+    .mix-times { display:flex; justify-content:space-between; font-size:10px; color:var(--dim); letter-spacing:.08em; margin:8px 24px 16px; font-variant-numeric:tabular-nums; }
+    .mix-controls { display:flex; align-items:center; gap:14px; padding:0 24px 24px; }
+    .mix-btn-play { width:50px; height:50px; border-radius:50%; border:1.5px solid var(--steel); background:transparent; color:var(--steel); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .25s ease; flex-shrink:0; }
+    .mix-btn-play:hover,
+    .mix-btn-play.playing { border-color:var(--coral); color:var(--coral); box-shadow:0 0 28px rgba(232,110,89,0.25); }
+    .mix-btn-play svg { width:17px; height:17px; fill:currentColor; }
+    .mix-status-text { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .mix-status-text.live { color:var(--coral); }
+
     /* ══ MUSIC PLAYER ══ */
     #music { background:#030303; }
 
@@ -527,6 +564,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
+    <li><a href="#mixes">Mixes</a></li>
     <li><a href="#music">Music</a></li>
     <li><a href="#services">Hire</a></li>
     <li><a href="#about">About</a></li>
@@ -703,7 +741,150 @@
 </div>
 
 <!-- ══════════════════════════════════════
-     ③ MUSIC PLAYER
+     ③ MIXES — THE FIRST MIXTAPES
+══════════════════════════════════════ -->
+<section id="mixes" class="scene">
+  <div class="scene-bg lo" id="bg-mixes">
+    <img class="bg-a" src="" alt="">
+    <img class="bg-b" src="" alt="">
+  </div>
+
+  <div class="scene-inner">
+    <div class="reveal">
+      <span class="label">The Archive · 2013</span>
+      <div class="mixes-badge">First Time Online</div>
+      <h2 class="section-heading"><span class="c">The First</span><br>Mixes.</h2>
+      <p class="mixes-subtitle">Ten episodes. Never posted. Until now.</p>
+    </div>
+
+    <div class="mix-episode-list reveal delay-1">
+
+      <div class="mix-ep active" data-src="/david/assets/mixes/episode-01-koolaide-kids.mp3" data-title="Koolaide Kids">
+        <div class="mix-ep-num">01</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Koolaide Kids</div>
+          <div class="mix-ep-sub">Episode 01 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-02-gritty-kitty.mp3" data-title="Gritty Kitty">
+        <div class="mix-ep-num">02</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Gritty Kitty</div>
+          <div class="mix-ep-sub">Episode 02 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-03-beat-brulee.mp3" data-title="Beat Brulee">
+        <div class="mix-ep-num">03</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Beat Brulee</div>
+          <div class="mix-ep-sub">Episode 03 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-04-december-deleece.mp3" data-title="December Deleece">
+        <div class="mix-ep-num">04</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">December Deleece</div>
+          <div class="mix-ep-sub">Episode 04 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-05-march-tart.mp3" data-title="March Tart">
+        <div class="mix-ep-num">05</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">March Tart</div>
+          <div class="mix-ep-sub">Episode 05 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-06-thursday-night-li.mp3" data-title="Thursday Night Li">
+        <div class="mix-ep-num">06</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Thursday Night Li</div>
+          <div class="mix-ep-sub">Episode 06 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-07-nevermind-november.mp3" data-title="Nevermind November">
+        <div class="mix-ep-num">07</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Nevermind November</div>
+          <div class="mix-ep-sub">Episode 07 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-08-adrift.mp3" data-title="Adrift Mixtape">
+        <div class="mix-ep-num">08</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Adrift Mixtape</div>
+          <div class="mix-ep-sub">Episode 08 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-09-just-in-time.mp3" data-title="Just In Time">
+        <div class="mix-ep-num">09</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Just In Time</div>
+          <div class="mix-ep-sub">Episode 09 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+      <div class="mix-ep" data-src="/david/assets/mixes/episode-10-well-alright.mp3" data-title="Well Alright">
+        <div class="mix-ep-num">10</div>
+        <div class="mix-ep-info">
+          <div class="mix-ep-name">Well Alright</div>
+          <div class="mix-ep-sub">Episode 10 · 2013</div>
+        </div>
+        <div class="mix-ep-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+
+    </div><!-- /mix-episode-list -->
+
+    <!-- Shared Player -->
+    <div class="mix-player-card reveal delay-2">
+      <div class="mix-player-top">
+        <div class="mix-now-label">Now Playing</div>
+        <div class="mix-now-title" id="mix-title">Select an Episode</div>
+      </div>
+      <div class="mix-progress-wrap" id="mix-progress-wrap">
+        <div class="mix-progress-bar" id="mix-progress"></div>
+      </div>
+      <div class="mix-times">
+        <span id="mix-cur">0:00</span>
+        <span id="mix-dur">—</span>
+      </div>
+      <div class="mix-controls">
+        <button class="btn-icon-sm" id="mix-prev" aria-label="Previous episode">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+        </button>
+        <button class="mix-btn-play" id="mix-play" aria-label="Play / Pause">
+          <svg id="mix-icon-play"  viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg id="mix-icon-pause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <button class="btn-icon-sm" id="mix-next" aria-label="Next episode">
+          <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/></svg>
+        </button>
+        <span class="mix-status-text" id="mix-status">Select an episode to begin</span>
+      </div>
+      <audio id="mix-audio" preload="none"></audio>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ④ MUSIC PLAYER
 ══════════════════════════════════════ -->
 <section id="music" class="scene">
   <div class="scene-bg lo" id="bg-music">
@@ -1155,7 +1336,7 @@
     <div class="resume-profile reveal delay-1">
       <div class="resume-name">MIKEL<br>ROSENTHAL</div>
       <div class="resume-title">Art Director · Design Director · Contract &amp; Freelance</div>
-      <span class="resume-avail">Design Systems · Visual Identity · Product Experience · 19+ Years</span>
+      <span class="resume-avail">Design Systems · Visual Identity · Product Experience · 25+ Years</span>
       <p class="resume-summary">I lead teams to create unmistakable visual worlds — then systematize them so they scale fast, stay consistent, and ship beautifully. Trusted by Google, GE Healthcare, Blue Cross Blue Shield, Herman Miller, Whirlpool, and Gartner. My practice is rooted in a Fluxus mindset: interdisciplinary, concept-forward, and execution-complete. I work from first principles, then translate that into cohesive direction across design, motion, interaction, writing, and presentation.</p>
     </div>
 
@@ -1517,7 +1698,7 @@
     return arr;
   }
 
-  const BG_SECTIONS = ['bg-hero','bg-manifesto','bg-music','bg-work','bg-services','bg-about','bg-daily','bg-resume','bg-contact'];
+  const BG_SECTIONS = ['bg-hero','bg-manifesto','bg-mixes','bg-music','bg-work','bg-services','bg-about','bg-daily','bg-resume','bg-contact'];
   const sectionState = {};
   BG_SECTIONS.forEach(id => {
     sectionState[id] = { pool: shuffle([...GIF_POOL]), idx: 0, active: 'a' };
@@ -1677,6 +1858,83 @@
   progWrap.addEventListener('click', e => {
     const r = progWrap.getBoundingClientRect();
     if (audio.duration) audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+  });
+
+  // ── MIXES PLAYER ────────────────────────
+  const mixAudio     = document.getElementById('mix-audio');
+  const mixPlayBtn   = document.getElementById('mix-play');
+  const mixIPlay     = document.getElementById('mix-icon-play');
+  const mixIPause    = document.getElementById('mix-icon-pause');
+  const mixProgBar   = document.getElementById('mix-progress');
+  const mixCurEl     = document.getElementById('mix-cur');
+  const mixDurEl     = document.getElementById('mix-dur');
+  const mixStatusEl  = document.getElementById('mix-status');
+  const mixTitleEl   = document.getElementById('mix-title');
+  const mixProgWrap  = document.getElementById('mix-progress-wrap');
+  const mixPrevBtn   = document.getElementById('mix-prev');
+  const mixNextBtn   = document.getElementById('mix-next');
+  const mixEps       = Array.from(document.querySelectorAll('.mix-ep'));
+  let   mixIdx       = 0;
+
+  function mixFmt(s) {
+    if (!isFinite(s)) return '—';
+    return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+  }
+  function mixSetPlaying(on) {
+    mixIPlay.style.display  = on ? 'none'  : 'block';
+    mixIPause.style.display = on ? 'block' : 'none';
+    mixPlayBtn.classList.toggle('playing', on);
+    mixStatusEl.classList.toggle('live', on);
+    mixStatusEl.textContent = on
+      ? (mixEps[mixIdx]?.dataset.title || 'Playing')
+      : 'Paused';
+  }
+  function mixLoad(idx, autoplay) {
+    mixIdx = idx;
+    mixEps.forEach((e, i) => e.classList.toggle('active', i === idx));
+    const ep = mixEps[idx];
+    if (!ep) return;
+    mixAudio.src = ep.dataset.src;
+    mixAudio.load();
+    const t = ep.dataset.title;
+    mixTitleEl.textContent  = t;
+    mixStatusEl.textContent = t;
+    mixStatusEl.classList.remove('live');
+    mixCurEl.textContent  = '0:00';
+    mixDurEl.textContent  = '—';
+    mixProgBar.style.width = '0%';
+    if (autoplay) mixAudio.play().catch(() => {});
+  }
+  mixEps.forEach((ep, i) => {
+    ep.addEventListener('click', () => {
+      if (i === mixIdx && !mixAudio.paused) { mixAudio.pause(); }
+      else { mixLoad(i, true); }
+    });
+  });
+  mixPlayBtn.addEventListener('click', () => {
+    if (mixAudio.paused) {
+      if (!mixAudio.src || mixAudio.src === window.location.href) { mixLoad(0, true); }
+      else { mixAudio.play().catch(() => {}); }
+    } else { mixAudio.pause(); }
+  });
+  mixPrevBtn.addEventListener('click', () => mixLoad((mixIdx - 1 + mixEps.length) % mixEps.length, !mixAudio.paused));
+  mixNextBtn.addEventListener('click', () => mixLoad((mixIdx + 1) % mixEps.length, !mixAudio.paused));
+  mixAudio.addEventListener('play',  () => mixSetPlaying(true));
+  mixAudio.addEventListener('pause', () => mixSetPlaying(false));
+  mixAudio.addEventListener('ended', () => mixLoad((mixIdx + 1) % mixEps.length, true));
+  mixAudio.addEventListener('timeupdate', () => {
+    const d = mixAudio.duration || 0;
+    mixProgBar.style.width = d > 0 ? (mixAudio.currentTime / d * 100) + '%' : '0%';
+    mixCurEl.textContent = mixFmt(mixAudio.currentTime);
+    if (d) mixDurEl.textContent = mixFmt(d);
+  });
+  mixAudio.addEventListener('loadedmetadata', () => {
+    if (mixAudio.duration) mixDurEl.textContent = mixFmt(mixAudio.duration);
+  });
+  mixProgWrap.addEventListener('click', e => {
+    if (!mixAudio.duration) return;
+    const r = mixProgWrap.getBoundingClientRect();
+    mixAudio.currentTime = ((e.clientX - r.left) / r.width) * mixAudio.duration;
   });
 
   // ── DAILY INSIGHTS ──────────────────────────────────────────────────────

@@ -1,0 +1,6 @@
+.vercel
+.DS_Store
+.claude/
+# Large audio files — upload directly to server, do not commit to git
+david/assets/mixes/*.mp3
+david/assets/audio/*.mp3
