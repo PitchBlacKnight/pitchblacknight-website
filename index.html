@@ -1685,6 +1685,21 @@
     mixAudio.currentTime = ((e.clientX - r.left) / r.width) * mixAudio.duration;
   });
 
+  // ── AMBIENT DUCKING ─────────────────────
+  // Fade ambient out when any player starts; restore when both are paused.
+  function duckAmb() {
+    if (ambAudio.volume > 0) ambFadeOut(600, false);
+  }
+  function unduckAmb() {
+    if (ambPlaying && audio.paused && mixAudio.paused) ambFadeIn(1200);
+  }
+  audio.addEventListener('play',  duckAmb);
+  audio.addEventListener('pause', unduckAmb);
+  audio.addEventListener('ended', unduckAmb);
+  mixAudio.addEventListener('play',  duckAmb);
+  mixAudio.addEventListener('pause', unduckAmb);
+  mixAudio.addEventListener('ended', unduckAmb);
+
   // ── DAILY INSIGHTS ──────────────────────────────────────────────────────
   // ✏️  ADD YOUR QUOTES HERE — one string per entry.
   //     Each day, move the quote you want shown TODAY to index 0,
