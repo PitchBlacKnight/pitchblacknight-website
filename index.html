@@ -445,44 +445,6 @@
     .about-prose p:last-child { margin-bottom:0; }
     .about-prose .pull { font-size:18px; line-height:1.65; color:var(--white); font-style:italic; border-left:2px solid var(--coral); padding-left:24px; margin:36px 0; }
 
-    /* ══ RÉSUMÉ ══ */
-    #resume { background:#030303; }
-    .resume-profile { margin-bottom:clamp(44px,6vw,72px); }
-    .resume-name { font-family:var(--font-display); font-size:clamp(56px,10vw,130px); line-height:.88; text-transform:uppercase; color:var(--white); margin-bottom:14px; }
-    .resume-title { font-family:var(--font-body); font-size:clamp(10px,1.6vw,14px); letter-spacing:.32em; text-transform:uppercase; color:var(--steel); margin-bottom:6px; }
-    .resume-avail { font-family:var(--font-body); font-size:10px; letter-spacing:.36em; text-transform:uppercase; color:var(--coral); opacity:.65; margin-bottom:36px; display:block; }
-    .resume-summary { font-family:var(--font-body); font-size:clamp(13px,1.8vw,16px); line-height:2.1; color:#777; max-width:780px; border-left:2px solid var(--coral); padding-left:24px; }
-    .resume-divider { height:1px; background:#111; margin:clamp(36px,5vw,56px) 0; }
-    .resume-block-label { font-family:var(--font-body); font-size:9px; letter-spacing:.5em; text-transform:uppercase; color:var(--coral); opacity:.45; margin-bottom:20px; display:block; }
-    .strength-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:0; }
-    .strength-chip { font-family:var(--font-body); font-size:10px; letter-spacing:.22em; text-transform:uppercase; padding:7px 14px; border:1px solid #1c1c1c; color:#555; transition:all .2s; cursor:default; }
-    .strength-chip:hover { border-color:var(--coral); color:var(--coral); }
-    .strength-chip.hi { border-color:rgba(232,110,89,.3); color:var(--coral); }
-    .impact-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
-    .impact-list li { font-family:var(--font-body); font-size:12px; line-height:1.85; color:#5a5a5a; padding-left:16px; position:relative; }
-    .impact-list li::before { content:'✦'; position:absolute; left:0; color:var(--coral); opacity:.45; font-size:7px; top:5px; }
-    .resume-two-col { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,64px); align-items:start; }
-    .resume-timeline { display:flex; flex-direction:column; gap:0; border-left:1px solid #1a1a1a; padding-left:clamp(24px,4vw,48px); margin-left:4px; }
-    .re-entry { position:relative; padding-bottom:clamp(32px,5vw,52px); }
-    .re-entry::before { content:''; position:absolute; left:calc(-1 * clamp(24px,4vw,48px) - 1px); top:10px; width:7px; height:7px; border-radius:50%; background:var(--bg); border:1.5px solid var(--coral); transform:translateX(-3px); }
-    .re-company { font-family:var(--font-display); font-size:clamp(22px,4vw,48px); line-height:.88; text-transform:uppercase; color:var(--white); margin-bottom:6px; }
-    .re-company.dim { color:var(--dim); font-size:clamp(16px,2.5vw,28px); }
-    .re-role { font-family:var(--font-body); font-size:11px; letter-spacing:.18em; color:var(--steel); text-transform:uppercase; margin-bottom:3px; }
-    .re-dates { font-family:var(--font-body); font-size:10px; letter-spacing:.32em; color:var(--coral); opacity:.6; margin-bottom:12px; }
-    .re-context { font-family:var(--font-body); font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:#2e2e2e; margin-bottom:12px; }
-    .re-bullets { list-style:none; display:flex; flex-direction:column; gap:5px; max-width:640px; }
-    .re-bullets li { font-family:var(--font-body); font-size:12px; line-height:1.85; color:#4a4a4a; padding-left:14px; position:relative; }
-    .re-bullets li::before { content:'—'; position:absolute; left:0; color:var(--coral); opacity:.3; }
-    .resume-edu .edu-school { font-family:var(--font-display); font-size:clamp(20px,3.5vw,42px); line-height:.9; text-transform:uppercase; color:var(--white); }
-    .resume-edu .edu-degree { font-family:var(--font-body); font-size:12px; letter-spacing:.2em; color:var(--steel); margin-top:10px; }
-    .tools-grid { display:flex; flex-direction:column; gap:14px; }
-    .tool-row { display:flex; gap:clamp(16px,3vw,32px); align-items:baseline; flex-wrap:wrap; border-bottom:1px solid #0f0f0f; padding-bottom:14px; }
-    .tool-row:last-child { border-bottom:none; }
-    .tool-name { font-family:var(--font-display); font-size:clamp(16px,2.2vw,28px); line-height:1; text-transform:uppercase; color:var(--white); min-width:clamp(80px,10vw,120px); flex-shrink:0; }
-    .tool-desc { font-family:var(--font-body); font-size:11px; line-height:1.8; color:#4e4e4e; flex:1; }
-    .resume-contact-links { display:flex; flex-direction:column; gap:10px; }
-    .resume-contact-links a { font-family:var(--font-body); font-size:12px; letter-spacing:.22em; text-decoration:none; transition:color .2s; }
-
     /* ══ DAILY INSIGHT ══ */
     #daily { background:#040404; }
     .daily-quote-wrap { position:relative; margin-bottom:clamp(32px,5vw,56px); }
@@ -535,7 +497,6 @@
       .about-layout { grid-template-columns:1fr; gap:40px; }
       .about-photo { position:static; width:140px; height:140px; }
       .work-grid { grid-template-columns:repeat(2,1fr); }
-      .resume-two-col { grid-template-columns:1fr; }
       .principle-row { grid-template-columns:60px 1fr; gap:16px; }
     }
     @media (max-width: 480px) {
@@ -569,7 +530,7 @@
     <li><a href="#services">Hire</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#daily">Daily</a></li>
-    <li><a href="#resume">CV</a></li>
+    <li><a href="/resume.html" target="_blank">CV</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -1340,241 +1301,6 @@
 </section>
 
 <!-- ══════════════════════════════════════
-     ⑦ RÉSUMÉ / CV
-══════════════════════════════════════ -->
-<section id="resume" class="scene">
-  <div class="scene-bg lo" id="bg-resume">
-    <img class="bg-a" src="" alt="">
-    <img class="bg-b" src="" alt="">
-  </div>
-
-  <div class="scene-inner">
-    <div class="reveal">
-      <span class="label">The Craft</span>
-      <h2 class="section-heading">The <span class="c">CV.</span></h2>
-    </div>
-
-    <!-- Profile -->
-    <div class="resume-profile reveal delay-1">
-      <div class="resume-name">MIKEL<br>ROSENTHAL</div>
-      <div class="resume-title">Art Director · Design Director · Contract &amp; Freelance</div>
-      <span class="resume-avail">Design Systems · Visual Identity · Product Experience · 25+ Years</span>
-      <p class="resume-summary">I lead teams to create unmistakable visual worlds — then systematize them so they scale fast, stay consistent, and ship beautifully. Trusted by Google, GE Healthcare, Blue Cross Blue Shield, Herman Miller, Whirlpool, and Gartner. My practice is rooted in a Fluxus mindset: interdisciplinary, concept-forward, and execution-complete. I work from first principles, then translate that into cohesive direction across design, motion, interaction, writing, and presentation.</p>
-    </div>
-
-    <div class="resume-divider"></div>
-
-    <!-- Strengths + Impact -->
-    <div class="resume-two-col reveal delay-1">
-      <div>
-        <span class="resume-block-label">Signature Strengths</span>
-        <div class="strength-chips">
-          <span class="strength-chip hi">Art Direction</span>
-          <span class="strength-chip hi">Design Systems</span>
-          <span class="strength-chip hi">Brand-to-Product</span>
-          <span class="strength-chip hi">Visual Leadership</span>
-          <span class="strength-chip">CX Audit + Strategy</span>
-          <span class="strength-chip">Cross-Functional Leadership</span>
-          <span class="strength-chip">Figma-First Workflows</span>
-          <span class="strength-chip">Accessibility + Craft</span>
-          <span class="strength-chip">Voice &amp; Narrative</span>
-          <span class="strength-chip">Contract · Freelance</span>
-        </div>
-      </div>
-      <div>
-        <span class="resume-block-label">Selected Impact</span>
-        <ul class="impact-list">
-          <li>Built &amp; scaled enterprise design systems adopted across 40+ product lines and hundreds of stakeholders</li>
-          <li>Led component libraries enabling faster delivery, visual coherence, and reduced rework</li>
-          <li>Directed cross-platform UI frameworks (web + mobile) with accessibility and governance baked in</li>
-          <li>Delivered product ecosystems spanning dashboards, responsive apps, and data visualization</li>
-          <li>Facilitated stakeholder alignment through workshops, critiques, and story-led presentations</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="resume-divider"></div>
-
-    <!-- Experience Timeline -->
-    <span class="resume-block-label reveal">Experience</span>
-    <div class="resume-timeline">
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">AVANT</div>
-        <div class="re-role">Senior Product / Systems Designer · Full-Time</div>
-        <div class="re-dates">May 2021 – Aug 2024</div>
-        <div class="re-context">Product ecosystems · marketing/design system · enablement</div>
-        <ul class="re-bullets">
-          <li>Led design vision for Pathfinder platform and a marketing/design system used across teams</li>
-          <li>Built scalable component frameworks and visual patterns to unify product and brand execution</li>
-          <li>Drove adoption through enablement and stakeholder training (350+ internal managers)</li>
-          <li>Strengthened accessibility and consistency across surfaces while accelerating production</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">CENTO VENTI CINQUE</div>
-        <div class="re-role">Design / Creative Consulting · Contract</div>
-        <div class="re-dates">Sept 2021 – Jan 2022</div>
-        <div class="re-context">Creative direction · digital product/brand support</div>
-        <ul class="re-bullets">
-          <li>Provided senior design leadership across brand, product, and system-level execution</li>
-          <li>Helped teams translate strategy into cohesive UI language, patterns, and deliverables</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">GE HEALTHCARE</div>
-        <div class="re-role">Design Systems Lead / Senior Designer · Contract</div>
-        <div class="re-dates">Jan 2020 – May 2020 · Sept 2020 – Feb 2021</div>
-        <div class="re-context">Edison Design System · enterprise workflows · accessibility</div>
-        <ul class="re-bullets">
-          <li>Contributed to and evolved the Edison Design System: modular, accessible UI patterns at global scale</li>
-          <li>Produced interaction guidance and visual direction for cross-platform products</li>
-          <li>Focused on consistency, usability, and clarity in complex enterprise workflows</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">SURE PEOPLE</div>
-        <div class="re-role">Product Design Lead · Contract</div>
-        <div class="re-dates">Jun 2020 – Sept 2020</div>
-        <div class="re-context">Dashboards · mobile UX · responsive systems</div>
-        <ul class="re-bullets">
-          <li>Designed end-to-end digital ecosystem: dashboards, mobile experiences, responsive UI, analytics</li>
-          <li>Emphasized system-level thinking, data visualization clarity, and cohesive product language</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">BLUE CROSS BLUE SHIELD</div>
-        <div class="re-role">Design System Founder / Lead · Contract</div>
-        <div class="re-dates">Jun 2019 – Dec 2019</div>
-        <div class="re-context">FIBER Design System · web + mobile · governance</div>
-        <ul class="re-bullets">
-          <li>Created FIBER Design System spanning mobile and web, supporting large multi-product ecosystems</li>
-          <li>Established shared patterns, accessibility standards, and reusable UI foundations across teams</li>
-          <li>Enabled faster concept-to-completion and improved consistency across experiences</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">TRANSUNION</div>
-        <div class="re-role">Product / UX Designer · Contract</div>
-        <div class="re-dates">May 2018 – May 2019</div>
-        <div class="re-context">Enterprise UX · scalable UI · stakeholder alignment</div>
-        <ul class="re-bullets">
-          <li>Delivered product UX and UI in complex enterprise environments with high stakeholder density</li>
-          <li>Improved consistency and clarity through pattern reuse and system-level thinking</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">MAVEN WAVE PARTNERS</div>
-        <div class="re-role">Senior UX / UI / Product Designer · Full-Time</div>
-        <div class="re-dates">Jan 2013 – May 2018</div>
-        <div class="re-context">Enterprise client delivery · CX improvement · visual systems</div>
-        <ul class="re-bullets">
-          <li>Led end-to-end design for enterprise clients: discovery, UX strategy, UI systems, and delivery</li>
-          <li>Directed workshops that clarified user needs, reduced stakeholder misalignment, and accelerated decisions</li>
-          <li>Produced scalable visual frameworks and UI patterns that improved experience consistency</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">BIERSMA CREATIVE</div>
-        <div class="re-role">Designer / Art Direction · Selected Work</div>
-        <div class="re-dates">2006 – 2012</div>
-        <div class="re-context">Brand + marketing design · creative execution</div>
-        <ul class="re-bullets">
-          <li>Developed brand and marketing assets with strong visual hierarchy, clarity, and craft</li>
-          <li>Translated creative concepts into polished deliverables across digital touchpoints</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company">FIREBELLY DESIGN</div>
-        <div class="re-role">Branding / Digital Design · Selected Work</div>
-        <div class="re-dates">2002 – 2004</div>
-        <div class="re-context">Brand identity · campaigns · digital experiences</div>
-        <ul class="re-bullets">
-          <li>Supported brand identity and digital experience work emphasizing cohesion and voice</li>
-          <li>Contributed to campaign and web design deliverables aligned to brand systems</li>
-        </ul>
-      </div>
-
-      <div class="re-entry reveal delay-1">
-        <div class="re-company dim">Earlier Client Work</div>
-        <div class="re-context" style="color:#2a2a2a;margin-top:8px;">Google · Herman Miller · Whirlpool · Mead · Aflac · Dremel · Gartner</div>
-      </div>
-
-    </div>
-
-    <div class="resume-divider"></div>
-
-    <!-- Education + Contact -->
-    <div class="resume-two-col reveal delay-1">
-      <div>
-        <span class="resume-block-label">Education</span>
-        <div class="resume-edu">
-          <div class="edu-school">MISSOURI STATE<br>UNIVERSITY</div>
-          <div class="edu-degree">BFA · Electronic Arts &amp; Design / Communications</div>
-        </div>
-      </div>
-      <div>
-        <span class="resume-block-label">Availability</span>
-        <div class="resume-contact-links">
-          <a href="mailto:mikelrosenthal@me.com" style="color:var(--coral);">mikelrosenthal@me.com</a>
-          <a href="tel:7734906923" style="color:var(--steel);">(773) 490-6923</a>
-          <a href="https://pitchblacknight.com" style="color:var(--dim);">pitchblacknight.com</a>
-          <span style="font-family:var(--font-body);font-size:10px;letter-spacing:.3em;color:#2e2e2e;text-transform:uppercase;margin-top:8px;">Contract &amp; Freelance · Available Now</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="resume-divider"></div>
-
-    <!-- Tools + Capabilities -->
-    <span class="resume-block-label reveal">Tools + Capabilities</span>
-    <div class="tools-grid reveal delay-1">
-      <div class="tool-row">
-        <div class="tool-name">FIGMA</div>
-        <div class="tool-desc">I build systems that scale and visuals that behave.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">AI</div>
-        <div class="tool-desc">Fast iteration, smart automation, and future-proofing by design.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">CX</div>
-        <div class="tool-desc">I find the friction, the confusion, and the quiet reasons customers leave — then fix them.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">BRAND</div>
-        <div class="tool-desc">Turning identity into interface rhythm, interaction, and cohesion — concept to system, in one continuous arc.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">PLATFORMS</div>
-        <div class="tool-desc">Slack · Jira · Confluence · GitHub · Notion · Miro · whatever your team uses.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">FLUXUS</div>
-        <div class="tool-desc">Video · motion · animation · music/sound · spatial concepts · projection mapping · first take, always.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">BODY</div>
-        <div class="tool-desc">Dancer. Operatic voice. Precision whistler. Ambidextrous. The instrument is the instrument.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">SOUND</div>
-        <div class="tool-desc">Phonetic mimic — human, animal, mechanical. Absorbs and reproduces accents, dialects, and textures after a single exposure. Polyglot with language-music instinct.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
      ⑧ CONTACT / FOOTER
 ══════════════════════════════════════ -->
 <section id="contact">
@@ -1720,7 +1446,7 @@
     return arr;
   }
 
-  const BG_SECTIONS = ['bg-hero','bg-manifesto','bg-mixes','bg-music','bg-work','bg-services','bg-about','bg-daily','bg-resume','bg-contact'];
+  const BG_SECTIONS = ['bg-hero','bg-manifesto','bg-mixes','bg-music','bg-work','bg-services','bg-about','bg-daily','bg-contact'];
   const sectionState = {};
   BG_SECTIONS.forEach(id => {
     sectionState[id] = { pool: shuffle([...GIF_POOL]), idx: 0, active: 'a' };
