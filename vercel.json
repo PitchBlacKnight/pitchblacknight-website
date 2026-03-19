@@ -1,8 +1,10 @@
 {
   "cleanUrls": true,
   "routes": [
-    { "src": "/david/(.*)", "dest": "/david/$1" },
-    { "src": "/david",      "dest": "/david/index.html" },
-    { "src": "/",           "dest": "/index.html" }
+    { "src": "/david/(.*)",             "dest": "/david/$1" },
+    { "src": "/david",                  "dest": "/david/index.html" },
+    { "src": "/Lindsey-Bingaman/(.*)", "dest": "/Lindsey-Bingaman/$1" },
+    { "src": "/Lindsey-Bingaman",      "dest": "/Lindsey-Bingaman/index.html" },
+    { "src": "/",                       "dest": "/index.html" }
   ]
 }
