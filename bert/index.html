@@ -152,6 +152,35 @@
       overflow: hidden;
     }
 
+    /* Full-bleed architectural background photo */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1920&q=85&fit=crop&crop=center');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.04);
+      animation: heroZoom 18s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.00); }
+    }
+
+    /* Rich layered overlay — dark at bottom for text, subtle at top to reveal sky */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top,
+          rgba(20,22,24,0.88) 0%,
+          rgba(20,22,24,0.52) 38%,
+          rgba(20,22,24,0.18) 65%,
+          rgba(20,22,24,0.06) 100%
+        );
+      pointer-events: none;
+    }
+
     /* milehimodern motif watermark */
     .hero-motif {
       position: absolute;
@@ -160,9 +189,10 @@
       transform: translateY(-50%);
       width: 55vw;
       height: 55vw;
-      opacity: 0.055;
+      opacity: 0.04;
       pointer-events: none;
       filter: invert(1);
+      mix-blend-mode: overlay;
     }
     /* Gold vertical rule */
     .hero-rule {
@@ -170,28 +200,7 @@
       left: var(--gap);
       top: 0; bottom: 0;
       width: 1px;
-      background: rgba(199,182,61,0.3);
-    }
-    /* Bert's photo — right side, tall */
-    .hero-photo {
-      position: absolute;
-      right: var(--gap);
-      bottom: 0;
-      width: 26vw;
-      max-width: 380px;
-      height: 80%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-    /* Gradient over photo for text legibility */
-    .hero-photo-fade {
-      position: absolute;
-      right: 0; bottom: 0;
-      width: 40vw;
-      height: 100%;
-      background: linear-gradient(to right, var(--dark) 0%, rgba(50,55,60,0.4) 55%, transparent 100%);
-      pointer-events: none;
+      background: rgba(199,182,61,0.25);
     }
 
     .hero-inner {
@@ -973,8 +982,7 @@
       .intro-band-inner { grid-template-columns: 1fr; gap: 2rem; }
       .ib-divider { display: none; }
       .listings-intro { grid-template-columns: 1fr; gap: 2vw; }
-      .hero-photo { display: none; }
-      .hero-photo-fade { display: none; }
+      .hero-bg { background-position: 60% 40%; }
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -1011,16 +1019,12 @@
 
 <!-- ─── HERO ──────────────────────────────────────────── -->
 <section class="hero">
+  <!-- Full-bleed mid-century modern home -->
+  <div class="hero-bg" role="img" aria-label="Stunning mid-century modern home"></div>
+  <div class="hero-overlay"></div>
+
   <img class="hero-motif" src="https://mhmhomes.com/wp-content/uploads/2023/05/New-Motif-for-Web.svg" alt="" aria-hidden="true" />
   <div class="hero-rule"></div>
-
-  <!-- Bert's real photo -->
-  <img
-    class="hero-photo"
-    src="https://img.roveridx.com/Controls/agents/recolorado/74439_1677622357.jpg"
-    alt="Bert Gillette"
-  />
-  <div class="hero-photo-fade"></div>
 
   <div class="hero-inner">
     <p class="hero-eyebrow">East Denver · Milehimodern</p>
