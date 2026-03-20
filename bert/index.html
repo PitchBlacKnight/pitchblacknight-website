@@ -167,16 +167,16 @@
       to   { transform: scale(1.00); }
     }
 
-    /* Rich layered overlay — dark at bottom for text, subtle at top to reveal sky */
+    /* Subdued tinted overlay — home is visible but calm, text always legible */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background:
         linear-gradient(to top,
-          rgba(20,22,24,0.88) 0%,
-          rgba(20,22,24,0.52) 38%,
-          rgba(20,22,24,0.18) 65%,
-          rgba(20,22,24,0.06) 100%
+          rgba(20,22,24,0.82) 0%,
+          rgba(20,22,24,0.62) 30%,
+          rgba(20,22,24,0.45) 60%,
+          rgba(20,22,24,0.35) 100%
         );
       pointer-events: none;
     }
@@ -230,9 +230,9 @@
 
     /* Massive display headline — Exo Ape style */
     .hero-title {
-      font-size: clamp(3rem, 10vw, 11vw);
+      font-size: clamp(2.4rem, 7.5vw, 8.5vw);
       font-weight: 200;
-      line-height: 0.95;
+      line-height: 1.0;
       letter-spacing: -0.03em;
       color: var(--white);
       overflow: hidden;
@@ -991,7 +991,7 @@
       .frow { grid-template-columns: 1fr; }
       .team-cards { grid-template-columns: 1fr; }
       .comm-panel { grid-template-columns: 1fr 1fr; }
-      .hero-title { font-size: clamp(2.4rem, 14vw, 14vw); }
+      .hero-title { font-size: clamp(2rem, 10vw, 10vw); }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
