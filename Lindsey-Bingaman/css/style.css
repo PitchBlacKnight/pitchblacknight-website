@@ -128,13 +128,10 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .nav-logo-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-  object-fit: cover;
-  object-position: 20% 15%;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
-  opacity: 0.92;
+  opacity: 0.88;
   transition: opacity 0.2s;
 }
 
