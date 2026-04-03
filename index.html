@@ -72,12 +72,26 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden; background: var(--brown-deep);
     }
+    /* Real photo background */
+    .hero-photo {
+      position: absolute; inset: 0;
+      background-image: url('images/hero-bg.png');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-photo.loaded { transform: scale(1); }
+    /* Fallback gradient if image not yet placed */
     .hero-scene {
       position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 60% 40% at 50% 38%, rgba(200,136,42,0.25) 0%, transparent 70%),
         radial-gradient(ellipse 80% 60% at 50% 50%, rgba(92,61,40,0.6) 0%, rgba(42,31,26,0.9) 100%);
     }
+    /* Hide fallback once photo loads */
+    .hero-photo-loaded .hero-scene { opacity: 0; }
     .hero-slats {
       position: absolute; inset: 0;
       background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 28px, rgba(80,50,30,0.15) 28px, rgba(80,50,30,0.15) 32px);
@@ -98,7 +112,12 @@
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to bottom, rgba(42,31,26,.45) 0%, rgba(42,31,26,.18) 40%, rgba(42,31,26,.6) 100%);
+      background:
+        linear-gradient(to bottom,
+          rgba(42,31,26,.55) 0%,
+          rgba(42,31,26,.25) 35%,
+          rgba(42,31,26,.20) 55%,
+          rgba(42,31,26,.72) 100%);
     }
     .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 20px; }
     .hero-eyebrow {
@@ -707,7 +726,8 @@
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<section class="hero">
+<section class="hero" id="heroSection">
+  <div class="hero-photo" id="heroBg"></div>
   <div class="hero-scene"></div>
   <div class="hero-slats"></div>
   <div class="hero-candles">
@@ -1480,6 +1500,21 @@
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
   });
+
+  // ══════════════════════════════════════════════════
+  //  Hero photo — slow-zoom on load
+  // ══════════════════════════════════════════════════
+  (function initHeroPhoto() {
+    const bg = document.getElementById('heroBg');
+    const hero = document.getElementById('heroSection');
+    const img = new Image();
+    img.src = 'images/hero-bg.png';
+    img.onload = function() {
+      hero.classList.add('hero-photo-loaded');
+      // Slight delay so the transition is visible
+      requestAnimationFrame(() => bg.classList.add('loaded'));
+    };
+  })();
 
   // ══════════════════════════════════════════════════
   //  Init calendar on load

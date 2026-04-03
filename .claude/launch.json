@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "serenity-lounge",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/tmp/serve_serenity.py"],
+      "port": 3456
+    }
+  ]
+}
