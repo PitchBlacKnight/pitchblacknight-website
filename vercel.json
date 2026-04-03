@@ -5,6 +5,8 @@
     { "src": "/david",                  "dest": "/david/index.html" },
     { "src": "/Lindsey-Bingaman/(.*)", "dest": "/Lindsey-Bingaman/$1" },
     { "src": "/Lindsey-Bingaman",      "dest": "/Lindsey-Bingaman/index.html" },
+    { "src": "/serenity_lounge/(.*)", "dest": "/serenity_lounge/$1" },
+    { "src": "/serenity_lounge",      "dest": "/serenity_lounge/index.html" },
     { "src": "/",                       "dest": "/index.html" }
   ]
 }
