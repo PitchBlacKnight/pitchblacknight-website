@@ -253,9 +253,9 @@
       background-position: center;
     }
     .room-2 .room-bg {
-      background-image: url('images/hero-bg.png');
+      background-image: url('images/the-refuge.png');
       background-size: cover;
-      background-position: center;
+      background-position: center 30%;
     }
     .room-overlay {
       position: absolute; inset: 0;
@@ -316,7 +316,31 @@
     .step-body { font-size: 0.8rem; font-weight: 300; color: var(--stone-dark); line-height: 1.7; }
 
     /* ── TESTIMONIALS ── */
-    .testimonials { background: var(--cream-dark); padding: 110px 60px; text-align: center; }
+    .testimonials {
+      position: relative; padding: 110px 60px; text-align: center;
+      background: var(--cream-dark);
+    }
+    .testimonials-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/the-refuge.png');
+      background-size: cover; background-position: center 40%;
+      opacity: 0; transition: opacity 1s;
+    }
+    .testimonials-bg.loaded { opacity: 1; }
+    .testimonials-overlay {
+      position: absolute; inset: 0;
+      background: rgba(30, 20, 14, 0.78);
+      display: none;
+    }
+    .testimonials.has-photo .testimonials-overlay { display: block; }
+    .testimonials.has-photo .section-title { color: var(--cream); }
+    .testimonials.has-photo .section-label { color: var(--amber-light); }
+    .testimonials.has-photo .testi-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .testimonials.has-photo .testi-text { color: rgba(248,242,233,0.88); }
+    .testimonials.has-photo .testi-name { color: rgba(248,242,233,0.5); }
     .testimonials .section-title { margin-bottom: 58px; }
     .testi-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 28px;
@@ -877,7 +901,9 @@
 </section>
 
 <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
-<section class="testimonials">
+<section class="testimonials" id="testimonialsSection">
+  <div class="testimonials-bg" id="testibg"></div>
+  <div class="testimonials-overlay"></div>
   <span class="section-label" style="display:block;text-align:center;margin-bottom:10px;">Client Stories</span>
   <h2 class="section-title">Words from <em>the restored.</em></h2>
   <div class="testi-grid">
@@ -1495,6 +1521,21 @@
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
   });
+
+  // ══════════════════════════════════════════════════
+  //  Testimonials background photo
+  // ══════════════════════════════════════════════════
+  (function initTestiPhoto() {
+    const bg = document.getElementById('testibg');
+    const section = document.getElementById('testimonialsSection');
+    if (!bg || !section) return;
+    const img = new Image();
+    img.src = 'images/the-refuge.png';
+    img.onload = function() {
+      section.classList.add('has-photo');
+      requestAnimationFrame(() => bg.classList.add('loaded'));
+    };
+  })();
 
   // ══════════════════════════════════════════════════
   //  Hero photo — slow-zoom on load
