@@ -403,6 +403,30 @@
     .work-cta a { display:inline-block; font-family:var(--font-body); font-size:10px; letter-spacing:.5em; text-transform:uppercase; color:var(--white); border:1px solid rgba(255,255,255,0.12); padding:14px 36px; text-decoration:none; transition:all .25s ease; }
     .work-cta a:hover { border-color:var(--coral); color:var(--coral); box-shadow:0 0 24px rgba(232,110,89,0.12); }
 
+    /* ── WEB DESIGN PORTFOLIO ── */
+    .web-portfolio { margin-top:72px; padding-top:48px; border-top:1px solid #1a1a1a; }
+    .web-portfolio-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:28px; }
+    .web-portfolio-label { font-family:var(--font-body); font-size:9px; letter-spacing:.4em; text-transform:uppercase; color:var(--coral); display:block; margin-bottom:10px; }
+    .web-portfolio-title { font-family:'Anton',sans-serif; font-size:clamp(2rem,5vw,3.5rem); color:var(--white); line-height:1; text-transform:uppercase; }
+    .web-portfolio-count { font-family:var(--font-body); font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); text-align:right; }
+    .web-portfolio-count strong { display:block; font-family:'Anton',sans-serif; font-size:2.8rem; color:var(--white); line-height:1; }
+    .web-portfolio-desc { font-family:var(--font-body); font-size:11px; color:var(--dim); line-height:1.8; max-width:420px; margin-bottom:36px; }
+    .site-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:#111; }
+    .site-card { background:#040404; text-decoration:none; display:flex; flex-direction:column; transition:opacity .2s; }
+    .site-card:hover { opacity:.88; }
+    .site-card-thumb { aspect-ratio:16/9; overflow:hidden; position:relative; }
+    .site-card-thumb img { width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .5s ease; filter:grayscale(15%); }
+    .site-card:hover .site-card-thumb img { transform:scale(1.03); filter:grayscale(0%); }
+    .site-card-thumb::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(4,4,4,.75) 0%,transparent 50%); pointer-events:none; }
+    .site-card-eyebrow { position:absolute; bottom:40px; left:16px; z-index:2; font-family:var(--font-body); font-size:8px; letter-spacing:.3em; text-transform:uppercase; color:var(--coral); opacity:.8; }
+    .site-card-hero { position:absolute; bottom:14px; left:16px; right:16px; z-index:2; font-family:'Anton',sans-serif; font-size:1.1rem; color:var(--white); line-height:1.1; text-transform:uppercase; }
+    .site-card-meta { padding:14px 16px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #111; }
+    .site-card-name { font-family:var(--font-alt); font-size:11px; font-weight:500; color:var(--white); }
+    .site-card-tag { font-family:var(--font-body); font-size:8px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); margin-top:2px; }
+    .site-card-arrow { font-size:12px; color:var(--coral); opacity:.6; transition:opacity .2s; }
+    .site-card:hover .site-card-arrow { opacity:1; }
+    @media(max-width:600px) { .site-grid { grid-template-columns:1fr; } .web-portfolio-header { flex-direction:column; align-items:flex-start; gap:12px; } }
+
     /* ══ SERVICES / HIRE ══ */
     #services { background:#050505; }
     .hire-poem { display:flex; flex-direction:column; gap:0; margin-bottom:clamp(44px,7vw,80px); }
@@ -1052,9 +1076,89 @@
       </div>
     </div>
 
-    <div class="work-cta reveal delay-2">
-      <a href="#">View All Work &nbsp;→</a>
-    </div>
+    <!-- WEB DESIGN PORTFOLIO -->
+    <div class="web-portfolio reveal delay-2">
+      <div class="web-portfolio-header">
+        <div>
+          <span class="web-portfolio-label">Web Design</span>
+          <h3 class="web-portfolio-title">The Catalog.</h3>
+        </div>
+        <div class="web-portfolio-count">
+          <strong>04</strong>
+          Projects
+        </div>
+      </div>
+      <p class="web-portfolio-desc">Websites built for people with something real to offer. The goal is always the same: make it clear, make it work, and get out of the way.</p>
+
+      <div class="site-grid">
+
+        <!-- Bert Gillette -->
+        <a href="https://pitchblacknight.com/bert" target="_blank" class="site-card">
+          <div class="site-card-thumb">
+            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-bert.jpg" alt="Bert Gillette — Milehimodern" />
+            <span class="site-card-eyebrow">Real Estate · Denver</span>
+            <p class="site-card-hero">The art of finding<br>where you belong.</p>
+          </div>
+          <div class="site-card-meta">
+            <div>
+              <p class="site-card-name">Bert Gillette — Milehimodern</p>
+              <p class="site-card-tag">Real Estate · Brand Site</p>
+            </div>
+            <span class="site-card-arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- For David -->
+        <a href="https://pitchblacknight.com/david" target="_blank" class="site-card">
+          <div class="site-card-thumb">
+            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-david.jpg" alt="For David" />
+            <span class="site-card-eyebrow">Multimedia · Personal</span>
+            <p class="site-card-hero">For David.<br><span style="font-size:.75em;opacity:.7;">A remix. A letter.</span></p>
+          </div>
+          <div class="site-card-meta">
+            <div>
+              <p class="site-card-name">For David — PitchBlacKnight</p>
+              <p class="site-card-tag">Multimedia Art · Letter</p>
+            </div>
+            <span class="site-card-arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- Serenity Lounge -->
+        <a href="https://pitchblacknight.com/serenity_lounge/" target="_blank" class="site-card">
+          <div class="site-card-thumb">
+            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-serenity.jpg" alt="Serenity Lounge Day Spa" />
+            <span class="site-card-eyebrow">Wellness · Highland, IN</span>
+            <p class="site-card-hero">A sanctuary<br>of stillness.</p>
+          </div>
+          <div class="site-card-meta">
+            <div>
+              <p class="site-card-name">Serenity Lounge Day Spa</p>
+              <p class="site-card-tag">Wellness · Booking Site</p>
+            </div>
+            <span class="site-card-arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- Lindsey Bingaman -->
+        <a href="https://www.lindseybingaman.com/" target="_blank" class="site-card">
+          <div class="site-card-thumb">
+            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-lindsey.jpg" alt="Lindsey Bingaman" />
+            <span class="site-card-eyebrow">Executive Coaching</span>
+            <p class="site-card-hero">Results through<br>relationship.</p>
+          </div>
+          <div class="site-card-meta">
+            <div>
+              <p class="site-card-name">Lindsey Bingaman</p>
+              <p class="site-card-tag">Executive Coaching · B2B</p>
+            </div>
+            <span class="site-card-arrow">↗</span>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /web-portfolio -->
+
   </div>
 </section>
 
