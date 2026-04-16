@@ -360,7 +360,9 @@
     .player-title-text { font-family:var(--font-display); font-size:clamp(24px,4.5vw,40px); letter-spacing:.04em; color:var(--white); margin-bottom:4px; }
     .player-sub-text { font-size:9px; letter-spacing:.4em; text-transform:uppercase; color:var(--steel); margin-bottom:0; }
 
-    .track-list { border-top:1px solid #111; }
+    .track-list { border-top:1px solid #111; max-height:520px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--coral) transparent; }
+    .track-list::-webkit-scrollbar { width:2px; }
+    .track-list::-webkit-scrollbar-thumb { background:var(--coral); border-radius:2px; }
     .track-item {
       display: flex;
       align-items: center;
@@ -947,45 +949,105 @@
         </div>
 
         <div class="track-list">
-          <div class="track-item active" data-src="/david/assets/audio/dark-mutters.mp3" data-title="DARK MUTTERS">
+          <div class="track-item active" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/boom-right-now-pre-mastered.mp3" data-title="BOOM RIGHT NOW">
             <span class="track-num">01</span>
+            <span class="track-name">BOOM RIGHT NOW</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/puuurrfect-pre-mastered.mp3" data-title="PUUURRFECT">
+            <span class="track-num">02</span>
+            <span class="track-name">PUUURRFECT</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/paak-up-pre-mastered.mp3" data-title="PAAK UP">
+            <span class="track-num">03</span>
+            <span class="track-name">PAAK UP</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/let-it-go-pre-mastered.mp3" data-title="LET IT GO">
+            <span class="track-num">04</span>
+            <span class="track-name">LET IT GO</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/dark-mutters.mp3" data-title="DARK MUTTERS">
+            <span class="track-num">05</span>
             <span class="track-name">DARK MUTTERS</span>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item" data-src="/david/assets/audio/dreams-of-dying.mp3" data-title="DREAMS OF DYING">
-            <span class="track-num">02</span>
-            <span class="track-name">DREAMS OF DYING</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/hollow-heart.mp3" data-title="HOLLOW HEART">
+            <span class="track-num">06</span>
+            <span class="track-name">HOLLOW HEART</span>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item" data-src="/david/assets/audio/dripping-magma.mp3" data-title="DRIPPING MAGMA">
-            <span class="track-num">03</span>
-            <span class="track-name">DRIPPING MAGMA</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/colorblind-breakup.mp3" data-title="COLORBLIND BREAKUP">
+            <span class="track-num">07</span>
+            <span class="track-name">COLORBLIND BREAKUP</span>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item" data-src="/david/assets/audio/the-effect.mp3" data-title="THE EFFECT YOU HAVE ON OTHERS">
-            <span class="track-num">04</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/the-effect-you-have-on-others.mp3" data-title="THE EFFECT YOU HAVE ON OTHERS">
+            <span class="track-num">08</span>
             <span class="track-name">THE EFFECT YOU HAVE ON OTHERS</span>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item" data-src="/david/assets/audio/tiptoe-trip.mp3" data-title="TIPTOE TRIP">
-            <span class="track-num">05</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/exit-the-matrix.mp3" data-title="EXIT THE MATRIX">
+            <span class="track-num">09</span>
+            <span class="track-name">EXIT THE MATRIX</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/tiptoe-trip.mp3" data-title="TIPTOE TRIP">
+            <span class="track-num">10</span>
             <span class="track-name">TIPTOE TRIP</span>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item coming-soon">
-            <span class="track-num">06</span>
-            <span class="track-name">COMING SOON</span>
-            <span class="track-badge">Coming Soon</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/human-leather-shoes.mp3" data-title="HUMAN LEATHER SHOES">
+            <span class="track-num">11</span>
+            <span class="track-name">HUMAN LEATHER SHOES</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item coming-soon">
-            <span class="track-num">07</span>
-            <span class="track-name">MIDNIGHT FREQUENCY</span>
-            <span class="track-badge">Coming Soon</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/dreams-of-dying.mp3" data-title="DREAMS OF DYING">
+            <span class="track-num">12</span>
+            <span class="track-name">DREAMS OF DYING</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
-          <div class="track-item coming-soon">
-            <span class="track-num">08</span>
-            <span class="track-name">PHANTOM ARCHITECTURE</span>
-            <span class="track-badge">Coming Soon</span>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/halloween-stalker.mp3" data-title="HALLOWEEN STALKER">
+            <span class="track-num">13</span>
+            <span class="track-name">HALLOWEEN STALKER</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/dripping-magma.mp3" data-title="DRIPPING MAGMA">
+            <span class="track-num">14</span>
+            <span class="track-name">DRIPPING MAGMA</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/technological-computer-love.mp3" data-title="TECHNOLOGICAL COMPUTER LOVE">
+            <span class="track-num">15</span>
+            <span class="track-name">TECHNOLOGICAL COMPUTER LOVE</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/ritual-un-union.mp3" data-title="RITUAL UN UNION">
+            <span class="track-num">16</span>
+            <span class="track-name">RITUAL UN UNION</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/black-kat.mp3" data-title="BLACK KAT">
+            <span class="track-num">17</span>
+            <span class="track-name">BLACK KAT</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/sounded-like-the-truth.mp3" data-title="SOUNDED LIKE THE TRUTH">
+            <span class="track-num">18</span>
+            <span class="track-name">SOUNDED LIKE THE TRUTH</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/misfit.mp3" data-title="MISFIT">
+            <span class="track-num">19</span>
+            <span class="track-name">MISFIT</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          </div>
+          <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/computer-self-aware-stair.mp3" data-title="COMPUTER SELF AWARE STAIR">
+            <span class="track-num">20</span>
+            <span class="track-name">COMPUTER SELF AWARE STAIR</span>
+            <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
         </div>
 
