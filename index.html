@@ -408,7 +408,20 @@
     #work { background:#040404; }
 
     .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-bottom:52px; }
-    .work-grid.two-col { grid-template-columns:repeat(2,1fr); margin-bottom:2px; }
+    .work-card-web { cursor:pointer; }
+    .work-card-hint { position:absolute; bottom:10px; right:12px; font-family:var(--font-body); font-size:8px; letter-spacing:.3em; text-transform:uppercase; color:var(--coral); opacity:0; transition:opacity .2s; }
+    .work-card-web:hover .work-card-hint,
+    .work-card-web.open .work-card-hint { opacity:.7; }
+    .work-card-web.open .work-card-hint::before { content:'close '; }
+    .work-card-web.open { border:1px solid rgba(232,110,89,.25); }
+    .work-expand {
+      grid-column: 1 / -1;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .55s cubic-bezier(.4,0,.2,1);
+      background: #040404;
+    }
+    .work-expand.open { max-height: 900px; }
     .work-card { position:relative; aspect-ratio:1; overflow:hidden; background:#080808; cursor:crosshair; }
     .work-card-bg { position:absolute; inset:0; }
     .work-card-bg img { width:100%; height:100%; object-fit:cover; mix-blend-mode:screen; opacity:.12; filter:grayscale(40%); transition:opacity .5s ease,transform .6s ease; }
@@ -1103,8 +1116,7 @@
       <h2 class="section-heading">The <span class="cs">Catalog.</span></h2>
     </div>
 
-    <!-- VOX + ANIMATION -->
-    <div class="work-grid two-col reveal delay-1">
+    <div class="work-grid reveal delay-1" id="work-grid">
       <div class="work-card">
         <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
         <div class="work-card-overlay"></div>
@@ -1121,93 +1133,68 @@
           <span class="work-card-name">Animation</span>
         </div>
       </div>
-    </div>
 
-    <!-- WEB DESIGN PORTFOLIO -->
-    <div class="web-portfolio reveal delay-2">
-      <div class="web-portfolio-header">
-        <div>
-          <span class="web-portfolio-label">Web Design</span>
-          <h3 class="web-portfolio-title">The Catalog.</h3>
+      <!-- WEB DESIGN — clickable, expands portfolio below -->
+      <div class="work-card work-card-web" id="work-card-web">
+        <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
+        <div class="work-card-overlay"></div>
+        <div class="work-card-content">
+          <span class="work-card-cat">WEB</span>
+          <span class="work-card-name">Web Design</span>
         </div>
-        <div class="web-portfolio-count">
-          <strong>04</strong>
-          Projects
+        <div class="work-card-hint">tap to expand</div>
+      </div>
+
+      <!-- Full-width expand panel — sits between WEB and ART in the grid -->
+      <div class="work-expand" id="work-expand">
+        <div class="site-grid">
+          <a href="https://pitchblacknight.com/bert" target="_blank" class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-bert.jpg" alt="Bert Gillette" />
+              <span class="site-card-eyebrow">Real Estate · Denver</span>
+              <p class="site-card-hero">The art of finding<br>where you belong.</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">Bert Gillette — Milehimodern</p><p class="site-card-tag">Real Estate · Brand Site</p></div>
+              <span class="site-card-arrow">↗</span>
+            </div>
+          </a>
+          <a href="https://pitchblacknight.com/david" target="_blank" class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-david.jpg" alt="For David" />
+              <span class="site-card-eyebrow">Multimedia · Personal</span>
+              <p class="site-card-hero">For David.<br><span style="font-size:.75em;opacity:.7;">A remix. A letter.</span></p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">For David — PitchBlacKnight</p><p class="site-card-tag">Multimedia Art · Letter</p></div>
+              <span class="site-card-arrow">↗</span>
+            </div>
+          </a>
+          <a href="https://pitchblacknight.com/serenity_lounge/" target="_blank" class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-serenity.jpg" alt="Serenity Lounge" />
+              <span class="site-card-eyebrow">Wellness · Highland, IN</span>
+              <p class="site-card-hero">A sanctuary<br>of stillness.</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">Serenity Lounge Day Spa</p><p class="site-card-tag">Wellness · Booking Site</p></div>
+              <span class="site-card-arrow">↗</span>
+            </div>
+          </a>
+          <a href="https://www.lindseybingaman.com/" target="_blank" class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-lindsey.jpg" alt="Lindsey Bingaman" />
+              <span class="site-card-eyebrow">Executive Coaching</span>
+              <p class="site-card-hero">Results through<br>relationship.</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">Lindsey Bingaman</p><p class="site-card-tag">Executive Coaching · B2B</p></div>
+              <span class="site-card-arrow">↗</span>
+            </div>
+          </a>
         </div>
       </div>
-      <p class="web-portfolio-desc">Websites built for people with something real to offer. The goal is always the same: make it clear, make it work, and get out of the way.</p>
 
-      <div class="site-grid">
-
-        <!-- Bert Gillette -->
-        <a href="https://pitchblacknight.com/bert" target="_blank" class="site-card">
-          <div class="site-card-thumb">
-            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-bert.jpg" alt="Bert Gillette — Milehimodern" />
-            <span class="site-card-eyebrow">Real Estate · Denver</span>
-            <p class="site-card-hero">The art of finding<br>where you belong.</p>
-          </div>
-          <div class="site-card-meta">
-            <div>
-              <p class="site-card-name">Bert Gillette — Milehimodern</p>
-              <p class="site-card-tag">Real Estate · Brand Site</p>
-            </div>
-            <span class="site-card-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- For David -->
-        <a href="https://pitchblacknight.com/david" target="_blank" class="site-card">
-          <div class="site-card-thumb">
-            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-david.jpg" alt="For David" />
-            <span class="site-card-eyebrow">Multimedia · Personal</span>
-            <p class="site-card-hero">For David.<br><span style="font-size:.75em;opacity:.7;">A remix. A letter.</span></p>
-          </div>
-          <div class="site-card-meta">
-            <div>
-              <p class="site-card-name">For David — PitchBlacKnight</p>
-              <p class="site-card-tag">Multimedia Art · Letter</p>
-            </div>
-            <span class="site-card-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- Serenity Lounge -->
-        <a href="https://pitchblacknight.com/serenity_lounge/" target="_blank" class="site-card">
-          <div class="site-card-thumb">
-            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-serenity.jpg" alt="Serenity Lounge Day Spa" />
-            <span class="site-card-eyebrow">Wellness · Highland, IN</span>
-            <p class="site-card-hero">A sanctuary<br>of stillness.</p>
-          </div>
-          <div class="site-card-meta">
-            <div>
-              <p class="site-card-name">Serenity Lounge Day Spa</p>
-              <p class="site-card-tag">Wellness · Booking Site</p>
-            </div>
-            <span class="site-card-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- Lindsey Bingaman -->
-        <a href="https://www.lindseybingaman.com/" target="_blank" class="site-card">
-          <div class="site-card-thumb">
-            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/portfolio/thumb-lindsey.jpg" alt="Lindsey Bingaman" />
-            <span class="site-card-eyebrow">Executive Coaching</span>
-            <p class="site-card-hero">Results through<br>relationship.</p>
-          </div>
-          <div class="site-card-meta">
-            <div>
-              <p class="site-card-name">Lindsey Bingaman</p>
-              <p class="site-card-tag">Executive Coaching · B2B</p>
-            </div>
-            <span class="site-card-arrow">↗</span>
-          </div>
-        </a>
-
-      </div>
-    </div><!-- /web-portfolio -->
-
-    <!-- FINE ART + DIGITAL ART + DESIGN SYSTEMS -->
-    <div class="work-grid reveal delay-3">
       <div class="work-card">
         <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
         <div class="work-card-overlay"></div>
@@ -1937,6 +1924,16 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ── WEB DESIGN EXPAND ───────────────────
+  const webCard   = document.getElementById('work-card-web');
+  const webExpand = document.getElementById('work-expand');
+  if (webCard && webExpand) {
+    webCard.addEventListener('click', () => {
+      const open = webExpand.classList.toggle('open');
+      webCard.classList.toggle('open', open);
+    });
+  }
 
   // ── MUSIC PLAYER ────────────────────────
   const audio      = document.getElementById('audio-el');
