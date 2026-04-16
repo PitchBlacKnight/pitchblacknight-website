@@ -119,21 +119,27 @@
     }
     .scene-bg img {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      inset: -5%;
+      width: 110%;
+      height: 110%;
       object-fit: cover;
       mix-blend-mode: screen;
-      filter: grayscale(30%);
+      filter: grayscale(10%) brightness(1.1);
       transition: opacity 2.5s ease;
     }
-    .scene-bg img.bg-a { opacity: 0.15; z-index: 1; }
-    .scene-bg img.bg-b { opacity: 0;    z-index: 2; }
-    .scene-bg img.bg-b.show { opacity: 0.15; }
+    .scene-bg img.bg-a {
+      opacity: 0.28; z-index: 1;
+      animation: kb-a 28s ease-in-out infinite alternate;
+    }
+    .scene-bg img.bg-b {
+      opacity: 0; z-index: 2;
+      animation: kb-b 32s ease-in-out infinite alternate;
+    }
+    .scene-bg img.bg-b.show { opacity: 0.28; }
     .scene-bg.hi img.bg-a,
-    .scene-bg.hi img.bg-b.show { opacity: 0.25; }
+    .scene-bg.hi img.bg-b.show { opacity: 0.42; }
     .scene-bg.lo img.bg-a,
-    .scene-bg.lo img.bg-b.show { opacity: 0.08; }
+    .scene-bg.lo img.bg-b.show { opacity: 0.18; }
 
     /* ══ KEYFRAMES ══ */
     @keyframes fadeUp  { from {opacity:0;transform:translateY(60px);} to {opacity:1;transform:translateY(0);} }
@@ -142,6 +148,15 @@
     @keyframes marquee { from {transform:translateX(100vw);} to {transform:translateX(-100%);} }
     @keyframes breathe { 0%,100%{transform:scale(1);} 50%{transform:scale(1.015);} }
     @keyframes spin    { to {transform:rotate(360deg);} }
+    /* Ken Burns — slow drift on bg layers */
+    @keyframes kb-a {
+      0%   { transform: scale(1.05) translate(0%,   0%); }
+      100% { transform: scale(1.14) translate(-2%,  -1.5%); }
+    }
+    @keyframes kb-b {
+      0%   { transform: scale(1.14) translate(-1.5%, -1%); }
+      100% { transform: scale(1.05) translate(2%,    1.5%); }
+    }
 
     /* ══ REVEAL ══ */
     .reveal { opacity:0; transform:translateY(50px); transition:opacity 1s ease,transform 1s ease; }
