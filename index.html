@@ -1234,14 +1234,72 @@
           <span class="work-card-name">Digital Art</span>
         </div>
       </div>
-      <div class="work-card">
+      <div class="work-card work-card-web" id="work-card-dsg">
         <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
         <div class="work-card-overlay"></div>
         <div class="work-card-content">
           <span class="work-card-cat">DSG</span>
           <span class="work-card-name">Design Systems</span>
         </div>
+        <div class="work-card-hint">tap to expand</div>
       </div>
+
+      <!-- Design Systems expand panel -->
+      <div class="work-expand" id="work-expand-dsg">
+        <div class="site-grid">
+
+          <!-- AVANT / Pathfinder 2.0 -->
+          <div class="site-card">
+            <div class="site-card-thumb" style="height:190px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#111;aspect-ratio:auto;">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/pathfinder/01-login.jpg" alt="Pathfinder Login" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/pathfinder/02-dashboard.jpg" alt="Pathfinder Dashboard" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+              <span class="site-card-eyebrow">Enterprise SaaS · AVANT Communications</span>
+              <p class="site-card-hero">Pathfinder 2.0</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">AVANT — Pathfinder 2.0</p><p class="site-card-tag">Sales Platform · Design System · Figma · 3 Years</p></div>
+            </div>
+          </div>
+
+          <!-- FIBER / Blue Cross Blue Shield -->
+          <div class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/pathfinder/fiber-design-system.png" alt="FIBER Design System" loading="lazy" />
+              <span class="site-card-eyebrow">Design System · Blue Cross Blue Shield</span>
+              <p class="site-card-hero">FIBER Design System</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">Blue Cross Blue Shield — FIBER</p><p class="site-card-tag">Web + Mobile · Component Library · Governance</p></div>
+            </div>
+          </div>
+
+          <!-- GE Healthcare -->
+          <div class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/pathfinder/ge-healthcare-design-system.jpg" alt="GE Healthcare EDS" loading="lazy" />
+              <span class="site-card-eyebrow">Enterprise UX · GE Healthcare</span>
+              <p class="site-card-hero">EDS Component Library</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">GE Healthcare — Enterprise Design System</p><p class="site-card-tag">Design System · Accessibility · Multi-product</p></div>
+            </div>
+          </div>
+
+          <!-- TransUnion -->
+          <div class="site-card">
+            <div class="site-card-thumb">
+              <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/pathfinder/transunion-app-store.jpg" alt="myTransUnion App" loading="lazy" />
+              <span class="site-card-eyebrow">FinTech · TransUnion</span>
+              <p class="site-card-hero">myTransUnion</p>
+            </div>
+            <div class="site-card-meta">
+              <div><p class="site-card-name">TransUnion — myTransUnion App</p><p class="site-card-tag">Mobile UX · Design System · Credit Intelligence</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -2007,6 +2065,16 @@
       const open = aniExpand.classList.toggle('open');
       aniCard.classList.toggle('open', open);
       if (open) buildArtGallery();
+    });
+  }
+
+  // ── DESIGN SYSTEMS CARD ─────────────────
+  const dsgCard   = document.getElementById('work-card-dsg');
+  const dsgExpand = document.getElementById('work-expand-dsg');
+  if (dsgCard && dsgExpand) {
+    dsgCard.addEventListener('click', () => {
+      const open = dsgExpand.classList.toggle('open');
+      dsgCard.classList.toggle('open', open);
     });
   }
 
