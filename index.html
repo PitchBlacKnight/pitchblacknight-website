@@ -593,6 +593,49 @@
     .footer-brand { font-family:var(--font-display); font-size:clamp(32px,6vw,72px); letter-spacing:.04em; margin-bottom:0; display:block; }
     .footer-bottom { margin-top:48px; padding-top:28px; border-top:1px solid #111; font-size:9px; letter-spacing:.4em; text-transform:uppercase; color:var(--dimmer); }
 
+    /* ── SIDE NAV ── */
+    .side-nav {
+      position: fixed; left: 0; top: 0;
+      height: 100vh; width: 180px;
+      background: rgba(6,6,6,0.97);
+      border-right: 1px solid #161616;
+      z-index: 300;
+      display: flex; flex-direction: column;
+      padding: 40px 24px;
+      transform: translateX(-180px);
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+    }
+    .side-nav.visible { transform: translateX(0); }
+    .side-nav-brand {
+      font-family: var(--font-body); font-size: 8px;
+      letter-spacing: .45em; text-transform: uppercase;
+      color: var(--dim); margin-bottom: 20px;
+    }
+    .side-nav-where {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 2.5vw, 38px);
+      line-height: .88; color: var(--coral);
+      text-transform: uppercase;
+      margin-bottom: 24px; min-height: 76px;
+      transition: opacity .25s ease;
+    }
+    .side-nav-rule { width: 18px; height: 1px; background: #1e1e1e; margin-bottom: 22px; }
+    .side-nav-links { display: flex; flex-direction: column; gap: 0; }
+    .side-nav-link {
+      font-family: var(--font-body); font-size: 7.5px;
+      letter-spacing: .28em; text-transform: uppercase;
+      color: #383838; text-decoration: none;
+      padding: 6px 0 6px 10px;
+      border-left: 1px solid transparent;
+      transition: color .15s ease, border-color .15s ease;
+      cursor: pointer;
+    }
+    .side-nav-link:hover { color: #888; }
+    .side-nav-link.active { color: var(--coral); border-left-color: var(--coral); }
+    body { transition: padding-left 0.55s cubic-bezier(0.4,0,0.2,1); }
+    body.side-open { padding-left: 180px; }
+    @media(max-width: 900px) { .side-nav { display: none; } body.side-open { padding-left: 0 !important; } }
+
     /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       #navbar { padding:0 24px; }
@@ -1137,26 +1180,6 @@
           <span class="work-card-name">VoiceOver</span>
         </div>
       </div>
-      <!-- ANIMATION — clickable, expands GIF gallery below -->
-      <div class="work-card work-card-web" id="work-card-ani">
-        <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
-        <div class="work-card-overlay"></div>
-        <div class="work-card-content">
-          <span class="work-card-cat">ANI</span>
-          <span class="work-card-name">Animation</span>
-        </div>
-        <div class="work-card-hint">tap to expand</div>
-      </div>
-
-      <!-- Full-width GIF gallery panel -->
-      <div class="work-expand" id="work-expand-ani">
-        <div class="art-gallery-header">
-          <span class="art-gallery-label">Motion Art</span>
-          <span class="art-gallery-count" id="art-gallery-count"></span>
-        </div>
-        <div class="art-gallery" id="art-gallery"></div>
-      </div>
-
       <!-- WEB DESIGN — clickable, expands portfolio below -->
       <div class="work-card work-card-web" id="work-card-web">
         <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
@@ -1226,14 +1249,25 @@
           <span class="work-card-name">Fine Art</span>
         </div>
       </div>
-      <div class="work-card">
+      <div class="work-card work-card-web" id="work-card-dga">
         <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
         <div class="work-card-overlay"></div>
         <div class="work-card-content">
           <span class="work-card-cat">DGA</span>
           <span class="work-card-name">Digital Art</span>
         </div>
+        <div class="work-card-hint">tap to expand</div>
       </div>
+
+      <!-- Full-width motion art / digital art gallery -->
+      <div class="work-expand" id="work-expand-dga">
+        <div class="art-gallery-header">
+          <span class="art-gallery-label">Motion Art · Digital Art</span>
+          <span class="art-gallery-count" id="art-gallery-count"></span>
+        </div>
+        <div class="art-gallery" id="art-gallery"></div>
+      </div>
+
       <div class="work-card work-card-web" id="work-card-dsg">
         <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
         <div class="work-card-overlay"></div>
@@ -1838,6 +1872,23 @@
 <!-- ══════════════════════════════════════
      JS
 ══════════════════════════════════════ -->
+<!-- ── SIDE NAV ── -->
+<nav class="side-nav" id="side-nav" aria-label="Section navigation">
+  <div class="side-nav-brand">PBK</div>
+  <div class="side-nav-where" id="side-nav-where">—</div>
+  <div class="side-nav-rule"></div>
+  <div class="side-nav-links">
+    <a class="side-nav-link" data-target="mixes">First Mixes</a>
+    <a class="side-nav-link" data-target="music">Sound</a>
+    <a class="side-nav-link" data-target="work">The Catalog</a>
+    <a class="side-nav-link" data-target="services">For Hire</a>
+    <a class="side-nav-link" data-target="about">The Human</a>
+    <a class="side-nav-link" data-target="daily">The Insight</a>
+    <a class="side-nav-link" data-target="resume">The CV</a>
+    <a class="side-nav-link" data-target="contact">Contact</a>
+  </div>
+</nav>
+
 <script>
   // ── NAVBAR GLASSMORPHISM ────────────────
   const navbar = document.getElementById('navbar');
@@ -2030,12 +2081,68 @@
     });
   }
 
-  // ── ANIMATION / MOTION ART GALLERY ──────
+  // ── SIDE NAV ────────────────────────────
+  const sideNav   = document.getElementById('side-nav');
+  const sideWhere = document.getElementById('side-nav-where');
+  const sideLinks = document.querySelectorAll('.side-nav-link');
+  const heroSection = document.getElementById('hero');
+
+  const SECTION_LABELS = {
+    manifesto: 'Work.',
+    mixes:     'Mixes.',
+    music:     'Sound.',
+    work:      'Catalog.',
+    services:  'Hire.',
+    about:     'Human.',
+    daily:     'Insight.',
+    resume:    'CV.',
+    contact:   'Contact.',
+  };
+
+  // Slide in once hero scrolls out
+  if (heroSection && sideNav) {
+    const heroObs = new IntersectionObserver(([e]) => {
+      const past = !e.isIntersecting;
+      sideNav.classList.toggle('visible', past);
+      document.body.classList.toggle('side-open', past);
+    }, { threshold: 0.15 });
+    heroObs.observe(heroSection);
+  }
+
+  // Track active section + update big label
+  if (sideNav) {
+    const allSections = document.querySelectorAll('section[id]');
+    const secObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          if (sideWhere && SECTION_LABELS[id]) {
+            sideWhere.style.opacity = '0';
+            setTimeout(() => {
+              sideWhere.textContent = SECTION_LABELS[id];
+              sideWhere.style.opacity = '1';
+            }, 150);
+          }
+          sideLinks.forEach(l => l.classList.toggle('active', l.dataset.target === id));
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-10% 0px -10% 0px' });
+    allSections.forEach(s => secObs.observe(s));
+
+    sideLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const t = document.getElementById(link.dataset.target);
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
+
+  // ── DIGITAL ART / MOTION ART GALLERY ────
   const ART_FILES = ["10 Orbits.gif","3x Geo Twist.gif","All night long.gif","Amalgamation.gif","And what did you expect.gif","Arc flip.gif","As We Drift.gif","Asention.gif","BC BG.gif","Back to the beginning.gif","Black Sea.gif","Blurred Phase.gif","Box breaker.gif","Butterfly effect.gif","Bye for now.gif","CCCC.gif","Can you see me.gif","Chess anyone.gif","Circle drop.gif","Circle spheres.gif","Cloud twists.gif","Collapsing red and tan.gif","Coral Benz.gif","Cosmos.gif","Crank still.gif","Daisy Bloom.gif","Dance with me.gif","Dark skies.gif","Dark waves.gif","Data cycles.gif","Didn\u2019t mean to scare you.gif","Distant spin.gif","Divide and conquer.gif","Do you see the numbers.gif","Don\u2019t drowned.gif","Don\u2019t look away.gif","Double Vision v2.gif","Down we go.gif","Drip Row.gif","Drop in bucket.gif","Drugs.gif","Eggshell.gif","FAV0022.gif","Falling asleep.gif","Fast as you can.gif","Fibonacci twist.gif","Fire by the Sea.gif","Folding Time.gif","Follow Me.gif","Follow me into the dark.gif","Follow the leader.gif","For friends.gif","Forever and ever.gif","Forever balance.gif","Forever builder.gif","Forever configuration.gif","Forever drop.gif","Forever for you.gif","Forever wonder.gif","Grand Design.gif","Graph builds.gif","Grid collapse.gif","Halloween masks.gif","Hand drawing 2004.gif","Hand flicker.gif","Help me.gif","Here we go.gif","Hill and clouds in sky.gif","I Promise.gif","I can\u2019t see.gif","I commend you sir.gif","I like this one.gif","I like your idea.gif","I think I\u2019m lost.gif","Infinite dance.gif","Into the sea.gif","It\u2019s all numbers.gif","Joy waves.gif","Just one more thread.gif","Keep adding.gif","Keep building.gif","Lens effect.gif","Light dance.gif","Logo concept.gif","Logo orb.gif","Look at me.gif","Magic rain.gif","Masks.gif","Math class.gif","Maze falling.gif","Mind bender.gif","Modulus frame.gif","Moving sitting still.gif","Moving spectral.gif","Never still.gif","Night Moon.gif","Nightsun.gif","Noble owl.gif","Old memories.gif","Orbit Wave.gif","Orbit v4.gif","Orbitals.gif","Orbits and orbits.gif","Out We Go.gif","PBK Dark Flam.gif","PBK Logo.gif","Perfect sink.gif","Play me.gif","Prism drift.gif","Promise me forever.gif","Signal.gif","Simplicity.gif","Slices of me.gif","Slinky Forgo.gif","Slowly going inward.gif","Solar B:W.gif","Solve me.gif","Space Trip.gif","Spectral arc.gif","Speed shape.gif","Star twist.gif","Stay in line.gif","Still waiting.gif","Stone Ascension.gif","Strings of chance.gif","Swin me around.gif","Synchronization.gif","Tailspin.gif","Tall Noble owl.gif","The biggest box.gif","The collector.gif","The world is yours.gif","Threads of time.gif","Time scale.gif","Timebloom.gif","Tiny movements.gif","Tunnel Vision.gif","Twist Lattice.gif","Twist light.gif","Twisted sphere.gif","Twisting triangles.gif","Twisting vector.gif","Ultimate synchronization.gif","Under the cells.gif","Under the sea.gif","V.gif","Vector Spin.gif","Vector echo.gif","Vector life.gif","Walk the walk.gif","Water droplet.gif","Where am I.gif","Where is mom.gif","Wizard Stone.gif","Zen Circle.gif","Zip line logo.gif"];
   const ART_BASE = "https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/art/";
 
-  const aniCard   = document.getElementById('work-card-ani');
-  const aniExpand = document.getElementById('work-expand-ani');
+  const dgaCard   = document.getElementById('work-card-dga');
+  const dgaExpand = document.getElementById('work-expand-dga');
   const artGallery = document.getElementById('art-gallery');
   const artCount   = document.getElementById('art-gallery-count');
   let artBuilt = false;
@@ -2060,10 +2167,10 @@
     });
   }
 
-  if (aniCard && aniExpand) {
-    aniCard.addEventListener('click', () => {
-      const open = aniExpand.classList.toggle('open');
-      aniCard.classList.toggle('open', open);
+  if (dgaCard && dgaExpand) {
+    dgaCard.addEventListener('click', () => {
+      const open = dgaExpand.classList.toggle('open');
+      dgaCard.classList.toggle('open', open);
       if (open) buildArtGallery();
     });
   }
