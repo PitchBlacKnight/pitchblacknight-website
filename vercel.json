@@ -7,6 +7,8 @@
     { "src": "/Lindsey-Bingaman",      "dest": "/Lindsey-Bingaman/index.html" },
     { "src": "/serenity_lounge/(.*)", "dest": "/serenity_lounge/$1" },
     { "src": "/serenity_lounge",      "dest": "/serenity_lounge/index.html" },
+    { "src": "/ourdens/(.*)",         "dest": "/ourdens/$1" },
+    { "src": "/ourdens",              "dest": "/ourdens/index.html" },
     { "src": "/",                       "dest": "/index.html" }
   ]
 }
