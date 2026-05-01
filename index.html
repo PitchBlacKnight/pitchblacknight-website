@@ -182,38 +182,143 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      height: 60px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 48px;
-      transition: background .4s ease, backdrop-filter .4s ease, border-color .4s ease;
-      border-bottom: 1px solid transparent;
+      padding: 0 44px;
+      transition: background .5s ease, backdrop-filter .5s ease;
     }
+    /* thin animated top line */
     #navbar::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--coral);
+      top: 0; left: 0;
+      height: 1px;
+      width: 0;
+      background: linear-gradient(90deg, var(--coral), var(--steel));
+      animation: nav-line 2.4s cubic-bezier(.4,0,.2,1) 0.3s forwards;
+    }
+    @keyframes nav-line { to { width: 100%; } }
+    /* thin bottom rule, only when scrolled */
+    #navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+      opacity: 0;
+      transition: opacity .5s;
     }
     #navbar.scrolled {
-      background: rgba(10,10,10,0.88);
-      backdrop-filter: blur(12px);
-      border-color: rgba(232,110,89,0.12);
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(18px) saturate(180%);
     }
-    .nav-brand { font-family:var(--font-display); font-size:18px; letter-spacing:.04em; text-decoration:none; }
-    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+    #navbar.scrolled::after { opacity: 1; }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: .05em;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+    .nav-links li { position: relative; }
     .nav-links a {
       font-family: var(--font-body);
-      font-size: 10px;
-      letter-spacing: .45em;
+      font-size: 9px;
+      letter-spacing: .38em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: rgba(255,255,255,0.32);
       text-decoration: none;
-      transition: color .2s ease;
+      padding: 18px 16px;
+      display: block;
+      transition: color .25s ease;
+      position: relative;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 10px; left: 16px; right: 16px;
+      height: 1px;
+      background: var(--coral);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-links a:hover { color: rgba(255,255,255,0.9); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    /* OurDens — styled as a special external property link */
+    .nav-links .nav-ourdens a {
+      color: rgba(181,147,90,0.7);
+      border-left: 1px solid rgba(255,255,255,0.06);
+      margin-left: 8px;
+      padding-left: 20px;
+    }
+    .nav-links .nav-ourdens a::after { background: #b5935a; }
+    .nav-links .nav-ourdens a:hover { color: #d4b483; }
+
+    /* ══ FILMSTRIP ══ */
+    .filmstrip {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: #060606;
+      border-top: 1px solid #0f0f0f;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .filmstrip-track {
+      display: flex;
+      height: 100%;
+      width: max-content;
+      animation: filmscroll 110s linear infinite;
+    }
+    .filmstrip-track:hover { animation-play-state: paused; }
+    @keyframes filmscroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .filmstrip-track img {
+      height: 180px;
+      width: auto;
+      min-width: 280px;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.6) saturate(0.8);
+      transition: filter 0.6s ease;
+      border-right: 1px solid #111;
+      flex-shrink: 0;
+    }
+    .filmstrip-track img:hover {
+      filter: brightness(0.85) saturate(1.1);
+    }
+    /* label over the strip */
+    .filmstrip-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      pointer-events: none;
+      text-align: center;
+    }
+    .filmstrip-label span {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      background: rgba(8,8,8,0.6);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: inline-block;
+    }
 
     /* ══ HERO ══ */
     #hero {
@@ -686,6 +791,7 @@
     <li><a href="#daily">Daily</a></li>
     <li><a href="#resume">CV</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li class="nav-ourdens"><a href="/ourdens/">OurDens</a></li>
   </ul>
 </nav>
 
@@ -710,6 +816,36 @@
     <div class="hero-scroll-line"></div>
   </div>
 </section>
+
+<!-- ══ FILMSTRIP ══ -->
+<div class="filmstrip">
+  <div class="filmstrip-track">
+    <img src="/ourdens/img/gorge.jpg"          alt="Columbia River Gorge" />
+    <img src="/ourdens/img/cabin-forest.jpg"   alt="Cabin in forest" />
+    <img src="/ourdens/img/hot-springs.jpg"    alt="Hot springs" />
+    <img src="/ourdens/img/mt-hood-sunset.jpg" alt="Mt Hood sunset" />
+    <img src="/ourdens/img/cabin-night.jpg"    alt="Cabin at night" />
+    <img src="/ourdens/img/outdoor-tub.jpg"    alt="Outdoor soaking tub" />
+    <img src="/ourdens/img/fire-pit.jpg"       alt="Deck fire pit" />
+    <img src="/ourdens/img/forest.jpg"         alt="Old growth forest" />
+    <img src="/ourdens/img/columbia-river.jpg" alt="Columbia River" />
+    <img src="/ourdens/img/cabin-exterior.jpg" alt="Cabin exterior" />
+    <!-- duplicate for seamless loop -->
+    <img src="/ourdens/img/gorge.jpg"          alt="" aria-hidden="true" />
+    <img src="/ourdens/img/cabin-forest.jpg"   alt="" aria-hidden="true" />
+    <img src="/ourdens/img/hot-springs.jpg"    alt="" aria-hidden="true" />
+    <img src="/ourdens/img/mt-hood-sunset.jpg" alt="" aria-hidden="true" />
+    <img src="/ourdens/img/cabin-night.jpg"    alt="" aria-hidden="true" />
+    <img src="/ourdens/img/outdoor-tub.jpg"    alt="" aria-hidden="true" />
+    <img src="/ourdens/img/fire-pit.jpg"       alt="" aria-hidden="true" />
+    <img src="/ourdens/img/forest.jpg"         alt="" aria-hidden="true" />
+    <img src="/ourdens/img/columbia-river.jpg" alt="" aria-hidden="true" />
+    <img src="/ourdens/img/cabin-exterior.jpg" alt="" aria-hidden="true" />
+  </div>
+  <div class="filmstrip-label">
+    <span>OurDens &nbsp;·&nbsp; Carson, WA &nbsp;·&nbsp; Adults Only</span>
+  </div>
+</div>
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
@@ -1891,6 +2027,7 @@
     <a class="side-nav-link" data-target="daily">The Insight</a>
     <a class="side-nav-link" data-target="resume">The CV</a>
     <a class="side-nav-link" data-target="contact">Contact</a>
+    <a class="side-nav-link side-nav-ourdens" href="/ourdens/" style="color:#b5935a;margin-top:12px;border-top:1px solid rgba(181,147,90,0.15);padding-top:12px;">OurDens ↗</a>
   </div>
 </nav>
 
