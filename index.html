@@ -330,6 +330,24 @@
       align-items: center;
       justify-content: center;
     }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(135deg,
+        rgba(232,81,42,0.18) 0%,
+        transparent 40%,
+        rgba(123,141,184,0.14) 100%
+      );
+      mix-blend-mode: overlay;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse 88% 88% at 50% 50%,
+        transparent 28%,
+        rgba(6,6,6,0.68) 100%
+      );
+    }
     .hero-inner {
       position: relative;
       z-index: 2;
@@ -741,6 +759,32 @@
     body.side-open { padding-left: 180px; }
     @media(max-width: 900px) { .side-nav { display: none; } body.side-open { padding-left: 0 !important; } }
 
+    /* ══ STORY ══ */
+    #story { background:#030303; }
+    .story-thesis { margin-bottom:clamp(44px,6vw,72px); }
+    .story-thesis-line { font-family:var(--font-display); font-size:clamp(28px,5vw,68px); line-height:.92; text-transform:uppercase; }
+    .story-thesis-line.dim { color:#1e1e1e; }
+    .story-arc { display:flex; flex-direction:column; }
+    .story-epoch { display:grid; grid-template-columns:clamp(64px,10vw,100px) 1fr; gap:clamp(20px,4vw,48px); padding:clamp(24px,3.5vw,40px) 0; border-top:1px solid #0d0d0d; align-items:start; }
+    .story-epoch:last-child { border-bottom:1px solid #0d0d0d; }
+    .story-year { font-family:var(--font-body); font-size:9px; letter-spacing:.36em; text-transform:uppercase; color:var(--coral); opacity:.38; padding-top:8px; line-height:1.6; }
+    .story-title { font-family:var(--font-display); font-size:clamp(22px,3.8vw,50px); line-height:.9; text-transform:uppercase; color:var(--white); margin-bottom:14px; }
+    .story-title .c { color:var(--coral); }
+    .story-body { font-family:var(--font-body); font-size:13px; line-height:2.05; color:#5a5a5a; max-width:680px; }
+    .story-body em { font-style:italic; color:#888; }
+    .story-body strong { color:#999; font-style:normal; }
+
+    /* ══ THINKING ══ */
+    #thinking { background:#020202; }
+    .thinking-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:#111; margin-top:52px; }
+    .thinking-tile { background:#050505; padding:clamp(28px,4vw,44px); transition:background .4s ease; }
+    .thinking-tile:hover { background:rgba(232,110,89,0.03); }
+    .thinking-tile-num { font-family:var(--font-body); font-size:9px; letter-spacing:.48em; text-transform:uppercase; color:var(--coral); opacity:.28; display:block; margin-bottom:18px; }
+    .thinking-tile-title { font-family:var(--font-display); font-size:clamp(20px,3.2vw,42px); line-height:.9; text-transform:uppercase; color:var(--white); margin-bottom:20px; }
+    .thinking-tile-body { font-family:var(--font-body); font-size:12px; line-height:2.1; color:#484848; }
+    .thinking-tile-body em { color:var(--coral); font-style:normal; }
+    @media(max-width:768px) { .thinking-grid { grid-template-columns:1fr; } }
+
     /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       #navbar { padding:0 24px; }
@@ -783,12 +827,12 @@
     <span class="pbk-pitch">PITCH</span><span class="pbk-blac">BLAC</span><span class="pbk-night">KNIGHT</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#mixes">Mixes</a></li>
-    <li><a href="#music">Music</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#work">Systems</a></li>
+    <li><a href="#music">Lab</a></li>
+    <li><a href="#thinking">Thinking</a></li>
     <li><a href="#services">Hire</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#daily">Daily</a></li>
     <li><a href="#resume">CV</a></li>
     <li><a href="#contact">Contact</a></li>
     <li class="nav-ourdens"><a href="/ourdens/">OurDens</a></li>
@@ -808,7 +852,7 @@
     <h1 class="hero-title">
       <span class="pbk-pitch">PITCH</span><span class="pbk-blac">BLAC</span><span class="pbk-night">KNIGHT</span>
     </h1>
-    <p class="hero-tagline">Fluxus &nbsp;·&nbsp; Artist &nbsp;·&nbsp; Polymath</p>
+    <p class="hero-tagline">Somehow all one practice.</p>
   </div>
 
   <div class="hero-scroll">
@@ -850,49 +894,143 @@
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="hi">Fluxus</span>
+    <span class="hi">First Take</span>
+    <span>✦</span>
+    <span><span class="pbk-pitch">PITCH</span><span class="pbk-blac">BLAC</span><span class="pbk-night">KNIGHT</span></span>
+    <span>✦</span>
+    <span class="lo">Chicago Heights</span>
+    <span>✦</span>
+    <span class="hi">Not AI</span>
+    <span>✦</span>
+    <span class="lo">One Pass</span>
+    <span>✦</span>
+    <span class="hi">Twenty-Five Years</span>
+    <span>✦</span>
+    <span class="lo">Still Here</span>
+    <span>✦</span>
+    <span class="hi">Just the Work</span>
+    <span>✦</span>
+    <span class="lo">Unrepeatable</span>
+    <span>✦</span>
+    <span class="hi">Since 1990</span>
     <span>✦</span>
     <span><span class="pbk-pitch">PITCH</span><span class="pbk-blac">BLAC</span><span class="pbk-night">KNIGHT</span></span>
     <span>✦</span>
     <span class="lo">First Take</span>
     <span>✦</span>
-    <span class="hi">Polymath</span>
-    <span>✦</span>
-    <span class="lo">Music</span>
-    <span>✦</span>
-    <span class="hi">Design</span>
-    <span>✦</span>
-    <span class="lo">Motion Art</span>
-    <span>✦</span>
     <span class="hi">Chicago Heights</span>
     <span>✦</span>
-    <span class="lo">Live Mastering</span>
+    <span class="lo">Not AI</span>
     <span>✦</span>
-    <span class="hi">One Take One Truth</span>
+    <span class="hi">One Pass</span>
     <span>✦</span>
-    <span class="lo">Code</span>
+    <span class="lo">Twenty-Five Years</span>
     <span>✦</span>
-    <span class="hi">Remix the Remix</span>
+    <span class="hi">Still Here</span>
     <span>✦</span>
-    <span><span class="pbk-pitch">PITCH</span><span class="pbk-blac">BLAC</span><span class="pbk-night">KNIGHT</span></span>
-    <span>✦</span>
-    <span class="lo">Ghost Signal</span>
-    <span>✦</span>
-    <span class="hi">Fluxus</span>
-    <span>✦</span>
-    <span class="lo">Polymath</span>
-    <span>✦</span>
-    <span class="hi">Design Systems</span>
-    <span>✦</span>
-    <span class="lo">First Take</span>
-    <span>✦</span>
-    <span class="hi">Chicago Heights</span>
+    <span class="lo">Just the Work</span>
     <span>✦</span>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     ② MANIFESTO
+     ② STORY — THE REINVENTION ARC
+══════════════════════════════════════ -->
+<section id="story" class="scene">
+  <div class="scene-bg" id="bg-story">
+    <img class="bg-a" src="" alt="">
+    <img class="bg-b" src="" alt="">
+  </div>
+
+  <div class="scene-inner">
+    <div class="reveal">
+      <span class="label">The Arc</span>
+      <h2 class="section-heading">The <span class="c">Story.</span></h2>
+    </div>
+
+    <div class="story-thesis reveal delay-1">
+      <div class="story-thesis-line dim">Didn't plan it.</div>
+      <div class="story-thesis-line">Couldn't <span style="color:var(--coral);">stop.</span></div>
+    </div>
+
+    <div class="story-arc">
+
+      <div class="story-epoch reveal">
+        <div class="story-year">1990<br>—<br>2000</div>
+        <div>
+          <div class="story-title">How It Started</div>
+          <p class="story-body">I grew up in Mexico, Missouri. Nine thousand people, one stoplight, and a school library with a computer that could render 3D graphics. Each frame took seven minutes. I watched every one of them. Nobody told me this was a strange way to spend an afternoon, so I kept doing it.</p>
+        </div>
+      </div>
+
+      <div class="story-epoch reveal delay-1">
+        <div class="story-year">2000<br>—<br>2020</div>
+        <div>
+          <div class="story-title">The <span class="c">Work</span></div>
+          <p class="story-body">Twenty years. GE Healthcare. Blue Cross Blue Shield. TransUnion. Google. Systems used by hundreds of thousands of people who never knew my name and didn't need to. I was good at it. I also made music and art the entire time — privately, for no audience. Not as a side project. Just because I couldn't stop.</p>
+        </div>
+      </div>
+
+      <div class="story-epoch reveal delay-2">
+        <div class="story-year">Thirty<br>—<br>years</div>
+        <div>
+          <div class="story-title">What I Was <span class="c">Managing</span></div>
+          <p class="story-body">For thirty years I was on daily medication for chronic pain. It worked, mostly. I showed up. The work was good. When I look back at what I made during those years, I'm still proud of it. I don't spend a lot of time wondering what it would have been otherwise.</p>
+        </div>
+      </div>
+
+      <div class="story-epoch reveal delay-1">
+        <div class="story-year">2022<br>—<br>2024</div>
+        <div>
+          <div class="story-title">The <span class="c">Change</span></div>
+          <p class="story-body">I stopped the medication. Started swimming every morning — an hour, then longer. Pilates. Weights. A PT pool. Lost thirty-five pounds. The fog I didn't know I was in lifted gradually, month by month. I kept waiting for the other shoe. It didn't drop.</p>
+        </div>
+      </div>
+
+      <div class="story-epoch reveal delay-2">
+        <div class="story-year">2026<br>—<br>Now</div>
+        <div>
+          <div class="story-title"><span class="c">Now</span></div>
+          <p class="story-body">I opened the studio. Started sharing the music and art I'd been making privately for years. Built this site. Got a cat named Hex. That's more or less everything.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE between Story and Manifesto -->
+<div class="marquee-wrap">
+  <div class="marquee-track" style="animation-duration:40s;">
+    <span class="hi">Design</span>
+    <span>✦</span>
+    <span class="lo">Music</span>
+    <span>✦</span>
+    <span class="hi">Motion</span>
+    <span>✦</span>
+    <span class="lo">Voice</span>
+    <span>✦</span>
+    <span class="hi">Code</span>
+    <span>✦</span>
+    <span class="lo">Art</span>
+    <span>✦</span>
+    <span class="hi">Design</span>
+    <span>✦</span>
+    <span class="lo">Music</span>
+    <span>✦</span>
+    <span class="hi">Motion</span>
+    <span>✦</span>
+    <span class="lo">Voice</span>
+    <span>✦</span>
+    <span class="hi">Code</span>
+    <span>✦</span>
+    <span class="lo">Art</span>
+    <span>✦</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     ③ MANIFESTO
 ══════════════════════════════════════ -->
 <section id="manifesto" class="scene">
   <div class="scene-bg" id="bg-manifesto">
@@ -904,6 +1042,7 @@
     <div class="reveal">
       <span class="label">The Practice</span>
       <h2 class="section-heading">The <span class="c">Work.</span></h2>
+      <p style="font-family:var(--font-body);font-size:13px;line-height:2;color:#444;max-width:620px;margin-top:28px;border-left:2px solid rgba(232,110,89,0.2);padding-left:20px;">I've been doing this for twenty-five years. I still notice things most people walk past. I think that's the job.</p>
     </div>
 
     <div class="work-poem">
@@ -964,29 +1103,29 @@
 <!-- MARQUEE 2 -->
 <div class="marquee-wrap">
   <div class="marquee-track" style="animation-direction:reverse; animation-duration:26s;">
-    <span class="hi">RE:RE:MIX</span>
+    <span class="hi">One Take</span>
     <span>✦</span>
-    <span class="lo">Deconstruct</span>
+    <span class="lo">One Truth</span>
     <span>✦</span>
-    <span class="hi">Reconstruct</span>
+    <span class="hi">Ghost Signal</span>
     <span>✦</span>
-    <span class="lo">Ghost Signal</span>
+    <span class="lo">Layer on Layer</span>
+    <span>✦</span>
+    <span class="hi">Live Mastered</span>
+    <span>✦</span>
+    <span class="lo">No Overdubs</span>
     <span>✦</span>
     <span class="hi">One Take</span>
     <span>✦</span>
     <span class="lo">One Truth</span>
     <span>✦</span>
-    <span class="hi">RE:RE:MIX</span>
+    <span class="hi">Ghost Signal</span>
     <span>✦</span>
-    <span class="lo">Deconstruct</span>
+    <span class="lo">Layer on Layer</span>
     <span>✦</span>
-    <span class="hi">Reconstruct</span>
+    <span class="hi">Live Mastered</span>
     <span>✦</span>
-    <span class="lo">Ghost Signal</span>
-    <span>✦</span>
-    <span class="hi">One Take</span>
-    <span>✦</span>
-    <span class="lo">One Truth</span>
+    <span class="lo">No Overdubs</span>
     <span>✦</span>
   </div>
 </div>
@@ -1002,10 +1141,10 @@
 
   <div class="scene-inner">
     <div class="reveal">
-      <span class="label">The Archive · 2013</span>
+      <span class="label">The Archive · 2013–2014</span>
       <div class="mixes-badge">First Time Online</div>
       <h2 class="section-heading"><span class="c">The First</span><br>Mixes.</h2>
-      <p class="mixes-subtitle">Ten episodes. Never posted. Until now.</p>
+      <p class="mixes-subtitle">Ten episodes recorded across 2013 and into 2014. No upload. No audience. Just the music finding its shape in private — until now.</p>
     </div>
 
     <div class="mix-episode-list reveal delay-1">
@@ -1497,17 +1636,17 @@
 
     <!-- Hire poem -->
     <div class="hire-poem reveal delay-1">
-      <div class="hire-line-giant">I SEE</div>
-      <div class="hire-line-giant">THE END</div>
-      <div class="hire-line-giant coral">BEFORE</div>
-      <div class="hire-line-giant">YOU DO.</div>
+      <div class="hire-line-giant">GOOD</div>
+      <div class="hire-line-giant coral">WORK.</div>
+      <div class="hire-line-giant">DONE</div>
+      <div class="hire-line-giant">RIGHT.</div>
       <div class="hire-split">
-        <span class="hire-split-word c">VISION.</span>
-        <span class="hire-split-word s">CLARITY.</span>
-        <span class="hire-split-word">PATH.</span>
-        <span class="hire-split-word d">EXECUTE.</span>
+        <span class="hire-split-word c">CONCEPT.</span>
+        <span class="hire-split-word s">BUILD.</span>
+        <span class="hire-split-word">DELIVER.</span>
+        <span class="hire-split-word d">REPEAT.</span>
       </div>
-      <div class="hire-caption">Every client. Every project. Completely satisfied. — That is the method.</div>
+      <div class="hire-caption">Every client I've worked with has been completely satisfied. I don't say that to sell you. I say it because it's true and I worked hard for it.</div>
     </div>
 
     <div class="services-list">
@@ -1661,9 +1800,9 @@
 
     <!-- Fluxus statement -->
     <div class="fluxus-statement reveal delay-1">
-      <div class="fluxus-line">I am a Fluxus artist.</div>
-      <div class="fluxus-line coral">Not a brand. Not a title.</div>
-      <div class="fluxus-line">A living practice.</div>
+      <div class="fluxus-line">I've always made more than one kind of thing.</div>
+      <div class="fluxus-line coral">I used to apologize for that.</div>
+      <div class="fluxus-line" style="color:var(--dim);">I stopped.</div>
     </div>
 
     <!-- Photo + prose -->
@@ -1672,15 +1811,13 @@
         <img src="/david/assets/mikel-profile.jpg" alt="Mikel Rosenthal / PBK">
       </div>
       <div class="about-prose">
-        <p>Every medium is my medium. Digital, physical, interpretive, sonic — the boundaries between them are the first thing I dissolve.</p>
+        <p>My name is Mikel Rosenthal. I go by PBK. I live in Chicago Heights with my husband Brandon and our black cat Hex — a rescue who showed up three Halloweens ago and clearly had somewhere to be.</p>
 
-        <p>My name is Mikel Rosenthal. I go by PBK — short for PitchBlacKnight. I live in Chicago Heights with my husband Brandon and our black cat Hexadecimal — HEX — a rescue who showed up three Halloweens ago and never left.</p>
+        <p>I've been a designer for twenty-five years. I also make music in single takes, have been doing motion art since 1999, do voiceover work, and build sites from scratch. I'm learning Portuguese. I'm mentioning all of this not to impress you but because there's no shorter version. They're all the same thing. I just haven't found the word for it yet.</p>
 
-        <p class="pull">I am a polymath. My music is first-take improv — one pass, live mastered, the imperfection is the craft. My client work is the opposite: I envision the finished result almost immediately, we clarify it together, I map the path, and I execute until it's exactly right. Every client I have ever worked with has been completely satisfied. I am proud of that record.</p>
+        <p class="pull">The music is unrepeatable by design — one pass, live-mastered, whatever happened in the room is what it is. The client work is the opposite of that. But the instinct underneath is the same: make something real, make it once, make it right.</p>
 
-        <p>I have hyper-fantasia: an inner world so vivid and texturally rich it operates as a parallel reality. I am a phonetic mimic who can absorb and reproduce accents, dialects, animal sounds, and mechanical textures after a single exposure. I pick up languages with unnerving speed — not just words but the music of how they're spoken.</p>
-
-        <p>I spent 30 years managing chronic pain. Theater of the Mind changed that. What I build now comes from the other side of that door.</p>
+        <p>I spent thirty years managing chronic pain and came out the other side two years ago. That changed things in ways I'm still noticing.</p>
       </div>
     </div>
 
@@ -1689,22 +1826,22 @@
       <div class="principle-row">
         <div class="principle-num">I</div>
         <div>
-          <div class="principle-title">Anti-Separation</div>
-          <p class="principle-body">Art is not separate from life. Work is not separate from art. Every output — a website, a song, a space, a word — is the same gesture, refracted differently.</p>
+          <div class="principle-title">No Walls</div>
+          <p class="principle-body">I've never been able to keep the disciplines separate. A design decision is a musical decision is an architectural decision. They're different surfaces for the same question. I stopped trying to sort them into boxes sometime around 2005.</p>
         </div>
       </div>
       <div class="principle-row">
         <div class="principle-num">II</div>
         <div>
-          <div class="principle-title">Total Fluency</div>
-          <p class="principle-body">Polymath is not a resume word. It's a condition. Forty-five years spent refusing to specialize means every discipline informs every other. The edges blur. That's the point.</p>
+          <div class="principle-title">The Long Clearing</div>
+          <p class="principle-body">For three decades the work ran on a compromised engine — daily medication that worked, but at a cost I didn't fully understand until I stopped. Two years ago I stopped. I invested instead in movement: yoga, Pilates, weight training, swimming every morning. Lost thirty-five pounds. Lost the fog. Every discipline I have — design, music, language, code, art, voice — now connects at a speed and depth I didn't know I was capable of. I had to get out of the way to find out what was there.</p>
         </div>
       </div>
       <div class="principle-row">
         <div class="principle-num">III</div>
         <div>
-          <div class="principle-title">Conscious Output</div>
-          <p class="principle-body">Every piece of work enters the world with intention. If it doesn't serve something larger — environmentally, socially, spiritually — it doesn't leave the studio.</p>
+          <div class="principle-title">On Purpose</div>
+          <p class="principle-body">If it doesn't serve something beyond the screen — a person, a community, a question worth asking — it doesn't leave the studio.</p>
         </div>
       </div>
     </div>
@@ -1735,6 +1872,63 @@
       <button class="daily-prev" id="daily-prev" aria-label="Previous insight">← PREV</button>
       <span class="daily-counter" id="daily-counter"></span>
       <button class="daily-next" id="daily-next" aria-label="Next insight">NEXT →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     THINKING — ESSAYS / PHILOSOPHY
+══════════════════════════════════════ -->
+<section id="thinking" class="scene">
+  <div class="scene-bg lo" id="bg-thinking">
+    <img class="bg-a" src="" alt="">
+    <img class="bg-b" src="" alt="">
+  </div>
+
+  <div class="scene-inner">
+    <div class="reveal">
+      <span class="label">Observations</span>
+      <h2 class="section-heading">The <span class="c">Thinking.</span></h2>
+    </div>
+
+    <div class="thinking-grid">
+
+      <div class="thinking-tile reveal">
+        <span class="thinking-tile-num">01</span>
+        <div class="thinking-tile-title">On<br>Confusion</div>
+        <p class="thinking-tile-body">I've never met a confusing interface that was designed to be confusing. The confusion is always the result of someone who stopped caring about the person on the other end. That's it. That's the whole diagnosis.</p>
+      </div>
+
+      <div class="thinking-tile reveal delay-1">
+        <span class="thinking-tile-num">02</span>
+        <div class="thinking-tile-title">On<br>Systems</div>
+        <p class="thinking-tile-body">The best design system I ever built was the one where, six months later, nobody on the team could tell which components I'd added versus which had always been there. That's what good infrastructure feels like. <em>It disappears.</em></p>
+      </div>
+
+      <div class="thinking-tile reveal delay-1">
+        <span class="thinking-tile-num">03</span>
+        <div class="thinking-tile-title">On<br>Stillness</div>
+        <p class="thinking-tile-body">I thought for a long time that being productive was the point. I was wrong about that. Being clear is the point. It took me thirty years and a lot of swimming to learn the difference. Most mornings I can tell within ten minutes which one I'm operating from.</p>
+      </div>
+
+      <div class="thinking-tile reveal delay-2">
+        <span class="thinking-tile-num">04</span>
+        <div class="thinking-tile-title">On<br>Attention</div>
+        <p class="thinking-tile-body">White space isn't decoration. It's respect. Every element you add to a page costs the person looking at it something — time, attention, goodwill. Most sites are in debt before anyone reads a word. <em>I try to work from a surplus.</em></p>
+      </div>
+
+      <div class="thinking-tile reveal delay-1">
+        <span class="thinking-tile-num">05</span>
+        <div class="thinking-tile-title">On<br>AI</div>
+        <p class="thinking-tile-body">I use AI constantly. It's remarkable at completing the sentence you've already started. What it can't do is start a sentence that surprises even the person writing it. That's the whole game, actually — and it's still a human one.</p>
+      </div>
+
+      <div class="thinking-tile reveal delay-2">
+        <span class="thinking-tile-num">06</span>
+        <div class="thinking-tile-title">On Being<br>Wrong</div>
+        <p class="thinking-tile-body">The older I get, the more comfortable I am saying I don't know. Not as a hedge. As an honest answer. The most interesting things are genuinely uncertain. The people who are certain about everything are usually the most lost. I've been one of them. I prefer this.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1800,16 +1994,15 @@
     <div class="resume-timeline">
 
       <div class="re-entry reveal delay-1">
-        <div class="re-company">PBK STUDIO</div>
-        <div class="re-role">Founder · Independent Studio</div>
-        <div class="re-dates">Mar 21, 2026 – Present</div>
-        <div class="re-context">Music · Web · Motion · Voice · Design · Art Direction</div>
+        <div class="re-company">PBK STUDIO LLC</div>
+        <div class="re-role">Founder &amp; Principal · LLC est. May 18, 2026</div>
+        <div class="re-dates">2021 – Present</div>
+        <div class="re-context">Art Direction · Design Systems · Product Design · Brand Identity · Web · Motion · Voice · Music</div>
         <ul class="re-bullets">
-          <li>Founded independent creative studio operating across music production, web design, motion art, voice performance, and brand identity</li>
-          <li>Produces original music as PitchBlacKnight — first-take improv, live-mastered, no overdubs; ten unreleased mixtapes archived and released publicly</li>
-          <li>Designs and builds full-stack websites for clients including real estate, wellness, and executive coaching — concept through deployment</li>
-          <li>Creates generative and motion art from an extensive archive of original digital works; phonetic mimic and voice performer across narration, character, and brand voice</li>
-          <li>Applies 25+ years of design systems and art direction experience to every output — from a single-page site to a multi-discipline brand</li>
+          <li>Independent multidisciplinary studio — incorporated as a full LLC in May 2026 — operating across art direction, design systems, product design, brand identity, web development, motion art, voice performance, and original music production</li>
+          <li>Client work spans enterprise design systems (healthcare, fintech, insurance), real estate microsites, consumer brand identity, and responsive web builds — Figma-first, token-driven, accessibility-aware</li>
+          <li>Original music released as PitchBlacKnight — first-take improv sessions, live-mastered, no overdubs; SAG-eligible voice performance for commercial, narrative, and sonic branding</li>
+          <li>25+ years of craft applied across every discipline the studio touches</li>
         </ul>
       </div>
 
@@ -1840,8 +2033,8 @@
       <div class="re-entry reveal delay-1">
         <div class="re-company">GE HEALTHCARE</div>
         <div class="re-role">Design Systems Lead / Senior Designer · Contract</div>
-        <div class="re-dates">Jan 2020 – May 2020 · Sept 2020 – Feb 2021</div>
-        <div class="re-context">Edison Design System · enterprise workflows · accessibility</div>
+        <div class="re-dates">Jan 2020 – Feb 2021</div>
+        <div class="re-context">Edison Design System · Enterprise Workflows · Accessibility</div>
         <ul class="re-bullets">
           <li>Contributed to and evolved the Edison Design System: modular, accessible UI patterns at global scale</li>
           <li>Produced interaction guidance and visual direction for cross-platform products</li>
@@ -1874,12 +2067,13 @@
 
       <div class="re-entry reveal delay-1">
         <div class="re-company">TRANSUNION</div>
-        <div class="re-role">Product / UX Designer · Contract</div>
+        <div class="re-role">Design Systems Lead / Senior Product Designer · Contract</div>
         <div class="re-dates">May 2018 – May 2019</div>
-        <div class="re-context">Enterprise UX · scalable UI · stakeholder alignment</div>
+        <div class="re-context">Enterprise Design System · Marketing Library · Scalable UI · Stakeholder Alignment</div>
         <ul class="re-bullets">
-          <li>Delivered product UX and UI in complex enterprise environments with high stakeholder density</li>
-          <li>Improved consistency and clarity through pattern reuse and system-level thinking</li>
+          <li>Built and led the TransUnion Design System — a scalable component and pattern library supporting enterprise product teams across complex, high-stakeholder environments</li>
+          <li>Designed and delivered the TransUnion Marketing Design Library, unifying visual standards across brand and digital marketing touchpoints</li>
+          <li>Drove system adoption through documentation, governance, and cross-functional enablement</li>
         </ul>
       </div>
 
@@ -1909,7 +2103,7 @@
       <div class="re-entry reveal delay-1">
         <div class="re-company">FIREBELLY DESIGN</div>
         <div class="re-role">Branding / Digital Design · Selected Work</div>
-        <div class="re-dates">2002 – 2004</div>
+        <div class="re-dates">2005 – 2009</div>
         <div class="re-context">Brand identity · campaigns · digital experiences</div>
         <ul class="re-bullets">
           <li>Supported brand identity and digital experience work emphasizing cohesion and voice</li>
@@ -2019,12 +2213,15 @@
   <div class="side-nav-where" id="side-nav-where">—</div>
   <div class="side-nav-rule"></div>
   <div class="side-nav-links">
+    <a class="side-nav-link" data-target="story">The Story</a>
+    <a class="side-nav-link" data-target="manifesto">The Practice</a>
     <a class="side-nav-link" data-target="mixes">First Mixes</a>
     <a class="side-nav-link" data-target="music">Sound</a>
-    <a class="side-nav-link" data-target="work">The Catalog</a>
+    <a class="side-nav-link" data-target="work">Systems</a>
     <a class="side-nav-link" data-target="services">For Hire</a>
     <a class="side-nav-link" data-target="about">The Human</a>
     <a class="side-nav-link" data-target="daily">The Insight</a>
+    <a class="side-nav-link" data-target="thinking">Thinking</a>
     <a class="side-nav-link" data-target="resume">The CV</a>
     <a class="side-nav-link" data-target="contact">Contact</a>
     <a class="side-nav-link side-nav-ourdens" href="/ourdens/" style="color:#b5935a;margin-top:12px;border-top:1px solid rgba(181,147,90,0.15);padding-top:12px;">OurDens ↗</a>
@@ -2152,7 +2349,7 @@
     return arr;
   }
 
-  const BG_SECTIONS = ['bg-hero','bg-manifesto','bg-mixes','bg-music','bg-work','bg-services','bg-about','bg-daily','bg-resume','bg-contact'];
+  const BG_SECTIONS = ['bg-hero','bg-story','bg-manifesto','bg-mixes','bg-music','bg-work','bg-services','bg-about','bg-daily','bg-thinking','bg-resume','bg-contact'];
   const sectionState = {};
   BG_SECTIONS.forEach(id => {
     sectionState[id] = { pool: shuffle([...GIF_POOL]), idx: 0, active: 'a' };
@@ -2230,13 +2427,15 @@
   const heroSection = document.getElementById('hero');
 
   const SECTION_LABELS = {
-    manifesto: 'Work.',
+    story:     'Story.',
+    manifesto: 'Practice.',
     mixes:     'Mixes.',
     music:     'Sound.',
-    work:      'Catalog.',
+    work:      'Systems.',
     services:  'Hire.',
     about:     'Human.',
     daily:     'Insight.',
+    thinking:  'Thinking.',
     resume:    'CV.',
     contact:   'Contact.',
   };
@@ -2523,6 +2722,12 @@
     "There are 98 options between every yes and no. The extremes are comfortable because they require no tolerance — only position. Living in the gray means accepting the complexity of being right and wrong at the same time. That's not weakness. That's where the actual world is.",
     "Binary thinking is not clarity. It's avoidance. The real answer to almost every question is somewhere in the middle — inconvenient, textured, and true. We choose the edges because they're easy to defend. We live in the gray because we're brave enough to be uncertain.",
     "Before you say 'it's either this or nothing' — remember that black and white together only account for 2% of what's possible. The answer you need is probably living somewhere in the other 98.",
+    "I'm good at this. I try not to say that too often.",
+    "The work is usually better when I stop explaining it.",
+    "Most things that look simple aren't. Most things that look complicated aren't either.",
+    "I've spent twenty-five years learning how to leave things out.",
+    "Every creative decision is also a moral one. Most people just don't notice.",
+    "I don't know what to call what I do. I've stopped worrying about it.",
   ];
 
   const dailyQuoteEl   = document.getElementById('daily-quote-text');
