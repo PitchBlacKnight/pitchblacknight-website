@@ -545,6 +545,20 @@
       background: #040404;
     }
     .work-expand.open { max-height: 9999px; }
+    /* Fine Art featured piece */
+    .fine-art-expand { grid-column:1 / -1; background:#050505; }
+    .fine-art-piece { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+    .fine-art-img { aspect-ratio:3/4; overflow:hidden; background:#0a0a0a; }
+    .fine-art-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+    .fine-art-expand:hover .fine-art-img img { transform:scale(1.02); }
+    .fine-art-info { padding:clamp(32px,5vw,64px); display:flex; flex-direction:column; justify-content:center; gap:16px; border-left:1px solid #111; }
+    .fine-art-eyebrow { font-family:var(--font-body); font-size:9px; letter-spacing:.5em; text-transform:uppercase; color:var(--coral); opacity:.55; }
+    .fine-art-title { font-family:var(--font-display); font-size:clamp(28px,5vw,64px); line-height:.9; text-transform:uppercase; color:var(--white); }
+    .fine-art-year { font-family:var(--font-body); font-size:10px; letter-spacing:.4em; text-transform:uppercase; color:var(--steel); }
+    .fine-art-medium { font-family:var(--font-body); font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--dim); margin-top:4px; }
+    .fine-art-desc { font-family:var(--font-body); font-size:13px; line-height:2; color:#666; margin-top:8px; max-width:420px; }
+    @media(max-width:700px) { .fine-art-piece { grid-template-columns:1fr; } .fine-art-info { border-left:none; border-top:1px solid #111; } }
+
     /* Art gallery */
     .art-gallery-header { display:flex; justify-content:space-between; align-items:baseline; padding:20px 16px 14px; border-bottom:1px solid #111; }
     .art-gallery-label { font-family:var(--font-body); font-size:9px; letter-spacing:.45em; text-transform:uppercase; color:var(--coral); }
@@ -1528,12 +1542,31 @@
         </div>
       </div>
 
-      <div class="work-card">
-        <div class="work-card-bg" data-card-bg><img src="" alt=""></div>
+      <div class="work-card work-card-web" id="work-card-art">
+        <div class="work-card-bg" data-card-bg>
+          <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/art/monkey-mind-2026.jpg" alt="Monkey Mind 2026" style="mix-blend-mode:normal;opacity:.55;filter:none;">
+        </div>
         <div class="work-card-overlay"></div>
         <div class="work-card-content">
           <span class="work-card-cat">ART</span>
           <span class="work-card-name">Fine Art</span>
+        </div>
+        <div class="work-card-hint">tap to expand</div>
+      </div>
+
+      <!-- Fine Art expand panel -->
+      <div class="work-expand fine-art-expand" id="work-expand-art">
+        <div class="fine-art-piece">
+          <div class="fine-art-img">
+            <img src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/art/monkey-mind-2026.jpg" alt="Monkey Mind 2026 — Mixed media collage by Mikel Rosenthal / PitchBlacKnight" loading="lazy">
+          </div>
+          <div class="fine-art-info">
+            <span class="fine-art-eyebrow">Fine Art · Collage</span>
+            <div class="fine-art-title">Monkey<br>Mind</div>
+            <div class="fine-art-year">2026</div>
+            <div class="fine-art-medium">Mixed media · Paper collage · Found ephemera</div>
+            <p class="fine-art-desc">Assembled from found documents, scientific diagrams, license plates, vintage photographs, and layered paint. The monkey mind — restless, pattern-seeking, pulling everything in at once and making it mean something. Or trying to.</p>
+          </div>
         </div>
       </div>
       <div class="work-card work-card-web" id="work-card-dga">
@@ -2543,6 +2576,16 @@
       const open = dgaExpand.classList.toggle('open');
       dgaCard.classList.toggle('open', open);
       if (open) buildArtGallery();
+    });
+  }
+
+  // ── FINE ART CARD ───────────────────────
+  const artCard   = document.getElementById('work-card-art');
+  const artExpand = document.getElementById('work-expand-art');
+  if (artCard && artExpand) {
+    artCard.addEventListener('click', () => {
+      const open = artExpand.classList.toggle('open');
+      artCard.classList.toggle('open', open);
     });
   }
 
