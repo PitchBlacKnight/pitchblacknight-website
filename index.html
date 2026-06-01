@@ -507,6 +507,10 @@
     .track-item:hover .track-play-icon,
     .track-item.active .track-play-icon { opacity:1; }
     .track-play-icon svg { width:7px; height:7px; fill:var(--coral); }
+    .track-duration { font-family:var(--font-body); font-size:10px; letter-spacing:.08em; color:var(--dim); min-width:36px; text-align:right; flex-shrink:0; font-variant-numeric:tabular-nums; }
+    .track-download { width:22px; height:22px; border-radius:50%; border:1px solid rgba(123,143,166,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--dim); text-decoration:none; transition:all .2s; }
+    .track-download:hover { border-color:var(--coral); color:var(--coral); }
+    .track-download svg { width:9px; height:9px; fill:currentColor; }
 
     .player-controls-wrap { padding:20px 28px 24px; border-top:1px solid #111; }
     .progress-wrap { height:3px; background:#1c1c1c; cursor:pointer; margin-bottom:8px; border-radius:2px; position:relative; }
@@ -1121,45 +1125,10 @@
   </div>
 </section>
 
-<!-- MARQUEE 2 -->
-<div class="marquee-wrap">
-  <div class="marquee-track" style="animation-direction:reverse; animation-duration:26s;">
-    <span class="hi">One Take</span>
-    <span>✦</span>
-    <span class="lo">One Truth</span>
-    <span>✦</span>
-    <span class="hi">Ghost Signal</span>
-    <span>✦</span>
-    <span class="lo">Layer on Layer</span>
-    <span>✦</span>
-    <span class="hi">Live Mastered</span>
-    <span>✦</span>
-    <span class="lo">No Overdubs</span>
-    <span>✦</span>
-    <span class="hi">One Take</span>
-    <span>✦</span>
-    <span class="lo">One Truth</span>
-    <span>✦</span>
-    <span class="hi">Ghost Signal</span>
-    <span>✦</span>
-    <span class="lo">Layer on Layer</span>
-    <span>✦</span>
-    <span class="hi">Live Mastered</span>
-    <span>✦</span>
-    <span class="lo">No Overdubs</span>
-    <span>✦</span>
-  </div>
-</div>
-
 <!-- ══════════════════════════════════════
      ③ MIXES — THE FIRST MIXTAPES
 ══════════════════════════════════════ -->
 <section id="mixes" class="scene">
-  <div class="scene-bg lo" id="bg-mixes">
-    <img class="bg-a" src="" alt="">
-    <img class="bg-b" src="" alt="">
-  </div>
-
   <div class="scene-inner">
     <div class="reveal">
       <span class="label">The Archive · 2013–2014</span>
@@ -1322,101 +1291,141 @@
           <div class="track-item active" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/boom-right-now-pre-mastered.mp3" data-title="BOOM RIGHT NOW">
             <span class="track-num">01</span>
             <span class="track-name">BOOM RIGHT NOW</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/puuurrfect-pre-mastered.mp3" data-title="PUUURRFECT">
             <span class="track-num">02</span>
             <span class="track-name">PUUURRFECT</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/paak-up-pre-mastered.mp3" data-title="PAAK UP">
             <span class="track-num">03</span>
             <span class="track-name">PAAK UP</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/let-it-go-pre-mastered.mp3" data-title="LET IT GO">
             <span class="track-num">04</span>
             <span class="track-name">LET IT GO</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/dark-mutters.mp3" data-title="DARK MUTTERS">
             <span class="track-num">05</span>
             <span class="track-name">DARK MUTTERS</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/hollow-heart.mp3" data-title="HOLLOW HEART">
             <span class="track-num">06</span>
             <span class="track-name">HOLLOW HEART</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/colorblind-breakup.mp3" data-title="COLORBLIND BREAKUP">
             <span class="track-num">07</span>
             <span class="track-name">COLORBLIND BREAKUP</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/the-effect-you-have-on-others.mp3" data-title="THE EFFECT YOU HAVE ON OTHERS">
             <span class="track-num">08</span>
             <span class="track-name">THE EFFECT YOU HAVE ON OTHERS</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/exit-the-matrix.mp3" data-title="EXIT THE MATRIX">
             <span class="track-num">09</span>
             <span class="track-name">EXIT THE MATRIX</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/tiptoe-trip.mp3" data-title="TIPTOE TRIP">
             <span class="track-num">10</span>
             <span class="track-name">TIPTOE TRIP</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/human-leather-shoes.mp3" data-title="HUMAN LEATHER SHOES">
             <span class="track-num">11</span>
             <span class="track-name">HUMAN LEATHER SHOES</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/dreams-of-dying.mp3" data-title="DREAMS OF DYING">
             <span class="track-num">12</span>
             <span class="track-name">DREAMS OF DYING</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/halloween-stalker.mp3" data-title="HALLOWEEN STALKER">
             <span class="track-num">13</span>
             <span class="track-name">HALLOWEEN STALKER</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/dripping-magma.mp3" data-title="DRIPPING MAGMA">
             <span class="track-num">14</span>
             <span class="track-name">DRIPPING MAGMA</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/technological-computer-love.mp3" data-title="TECHNOLOGICAL COMPUTER LOVE">
             <span class="track-num">15</span>
             <span class="track-name">TECHNOLOGICAL COMPUTER LOVE</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/ritual-un-union.mp3" data-title="RITUAL UN UNION">
             <span class="track-num">16</span>
             <span class="track-name">RITUAL UN UNION</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/black-kat.mp3" data-title="BLACK KAT">
             <span class="track-num">17</span>
             <span class="track-name">BLACK KAT</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/sounded-like-the-truth.mp3" data-title="SOUNDED LIKE THE TRUTH">
             <span class="track-num">18</span>
             <span class="track-name">SOUNDED LIKE THE TRUTH</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/misfit.mp3" data-title="MISFIT">
             <span class="track-num">19</span>
             <span class="track-name">MISFIT</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
           <div class="track-item" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/computer-self-aware-stair.mp3" data-title="COMPUTER SELF AWARE STAIR">
             <span class="track-num">20</span>
             <span class="track-name">COMPUTER SELF AWARE STAIR</span>
+            <span class="track-duration" data-dur>—</span>
+            <a class="track-download" title="Download" download><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a>
             <div class="track-play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
           </div>
         </div>
@@ -1444,7 +1453,7 @@
           </div>
         </div>
 
-        <audio id="audio-el" preload="none">
+        <audio id="audio-el" preload="none" playsinline>
           <source src="/david/assets/audio/dark-mutters.mp3" type="audio/mpeg">
         </audio>
 
@@ -2616,6 +2625,54 @@
 
   let currentTrackIdx = 0;
 
+  // ── DURATION LOADER ─────────────────────
+  // Lazily fetch metadata for every track, populate duration spans + download hrefs
+  (function loadDurations() {
+    trackItems.forEach(item => {
+      const src  = item.dataset.src;
+      const durEl = item.querySelector('[data-dur]');
+      const dlEl  = item.querySelector('.track-download');
+      if (dlEl && src) dlEl.href = src;
+      if (!durEl || !src) return;
+      const a = new Audio();
+      a.preload = 'metadata';
+      a.addEventListener('loadedmetadata', () => {
+        const t = a.duration;
+        if (isFinite(t)) {
+          durEl.textContent = `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+        }
+        a.src = ''; // release
+      }, { once: true });
+      a.src = src;
+    });
+  })();
+
+  // ── MEDIA SESSION + BACKGROUND PLAY ─────
+  function updateMediaSession(title, idx) {
+    if (!('mediaSession' in navigator)) return;
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: title || 'PitchBlacKnight',
+      artist: 'PitchBlacKnight · Mikel Rosenthal',
+      album: 'Original Tracks · First Take · Live Mastered',
+      artwork: [
+        { src: '/david/assets/pbk-profile.png', sizes: '512x512', type: 'image/png' }
+      ]
+    });
+    navigator.mediaSession.setActionHandler('previoustrack', () => {
+      loadTrackByIdx(Math.max(0, currentTrackIdx - 1), true);
+    });
+    navigator.mediaSession.setActionHandler('nexttrack', () => {
+      loadTrackByIdx(Math.min(trackItems.length - 1, currentTrackIdx + 1), true);
+    });
+  }
+
+  // Request screen wake lock so lock-screen controls keep working
+  async function requestWakeLock() {
+    if ('wakeLock' in navigator) {
+      try { await navigator.wakeLock.request('screen'); } catch(e) {}
+    }
+  }
+
   // Build waveform bars
   Array.from({length: 32}).forEach(() => {
     const lo  = (Math.random() * .15 + .05).toFixed(2);
@@ -2653,12 +2710,16 @@
     if (!item) return;
     audio.src = item.dataset.src;
     audio.load();
-    if (autoplay) audio.play().catch(() => {});
-    statusEl.textContent = item.dataset.title;
+    if (autoplay) {
+      audio.play().then(() => { requestWakeLock(); }).catch(() => {});
+    }
+    const title = item.dataset.title;
+    statusEl.textContent = title;
     statusEl.classList.remove('live');
     if (durEl) durEl.textContent = '—';
     if (curEl) curEl.textContent = '0:00';
     progBar.style.width = '0%';
+    updateMediaSession(title, idx);
   }
 
   trackItems.forEach((item, idx) => {
