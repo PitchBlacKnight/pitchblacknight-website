@@ -673,6 +673,13 @@
     .resume-contact-links { display:flex; flex-direction:column; gap:10px; }
     .resume-contact-links a { font-family:var(--font-body); font-size:12px; letter-spacing:.22em; text-decoration:none; transition:color .2s; }
 
+    .re-arts-block { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,4vw,48px); }
+    .re-arts-discipline { border-top:1px solid #1a1a1a; padding-top:18px; }
+    .re-arts-name { font-family:var(--font-display); font-size:clamp(18px,2.8vw,34px); line-height:.88; text-transform:uppercase; color:var(--coral); margin-bottom:10px; }
+    .re-arts-desc { font-family:var(--font-body); font-size:12px; line-height:1.9; color:#666; }
+    .re-fluxus-pull { font-family:var(--font-display); font-size:clamp(15px,2vw,22px); line-height:1.25; text-transform:uppercase; color:var(--dim); max-width:560px; margin:clamp(28px,4vw,44px) 0; padding-left:clamp(24px,4vw,48px); border-left:2px solid #1a1a1a; }
+    @media(max-width:700px) { .re-arts-block { grid-template-columns:1fr; } }
+
     /* ══ DAILY INSIGHT ══ */
     #daily { background:#040404; }
     .daily-quote-wrap { position:relative; margin-bottom:clamp(32px,5vw,56px); }
@@ -1951,9 +1958,9 @@
     <!-- Profile -->
     <div class="resume-profile reveal delay-1">
       <div class="resume-name">MIKEL<br>ROSENTHAL</div>
-      <div class="resume-title">Art Director · Design Director · Contract &amp; Freelance</div>
-      <span class="resume-avail">Design Systems · Visual Identity · Product Experience · 25+ Years</span>
-      <p class="resume-summary">I lead teams to create unmistakable visual worlds — then systematize them so they scale fast, stay consistent, and ship beautifully. Trusted by Google, GE Healthcare, Blue Cross Blue Shield, Herman Miller, Whirlpool, and Gartner. My practice is rooted in a Fluxus mindset: interdisciplinary, concept-forward, and execution-complete. I work from first principles, then translate that into cohesive direction across design, motion, interaction, writing, and presentation.</p>
+      <div class="resume-title">Fluxus Artist · Art Director · Musician · Voice Performer</div>
+      <span class="resume-avail">Music · Motion Art · Voice · Design Systems · 25+ Years</span>
+      <p class="resume-summary">I make things across disciplines because I've never been able to stop. Twenty-five years of design — art direction, systems, product — running in parallel with original music, motion art, and voice performance the entire time. My practice is rooted in a Fluxus mindset: a design decision and a musical decision are the same decision. I stopped sorting them into separate boxes in 2005. The work is one thing. Trusted by Google, GE Healthcare, Blue Cross Blue Shield, Herman Miller, Whirlpool, and Gartner.</p>
     </div>
 
     <div class="resume-divider"></div>
@@ -1971,8 +1978,10 @@
           <span class="strength-chip">Cross-Functional Leadership</span>
           <span class="strength-chip">Figma-First Workflows</span>
           <span class="strength-chip">Accessibility + Craft</span>
+          <span class="strength-chip hi">Original Music</span>
+          <span class="strength-chip hi">Motion Art / GIF</span>
+          <span class="strength-chip hi">Voiceover · SAG</span>
           <span class="strength-chip">Voice &amp; Narrative</span>
-          <span class="strength-chip">Contract · Freelance</span>
         </div>
       </div>
       <div>
@@ -1984,6 +1993,25 @@
           <li>Delivered product ecosystems spanning dashboards, responsive apps, and data visualization</li>
           <li>Facilitated stakeholder alignment through workshops, critiques, and story-led presentations</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="resume-divider"></div>
+
+    <!-- Artistic Practice -->
+    <span class="resume-block-label reveal">Artistic Practice · Since 1999</span>
+    <div class="re-arts-block reveal delay-1">
+      <div class="re-arts-discipline">
+        <div class="re-arts-name">Music</div>
+        <div class="re-arts-desc">Original music produced as PitchBlacKnight — first-take improv, live-mastered, no overdubs. Recorded consistently since the early 2000s. 10+ unreleased mixtapes. One pass, whatever happened in the room, that's the take. The doctrine has never changed.</div>
+      </div>
+      <div class="re-arts-discipline">
+        <div class="re-arts-name">Motion + GIF</div>
+        <div class="re-arts-desc">156+ digital art works in the archive. Building since 1999 — abstract loops, GIF sequences, generative color fields, still images that move. A sustained solo practice that ran quietly in parallel to every design job on the résumé below.</div>
+      </div>
+      <div class="re-arts-discipline">
+        <div class="re-arts-name">Voice</div>
+        <div class="re-arts-desc">SAG-eligible. Phonetic mimic — absorbs any voice, accent, sound, or texture after a single exposure. Commercial, narrative, documentary, audiobook, and sonic branding. Operatic range. The instrument is the instrument.</div>
       </div>
     </div>
 
@@ -2005,6 +2033,8 @@
           <li>25+ years of craft applied across every discipline the studio touches</li>
         </ul>
       </div>
+
+      <p class="re-fluxus-pull reveal">The music was never a side project.<br>The art was never a hobby.<br>They just ran without an audience for a long time.</p>
 
       <div class="re-entry reveal delay-1">
         <div class="re-company">AVANT</div>
@@ -2146,6 +2176,18 @@
     <span class="resume-block-label reveal">Tools + Capabilities</span>
     <div class="tools-grid reveal delay-1">
       <div class="tool-row">
+        <div class="tool-name">FLUXUS</div>
+        <div class="tool-desc">Video · motion · animation · music/sound · spatial concepts · projection mapping · first take, always.</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">BODY</div>
+        <div class="tool-desc">Dancer. Operatic voice. Precision whistler. Ambidextrous. The instrument is the instrument.</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">SOUND</div>
+        <div class="tool-desc">Phonetic mimic — human, animal, mechanical. Absorbs and reproduces accents, dialects, and textures after a single exposure. Polyglot with language-music instinct.</div>
+      </div>
+      <div class="tool-row">
         <div class="tool-name">FIGMA</div>
         <div class="tool-desc">I build systems that scale and visuals that behave.</div>
       </div>
@@ -2164,18 +2206,6 @@
       <div class="tool-row">
         <div class="tool-name">PLATFORMS</div>
         <div class="tool-desc">Slack · Jira · Confluence · GitHub · Notion · Miro · whatever your team uses.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">FLUXUS</div>
-        <div class="tool-desc">Video · motion · animation · music/sound · spatial concepts · projection mapping · first take, always.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">BODY</div>
-        <div class="tool-desc">Dancer. Operatic voice. Precision whistler. Ambidextrous. The instrument is the instrument.</div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-name">SOUND</div>
-        <div class="tool-desc">Phonetic mimic — human, animal, mechanical. Absorbs and reproduces accents, dialects, and textures after a single exposure. Polyglot with language-music instinct.</div>
       </div>
     </div>
 
