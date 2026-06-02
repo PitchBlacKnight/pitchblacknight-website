@@ -264,49 +264,158 @@
     .nav-links .nav-ourdens a:hover { color: #d4b483; }
 
     /* ══ FILMSTRIP ══ */
-    .filmstrip {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-      background: #060606;
-      border-top: 1px solid #0f0f0f;
-      border-bottom: 1px solid #0f0f0f;
+    /* ══ DAILY MIX ══ */
+    #daily-mix {
+      background: #080808;
+      border-top: 1px solid #111;
+      border-bottom: 3px solid var(--coral);
+      padding: clamp(32px, 5vw, 52px) clamp(24px, 6vw, 72px);
     }
-    .filmstrip-track {
+    .dm-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    .dm-left { min-width: 0; }
+    .dm-eyebrow {
       display: flex;
-      height: 100%;
-      width: max-content;
-      animation: filmscroll 110s linear infinite;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
     }
-    .filmstrip-track:hover { animation-play-state: paused; }
-    @keyframes filmscroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    .dm-badge {
+      font-family: var(--font-body);
+      font-size: 8px;
+      letter-spacing: .5em;
+      text-transform: uppercase;
+      color: #060606;
+      background: var(--coral);
+      padding: 4px 12px;
+      font-weight: 700;
     }
-    .filmstrip-track img {
-      height: 180px;
-      width: auto;
-      min-width: 280px;
-      object-fit: cover;
-      object-position: center;
-      filter: brightness(0.6) saturate(0.8);
-      transition: filter 0.6s ease;
-      border-right: 1px solid #111;
+    .dm-live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--coral);
+      animation: dm-pulse 2s ease-in-out infinite;
       flex-shrink: 0;
     }
-    .filmstrip-track img:hover {
-      filter: brightness(0.85) saturate(1.1);
+    @keyframes dm-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .35; transform: scale(.7); }
     }
-    /* label over the strip */
-    .filmstrip-label {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 4;
+    .dm-date {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .dm-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 5vw, 58px);
+      line-height: .9;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .dm-sub {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 18px;
+    }
+    .dm-player {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .dm-play-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--coral);
+      background: transparent;
+      color: var(--coral);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all .22s;
+    }
+    .dm-play-btn:hover { background: var(--coral); color: var(--bg); box-shadow: 0 0 28px rgba(232,110,89,.4); }
+    .dm-play-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .dm-progress-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .dm-bar-track {
+      height: 2px;
+      background: #1e1e1e;
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+    .dm-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--coral);
+      border-radius: 2px;
+      transition: width .1s linear;
       pointer-events: none;
-      text-align: center;
     }
+    .dm-times {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: .08em;
+      color: var(--dim);
+      font-variant-numeric: tabular-nums;
+    }
+    .dm-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .dm-duration-badge {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid #1c1c1c;
+      padding: 5px 12px;
+    }
+    .dm-note {
+      font-family: var(--font-body);
+      font-size: 10px;
+      line-height: 1.7;
+      color: #4a4a4a;
+      font-style: italic;
+      text-align: right;
+      max-width: 200px;
+    }
+    @media(max-width: 700px) {
+      .dm-inner { grid-template-columns: 1fr; }
+      .dm-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .dm-note { text-align: left; max-width: 100%; }
+      .dm-title { white-space: normal; }
+    }
+
     .filmstrip-label span {
       font-family: var(--font-body);
       font-size: 9px;
@@ -852,6 +961,7 @@
     <span class="pbk-pitch">PITCH</span><span class="pbk-blac">BLAC</span><span class="pbk-night">KNIGHT</span>
   </a>
   <ul class="nav-links">
+    <li><a href="#daily-mix" style="color:var(--coral);">Daily</a></li>
     <li><a href="#story">Story</a></li>
     <li><a href="#work">Systems</a></li>
     <li><a href="#music">Lab</a></li>
@@ -886,35 +996,48 @@
   </div>
 </section>
 
-<!-- ══ FILMSTRIP ══ -->
-<div class="filmstrip">
-  <div class="filmstrip-track">
-    <img src="/ourdens/img/gorge.jpg"          alt="Columbia River Gorge" />
-    <img src="/ourdens/img/cabin-forest.jpg"   alt="Cabin in forest" />
-    <img src="/ourdens/img/hot-springs.jpg"    alt="Hot springs" />
-    <img src="/ourdens/img/mt-hood-sunset.jpg" alt="Mt Hood sunset" />
-    <img src="/ourdens/img/cabin-night.jpg"    alt="Cabin at night" />
-    <img src="/ourdens/img/outdoor-tub.jpg"    alt="Outdoor soaking tub" />
-    <img src="/ourdens/img/fire-pit.jpg"       alt="Deck fire pit" />
-    <img src="/ourdens/img/forest.jpg"         alt="Old growth forest" />
-    <img src="/ourdens/img/columbia-river.jpg" alt="Columbia River" />
-    <img src="/ourdens/img/cabin-exterior.jpg" alt="Cabin exterior" />
-    <!-- duplicate for seamless loop -->
-    <img src="/ourdens/img/gorge.jpg"          alt="" aria-hidden="true" />
-    <img src="/ourdens/img/cabin-forest.jpg"   alt="" aria-hidden="true" />
-    <img src="/ourdens/img/hot-springs.jpg"    alt="" aria-hidden="true" />
-    <img src="/ourdens/img/mt-hood-sunset.jpg" alt="" aria-hidden="true" />
-    <img src="/ourdens/img/cabin-night.jpg"    alt="" aria-hidden="true" />
-    <img src="/ourdens/img/outdoor-tub.jpg"    alt="" aria-hidden="true" />
-    <img src="/ourdens/img/fire-pit.jpg"       alt="" aria-hidden="true" />
-    <img src="/ourdens/img/forest.jpg"         alt="" aria-hidden="true" />
-    <img src="/ourdens/img/columbia-river.jpg" alt="" aria-hidden="true" />
-    <img src="/ourdens/img/cabin-exterior.jpg" alt="" aria-hidden="true" />
+<!-- ══ DAILY MIX ══ -->
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  DAILY MIX — UPDATE THIS EVERY DAY                          ║
+  ║  1. Change DAILY_MIX.src to the new Supabase audio URL      ║
+  ║  2. Change DAILY_MIX.title to the track name                ║
+  ║  3. Optionally update DAILY_MIX.note with a session thought  ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<section id="daily-mix">
+  <div class="dm-inner">
+    <div class="dm-left">
+      <div class="dm-eyebrow">
+        <span class="dm-badge">Daily Mix</span>
+        <div class="dm-live-dot"></div>
+        <span class="dm-date" id="dm-date"></span>
+      </div>
+      <div class="dm-title" id="dm-title">Loading…</div>
+      <div class="dm-sub">First Take · Live Mastered · No Overdubs</div>
+      <div class="dm-player">
+        <button class="dm-play-btn" id="dm-play" aria-label="Play / Pause">
+          <svg id="dm-icon-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg id="dm-icon-pause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <div class="dm-progress-wrap">
+          <div class="dm-bar-track" id="dm-bar-track">
+            <div class="dm-bar-fill" id="dm-bar-fill"></div>
+          </div>
+          <div class="dm-times">
+            <span id="dm-cur">0:00</span>
+            <span id="dm-dur">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dm-right">
+      <span class="dm-duration-badge" id="dm-length-badge">—</span>
+      <p class="dm-note" id="dm-note"></p>
+    </div>
   </div>
-  <div class="filmstrip-label">
-    <span>OurDens &nbsp;·&nbsp; Carson, WA &nbsp;·&nbsp; Adults Only</span>
-  </div>
-</div>
+  <audio id="dm-audio" preload="none" playsinline></audio>
+</section>
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
@@ -2321,6 +2444,106 @@
   }, { passive: true });
 
   // ── AMBIENT MUSIC ──────────────────────
+  // ╔══════════════════════════════════════════════════════╗
+  // ║  DAILY MIX CONFIG — UPDATE THIS EACH DAY            ║
+  // ╚══════════════════════════════════════════════════════╝
+  const DAILY_MIX = {
+    title: "Boom Right Now",
+    src:   "https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/boom-right-now-pre-mastered.mp3",
+    note:  "First session of the day. Whatever happened in the room.",
+  };
+
+  // ── Daily Mix Player ─────────────────────────────────
+  (function initDailyMix() {
+    const dmAudio    = document.getElementById('dm-audio');
+    const dmPlay     = document.getElementById('dm-play');
+    const dmIconPlay = document.getElementById('dm-icon-play');
+    const dmIconPause= document.getElementById('dm-icon-pause');
+    const dmBarFill  = document.getElementById('dm-bar-fill');
+    const dmBarTrack = document.getElementById('dm-bar-track');
+    const dmCur      = document.getElementById('dm-cur');
+    const dmDur      = document.getElementById('dm-dur');
+    const dmTitle    = document.getElementById('dm-title');
+    const dmNote     = document.getElementById('dm-note');
+    const dmDate     = document.getElementById('dm-date');
+    const dmLenBadge = document.getElementById('dm-length-badge');
+    if (!dmAudio || !dmPlay) return;
+
+    // Populate date
+    const now = new Date();
+    dmDate.textContent = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+    // Populate track
+    dmTitle.textContent = DAILY_MIX.title;
+    dmNote.textContent  = DAILY_MIX.note || '';
+    dmAudio.src         = DAILY_MIX.src;
+
+    function fmtTime(s) {
+      if (!isFinite(s)) return '—';
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const sec = Math.floor(s % 60);
+      return h > 0
+        ? `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`
+        : `${m}:${String(sec).padStart(2,'0')}`;
+    }
+
+    function setPlayState(playing) {
+      dmIconPlay.style.display  = playing ? 'none' : '';
+      dmIconPause.style.display = playing ? ''     : 'none';
+    }
+
+    dmAudio.addEventListener('loadedmetadata', () => {
+      const t = dmAudio.duration;
+      dmDur.textContent = fmtTime(t);
+      // Badge: show hours if long
+      const h = Math.floor(t / 3600);
+      const m = Math.floor((t % 3600) / 60);
+      dmLenBadge.textContent = h > 0 ? `${h}h ${m}m` : `${m} min`;
+    });
+
+    dmAudio.addEventListener('timeupdate', () => {
+      if (!dmAudio.duration) return;
+      dmBarFill.style.width = (dmAudio.currentTime / dmAudio.duration * 100) + '%';
+      dmCur.textContent = fmtTime(dmAudio.currentTime);
+    });
+
+    dmAudio.addEventListener('play',  () => setPlayState(true));
+    dmAudio.addEventListener('pause', () => setPlayState(false));
+    dmAudio.addEventListener('ended', () => setPlayState(false));
+
+    dmPlay.addEventListener('click', () => {
+      if (dmAudio.paused) {
+        dmAudio.play().then(() => {
+          if ('wakeLock' in navigator) navigator.wakeLock.request('screen').catch(() => {});
+        }).catch(() => {});
+        // Update Media Session for lock-screen controls
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title:  DAILY_MIX.title,
+            artist: 'PitchBlacKnight · Mikel Rosenthal',
+            album:  'Daily Mix · ' + dmDate.textContent,
+            artwork: [{ src: '/david/assets/pbk-profile.png', sizes: '512x512', type: 'image/png' }]
+          });
+          navigator.mediaSession.setActionHandler('pause', () => dmAudio.pause());
+          navigator.mediaSession.setActionHandler('play',  () => dmAudio.play());
+        }
+      } else {
+        dmAudio.pause();
+      }
+    });
+
+    dmBarTrack.addEventListener('click', e => {
+      const r = dmBarTrack.getBoundingClientRect();
+      if (dmAudio.duration) {
+        dmAudio.currentTime = ((e.clientX - r.left) / r.width) * dmAudio.duration;
+      }
+    });
+
+    // Load metadata without autoplaying
+    dmAudio.load();
+  })();
+
   const AMB_TRACKS = [
     { src: '/david/assets/audio/dark-mutters.mp3',            title: 'Dark Mutters'                  },
     { src: '/david/assets/audio/dreams-of-dying.mp3',         title: 'Dreams of Dying'               },
