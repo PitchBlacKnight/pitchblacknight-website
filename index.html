@@ -2444,16 +2444,8 @@
   }, { passive: true });
 
   // ── AMBIENT MUSIC ──────────────────────
-  // ╔══════════════════════════════════════════════════════╗
-  // ║  DAILY MIX CONFIG — UPDATE THIS EACH DAY            ║
-  // ╚══════════════════════════════════════════════════════╝
-  const DAILY_MIX = {
-    title: "Boom Right Now",
-    src:   "https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/boom-right-now-pre-mastered.mp3",
-    note:  "First session of the day. Whatever happened in the room.",
-  };
-
   // ── Daily Mix Player ─────────────────────────────────
+  // Track data is fetched live from Supabase — update via /daily-admin
   (function initDailyMix() {
     const dmAudio    = document.getElementById('dm-audio');
     const dmPlay     = document.getElementById('dm-play');
@@ -2469,14 +2461,21 @@
     const dmLenBadge = document.getElementById('dm-length-badge');
     if (!dmAudio || !dmPlay) return;
 
-    // Populate date
-    const now = new Date();
-    dmDate.textContent = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-
-    // Populate track
-    dmTitle.textContent = DAILY_MIX.title;
-    dmNote.textContent  = DAILY_MIX.note || '';
-    dmAudio.src         = DAILY_MIX.src;
+    // Fetch today's mix from Supabase — updated via /daily-admin
+    const DAILY_JSON = 'https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/daily.json';
+    fetch(DAILY_JSON + '?t=' + Date.now())
+      .then(r => r.json())
+      .then(d => {
+        dmTitle.textContent = d.title || 'Today\'s Mix';
+        dmNote.textContent  = d.note  || '';
+        dmDate.textContent  = d.date  || new Date().toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
+        dmAudio.src         = d.src   || '';
+        dmAudio.load();
+      })
+      .catch(() => {
+        dmTitle.textContent = 'Today\'s Mix';
+        dmDate.textContent  = new Date().toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
+      });
 
     function fmtTime(s) {
       if (!isFinite(s)) return '—';
@@ -2539,9 +2538,6 @@
         dmAudio.currentTime = ((e.clientX - r.left) / r.width) * dmAudio.duration;
       }
     });
-
-    // Load metadata without autoplaying
-    dmAudio.load();
   })();
 
   const AMB_TRACKS = [
