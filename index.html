@@ -544,6 +544,35 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .mf-gif{width:64px;height:64px;object-fit:cover;flex-shrink:0;border:1px solid rgba(232,81,42,.2)}
 .mf-info{display:flex;flex-direction:column;gap:4px;flex:1}
 
+/* ── ARCHIVES BANNER ── */
+#archives{background:#e8512a;padding:80px 40px}
+.arch-inner{max-width:var(--max);margin:0 auto}
+.arch-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(6,6,6,.55);margin-bottom:20px;display:block}
+.arch-title{font-family:var(--font-display);font-size:clamp(52px,9vw,96px);line-height:.9;color:#060606;margin-bottom:8px}
+.arch-sub{font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;color:rgba(6,6,6,.65);max-width:540px;margin-bottom:56px;line-height:1.6}
+.arch-list{display:flex;flex-direction:column;gap:0}
+.arch-row{
+  display:flex;align-items:center;gap:20px;
+  padding:18px 0;
+  border-top:1px solid rgba(6,6,6,.18);
+  cursor:pointer;
+}
+.arch-row:last-child{border-bottom:1px solid rgba(6,6,6,.18)}
+.arch-row:hover .arch-play{background:#060606;color:#e8512a}
+.arch-num{font-family:var(--font-mono);font-size:11px;color:rgba(6,6,6,.4);letter-spacing:.1em;min-width:28px}
+.arch-name{font-family:var(--font-display);font-size:clamp(20px,3.5vw,30px);color:#060606;flex:1;line-height:1}
+.arch-year{font-family:var(--font-mono);font-size:11px;color:rgba(6,6,6,.4);letter-spacing:.05em}
+.arch-play{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(6,6,6,.12);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s;color:#060606;flex-shrink:0;
+}
+.arch-play svg{margin-left:2px}
+.arch-playing .arch-play{background:#060606;color:#e8512a}
+.arch-playing .arch-name{opacity:.7}
+@media(max-width:600px){#archives{padding:60px 24px}}
+
 .music-layout{
   display:grid;grid-template-columns:1fr 1.8fr;gap:3px;
 }
@@ -1000,6 +1029,78 @@ footer{
         <audio id="ap" crossorigin="anonymous" playsinline></audio>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══ ARCHIVES ══ -->
+<section id="archives">
+  <div class="arch-inner">
+    <span class="arch-eyebrow">PitchBlacKnight · Original Mixtapes · 2013 – 2014</span>
+    <div class="arch-title">THE<br>ARCHIVES.</div>
+    <p class="arch-sub">The first mixes PBK ever made — recorded and released between 2013 and 2014. Long-form DJ sets, full ideas, unfiltered. Most people have never heard any of this.</p>
+    <div class="arch-list">
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-01-koolaide-kids.mp3">
+        <span class="arch-num">01</span>
+        <span class="arch-name">Koolaide Kids</span>
+        <span class="arch-year">2013</span>
+        <button class="arch-play" aria-label="Play Koolaide Kids"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-02-gritty-kitty.mp3">
+        <span class="arch-num">02</span>
+        <span class="arch-name">Gritty Kitty</span>
+        <span class="arch-year">2013</span>
+        <button class="arch-play" aria-label="Play Gritty Kitty"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-03-beat-brulee.mp3">
+        <span class="arch-num">03</span>
+        <span class="arch-name">Beat Brulee</span>
+        <span class="arch-year">2013</span>
+        <button class="arch-play" aria-label="Play Beat Brulee"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-04-december-deleece.mp3">
+        <span class="arch-num">04</span>
+        <span class="arch-name">December Deleece</span>
+        <span class="arch-year">2013</span>
+        <button class="arch-play" aria-label="Play December Deleece"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-05-march-tart.mp3">
+        <span class="arch-num">05</span>
+        <span class="arch-name">March Tart</span>
+        <span class="arch-year">2014</span>
+        <button class="arch-play" aria-label="Play March Tart"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-06-thursday-night-li.mp3">
+        <span class="arch-num">06</span>
+        <span class="arch-name">Thursday Night Live</span>
+        <span class="arch-year">2014</span>
+        <button class="arch-play" aria-label="Play Thursday Night Live"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-07-nevermind-november.mp3">
+        <span class="arch-num">07</span>
+        <span class="arch-name">Nevermind November</span>
+        <span class="arch-year">2014</span>
+        <button class="arch-play" aria-label="Play Nevermind November"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-08-adrift.mp3">
+        <span class="arch-num">08</span>
+        <span class="arch-name">Adrift</span>
+        <span class="arch-year">2014</span>
+        <button class="arch-play" aria-label="Play Adrift"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-09-just-in-time.mp3">
+        <span class="arch-num">09</span>
+        <span class="arch-name">Just in Time</span>
+        <span class="arch-year">2014</span>
+        <button class="arch-play" aria-label="Play Just in Time"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-10-well-alright.mp3">
+        <span class="arch-num">10</span>
+        <span class="arch-name">Well Alright</span>
+        <span class="arch-year">2014</span>
+        <button class="arch-play" aria-label="Play Well Alright"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+      </div>
+    </div>
+    <audio id="arch-audio" crossorigin="anonymous" playsinline></audio>
   </div>
 </section>
 
@@ -1938,6 +2039,51 @@ function handleContactSubmit(e){
   show(idx);
   if(prev) prev.addEventListener('click', () => { idx = (idx - 1 + QUOTES.length) % QUOTES.length; show(idx); });
   if(next) next.addEventListener('click', () => { idx = (idx + 1) % QUOTES.length; show(idx); });
+})();
+/* ── ARCHIVES PLAYER ── */
+(function initArchives() {
+  const audio = document.getElementById('arch-audio');
+  if (!audio) return;
+  const rows = document.querySelectorAll('.arch-row');
+  let current = null;
+
+  const PAUSE_ICON = '<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><rect x="0" y="0" width="3" height="12"/><rect x="7" y="0" width="3" height="12"/></svg>';
+  const PLAY_ICON  = '<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg>';
+
+  function resetAll() {
+    rows.forEach(r => {
+      r.classList.remove('arch-playing');
+      r.querySelector('.arch-play').innerHTML = PLAY_ICON;
+    });
+  }
+
+  rows.forEach(row => {
+    row.addEventListener('click', () => {
+      const src = row.dataset.src;
+      if (current === row && !audio.paused) {
+        audio.pause();
+        resetAll();
+        current = null;
+        return;
+      }
+      resetAll();
+      current = row;
+      audio.src = src;
+      audio.play();
+      row.classList.add('arch-playing');
+      row.querySelector('.arch-play').innerHTML = PAUSE_ICON;
+    });
+  });
+
+  audio.addEventListener('ended', () => {
+    if (!current) return;
+    const rows_arr = Array.from(rows);
+    const idx = rows_arr.indexOf(current);
+    resetAll();
+    current = null;
+    const next = rows_arr[idx + 1];
+    if (next) next.click();
+  });
 })();
 </script>
 </body>
