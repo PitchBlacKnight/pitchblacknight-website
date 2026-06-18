@@ -1085,14 +1085,9 @@ footer{
     <ul class="nav-links">
       <li><a href="#live" data-section="live" id="nav-live">LIVE</a></li>
       <li><a href="#journal" data-section="journal">DAILY</a></li>
-      <li><a href="#manifesto" data-section="manifesto">ABOUT</a></li>
-      <li><a href="#origin" data-section="origin">ORIGIN</a></li>
-      <li><a href="#professional" data-section="professional">CV</a></li>
-      <li><a href="#services" data-section="services">SERVICES</a></li>
-      <li><a href="#work" data-section="work">WORK</a></li>
-      <li><a href="#art" data-section="art">ART</a></li>
       <li><a href="#music" data-section="music">MUSIC</a></li>
-      <li><a href="#wisdom" data-section="wisdom">WISDOM</a></li>
+      <li><a href="#art" data-section="art">ART</a></li>
+      <li><a href="#manifesto" data-section="manifesto">ABOUT</a></li>
       <li><a href="#contact" data-section="contact">CONTACT</a></li>
     </ul>
     <div class="nav-avail">
@@ -1104,14 +1099,11 @@ footer{
   </div>
 </nav>
 <nav class="nav-mobile" id="nav-mobile">
-  <a href="#manifesto">ABOUT</a>
-  <a href="#origin">ORIGIN</a>
-  <a href="#professional">CV</a>
-  <a href="#services">SERVICES</a>
-  <a href="#work">WORK</a>
-  <a href="#art">ART</a>
+  <a href="#live">LIVE</a>
+  <a href="#journal">DAILY</a>
   <a href="#music">MUSIC</a>
-  <a href="#wisdom">WISDOM</a>
+  <a href="#art">ART</a>
+  <a href="#manifesto">ABOUT</a>
   <a href="#contact">CONTACT</a>
 </nav>
 
@@ -2018,7 +2010,7 @@ const JOURNAL = [
     if(i===0){
       const el=document.createElement('article');
       el.className='jnl-featured'+(e.photo?'':' jnl-no-photo');
-      el.innerHTML=`${photoHTML}<div class="je-text"><div class="je-meta"><span class="je-date">${e.date.toUpperCase()}</span><span class="je-mood">${e.mood}</span></div><h2 class="je-title">${e.title}</h2><p class="je-wisdom">${e.wisdom}</p></div>`;
+      el.innerHTML=`${photoHTML}<div class="je-text"><div class="je-meta"><span class="je-date">${e.date.toUpperCase()}</span><span class="je-mood">${e.mood}</span></div><h2 class="je-title">${e.title}</h2></div>`;
       feed.appendChild(el);
     } else {
       if(i===1){const ul=document.createElement('div');ul.className='jnl-past-list';ul.id='jnl-past-list';feed.appendChild(ul);}
@@ -2026,7 +2018,7 @@ const JOURNAL = [
       if(!past)return;
       const el=document.createElement('article');
       el.className='jnl-past';
-      el.innerHTML=`<div class="je-meta"><span class="je-date">${e.date.toUpperCase()}</span><span class="je-mood">${e.mood}</span></div><div><h3 class="je-title">${e.title}</h3><p class="je-wisdom">${e.wisdom}</p></div>`;
+      el.innerHTML=`<div class="je-meta"><span class="je-date">${e.date.toUpperCase()}</span><span class="je-mood">${e.mood}</span></div><div><h3 class="je-title">${e.title}</h3></div>`;
       past.appendChild(el);
     }
   });
@@ -2291,7 +2283,9 @@ function handleContactSubmit(e){
 
 /* ── DAILY WISDOM CYCLE ─────────────────────────────────── */
 (function initWisdom(){
-  const QUOTES = [
+  // Newest journal wisdom always leads the rotation
+  const journalWisdom = JOURNAL.length && JOURNAL[0].wisdom ? [JOURNAL[0].wisdom] : [];
+  const QUOTES = [...journalWisdom,
     "Perfectionism is often the most elegant form of fear. When it finally breaks — really breaks — what you're left with is just the work, which was always enough.",
     "The most radical act is to be entirely, unapologetically yourself in a world that profits from your self-doubt.",
     "Growth is not construction. It is excavation. You are not building something new — you are uncovering what was always there, set down for safekeeping.",
