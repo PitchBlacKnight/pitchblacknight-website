@@ -644,6 +644,26 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .pw-close:hover{color:var(--white)}
 @media(max-width:520px){.pw-prog-wrap,.pw-time{display:none}}
 
+/* ── LIVE BROADCAST ───────────────────────────────── */
+#live{background:#060606;border-top:1px solid rgba(255,255,255,.07);}
+.live-inner{max-width:960px;margin:0 auto;padding:0 40px;}
+/* offline — compact strip */
+#live-offline{display:flex;align-items:center;gap:20px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.live-sig{display:flex;align-items:center;gap:9px;}
+.live-sig-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);flex-shrink:0;}
+.live-sig-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:rgba(255,255,255,.22);text-transform:uppercase;}
+.live-sig-schedule{font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.06em;}
+/* online — expanded player */
+#live-online{display:none;padding:60px 0 52px;}
+.live-on-sig{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.live-on-dot{width:10px;height:10px;border-radius:50%;background:var(--orange);flex-shrink:0;animation:live-pulse 1.3s ease-in-out infinite;}
+@keyframes live-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.82)}}
+.live-on-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;color:var(--orange);text-transform:uppercase;}
+#live-session-title{font-family:var(--font-display);font-size:clamp(24px,3.5vw,44px);color:var(--white);font-weight:400;margin-bottom:28px;line-height:1.05;}
+.live-frame-wrap{width:100%;aspect-ratio:16/9;background:#0a0a0a;border-radius:2px;overflow:hidden;}
+.live-frame-wrap iframe{width:100%;height:100%;border:none;display:block;}
+@media(max-width:600px){.live-inner{padding:0 24px;}.live-on-sig{margin-bottom:14px;}}
+
 /* ── JOURNAL ──────────────────────────────────────── */
 #journal{padding:96px 40px 80px;background:#060606;border-top:1px solid rgba(255,255,255,.07);}
 .jnl-inner{max-width:960px;margin:0 auto;}
@@ -975,6 +995,7 @@ footer{
       <span class="logo-p">PITCH</span><span class="logo-b">BLAC</span><span class="logo-k">KNIGHT</span>
     </a>
     <ul class="nav-links">
+      <li><a href="#live" data-section="live" id="nav-live">LIVE</a></li>
       <li><a href="#journal" data-section="journal">DAILY</a></li>
       <li><a href="#manifesto" data-section="manifesto">ABOUT</a></li>
       <li><a href="#origin" data-section="origin">ORIGIN</a></li>
@@ -1029,6 +1050,27 @@ footer{
   <div class="hero-scroll">
     <span class="hero-scroll-lbl">SCROLL TO EXPLORE</span>
     <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ LIVE BROADCAST ══ -->
+<section id="live">
+  <div class="live-inner">
+    <div id="live-offline">
+      <div class="live-sig">
+        <span class="live-sig-dot"></span>
+        <span class="live-sig-label">NO SIGNAL</span>
+      </div>
+      <span class="live-sig-schedule">Live broadcast — schedule TBA</span>
+    </div>
+    <div id="live-online">
+      <div class="live-on-sig">
+        <span class="live-on-dot"></span>
+        <span class="live-on-label">ON AIR — LIVE NOW</span>
+      </div>
+      <p id="live-session-title">Live Mix Session</p>
+      <div class="live-frame-wrap" id="live-frame-wrap"></div>
+    </div>
   </div>
 </section>
 
@@ -1819,6 +1861,30 @@ function closeLightbox() { document.getElementById('lightbox').classList.remove(
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
 /* ── MUSIC PLAYER ────────────────────────────────────── */
+/* ── LIVE BROADCAST ───────────────────────────────────── */
+(function initLive(){
+  const STREAM_URL='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/config/stream.json';
+  const offEl=document.getElementById('live-offline');
+  const onEl=document.getElementById('live-online');
+  const titleEl=document.getElementById('live-session-title');
+  const frameEl=document.getElementById('live-frame-wrap');
+  fetch(STREAM_URL+'?t='+Date.now())
+    .then(r=>r.json())
+    .then(cfg=>{
+      if(!cfg.live)return;
+      offEl.style.display='none';
+      onEl.style.display='';
+      if(cfg.title&&titleEl)titleEl.textContent=cfg.title;
+      let src='';
+      if(cfg.platform==='twitch'&&cfg.channel)
+        src=`https://player.twitch.tv/?channel=${encodeURIComponent(cfg.channel)}&parent=pitchblacknight.com&parent=localhost&autoplay=true&muted=false`;
+      else if(cfg.platform==='youtube'&&cfg.video_id)
+        src=`https://www.youtube.com/embed/${encodeURIComponent(cfg.video_id)}?autoplay=1&rel=0`;
+      if(src&&frameEl)frameEl.innerHTML=`<iframe src="${src}" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+    })
+    .catch(()=>{});
+})();
+
 /* ── JOURNAL ──────────────────────────────────────────── */
 /* Add new entries at the TOP of this array — newest first */
 const JOURNAL = [

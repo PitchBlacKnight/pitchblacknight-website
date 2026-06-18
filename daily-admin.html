@@ -361,6 +361,34 @@ body {
       <div class="status-msg" id="status-msg"></div>
     </div>
 
+    <!-- Live Broadcast -->
+    <div class="form-section" id="live-section">
+      <span class="form-section-label">Live Broadcast</span>
+      <div id="live-status-card" style="margin-bottom:16px;padding:14px 16px;border-radius:8px;background:#111;font-family:monospace;font-size:13px;color:#aaa;">Checking…</div>
+      <div class="field" id="live-fields">
+        <label>Platform</label>
+        <select id="live-platform" style="width:100%;padding:10px 12px;background:#111;border:1px solid #333;border-radius:8px;color:#f0f0f0;font-size:15px;">
+          <option value="twitch">Twitch</option>
+          <option value="youtube">YouTube</option>
+        </select>
+      </div>
+      <div class="field" id="live-channel-field">
+        <label>Twitch Channel Name</label>
+        <input type="text" id="live-channel" placeholder="e.g. pitchblacknight">
+      </div>
+      <div class="field" id="live-ytid-field" style="display:none">
+        <label>YouTube Video ID</label>
+        <input type="text" id="live-ytid" placeholder="e.g. dQw4w9WgXcQ">
+      </div>
+      <div class="field">
+        <label>Session Title</label>
+        <input type="text" id="live-title-input" placeholder="Live Mix Session">
+      </div>
+      <button class="submit-btn" id="live-go-btn" onclick="goLive()" style="background:#e8512a;">Go Live</button>
+      <button class="submit-btn" id="live-end-btn" onclick="endLive()" style="display:none;background:#333;">End Broadcast</button>
+      <div class="status-msg" id="live-status-msg"></div>
+    </div>
+
   </div>
 </div>
 
@@ -573,6 +601,91 @@ function uploadWithProgress(file, url, fillEl, onProgress) {
     xhr.send(file);
   });
 }
+
+// ── LIVE BROADCAST ───────────────────────────────────────
+const STREAM_CONFIG_PATH = 'config/stream.json';
+
+document.getElementById('live-platform').addEventListener('change', function(){
+  const isTwitch = this.value === 'twitch';
+  document.getElementById('live-channel-field').style.display = isTwitch ? '' : 'none';
+  document.getElementById('live-ytid-field').style.display    = isTwitch ? 'none' : '';
+  const lbl = document.getElementById('live-channel-field').querySelector('label');
+  if(lbl) lbl.textContent = 'Twitch Channel Name';
+});
+
+async function loadLiveState() {
+  try {
+    const r = await fetch(`${SUPA_URL}/storage/v1/object/public/${STREAM_CONFIG_PATH}?t=` + Date.now());
+    const cfg = await r.json();
+    const card = document.getElementById('live-status-card');
+    const goBtn = document.getElementById('live-go-btn');
+    const endBtn = document.getElementById('live-end-btn');
+    if (cfg.live) {
+      card.style.color = '#e8512a';
+      card.textContent = `● ON AIR — ${cfg.platform === 'twitch' ? 'twitch.tv/' + cfg.channel : 'YouTube ' + cfg.video_id} — "${cfg.title}"`;
+      goBtn.style.display = 'none';
+      endBtn.style.display = '';
+      document.getElementById('live-platform').value = cfg.platform || 'twitch';
+      document.getElementById('live-channel').value  = cfg.channel || '';
+      document.getElementById('live-ytid').value     = cfg.video_id || '';
+      document.getElementById('live-title-input').value = cfg.title || '';
+    } else {
+      card.style.color = '#555';
+      card.textContent = '○ OFFLINE — not broadcasting';
+      goBtn.style.display = '';
+      endBtn.style.display = 'none';
+    }
+  } catch(e) {
+    document.getElementById('live-status-card').textContent = 'Could not load stream state';
+  }
+}
+
+async function putStreamJSON(payload) {
+  const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
+  // Try UPSERT (update existing)
+  const r = await fetch(`${SUPA_URL}/storage/v1/object/${STREAM_CONFIG_PATH}`, {
+    method: 'PUT',
+    headers: {'Authorization': 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json', 'x-upsert': 'true'},
+    body: blob
+  });
+  if(!r.ok) throw new Error('Upload failed: ' + r.status);
+}
+
+async function goLive() {
+  const platform = document.getElementById('live-platform').value;
+  const channel  = document.getElementById('live-channel').value.trim();
+  const ytid     = document.getElementById('live-ytid').value.trim();
+  const title    = document.getElementById('live-title-input').value.trim() || 'Live Mix Session';
+  const msg      = document.getElementById('live-status-msg');
+  if(platform === 'twitch' && !channel) { msg.textContent = 'Enter your Twitch channel name.'; return; }
+  if(platform === 'youtube' && !ytid)   { msg.textContent = 'Enter the YouTube Video ID.'; return; }
+  msg.textContent = 'Going live…';
+  try {
+    await putStreamJSON({live:true, platform, channel, video_id:ytid, title});
+    msg.textContent = '● You are live!';
+    loadLiveState();
+  } catch(e) { msg.textContent = 'Error: ' + e.message; }
+}
+
+async function endLive() {
+  const msg = document.getElementById('live-status-msg');
+  msg.textContent = 'Ending broadcast…';
+  try {
+    const r = await fetch(`${SUPA_URL}/storage/v1/object/public/${STREAM_CONFIG_PATH}?t=` + Date.now());
+    const cfg = await r.json();
+    await putStreamJSON({...cfg, live:false});
+    msg.textContent = 'Broadcast ended.';
+    loadLiveState();
+  } catch(e) { msg.textContent = 'Error: ' + e.message; }
+}
+
+// Load live state when admin screen opens
+const _origShowAdmin = showAdmin;
+showAdmin = async function(){
+  await _origShowAdmin();
+  loadLiveState();
+};
+if(sessionStorage.getItem('pbk-admin')) loadLiveState();
 </script>
 </body>
 </html>
