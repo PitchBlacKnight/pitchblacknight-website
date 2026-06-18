@@ -1780,6 +1780,20 @@ function closeLightbox() { document.getElementById('lightbox').classList.remove(
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
 /* ── MUSIC PLAYER ────────────────────────────────────── */
+/* ── MEDIA SESSION — shared by music + archives players ── */
+function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
+  if(!('mediaSession' in navigator))return;
+  navigator.mediaSession.metadata=new MediaMetadata({title:title,artist:'PitchBlacKnight',album:albumName||'Original Works'});
+  navigator.mediaSession.setActionHandler('play',()=>audioEl.play().catch(()=>{}));
+  navigator.mediaSession.setActionHandler('pause',()=>audioEl.pause());
+  navigator.mediaSession.setActionHandler('stop',()=>{audioEl.pause();audioEl.currentTime=0;});
+  navigator.mediaSession.setActionHandler('previoustrack',onPrev||null);
+  navigator.mediaSession.setActionHandler('nexttrack',onNext||null);
+  try{navigator.mediaSession.setActionHandler('seekbackward',(d)=>{audioEl.currentTime=Math.max(0,audioEl.currentTime-(d.seekOffset||15));});}catch(e){}
+  try{navigator.mediaSession.setActionHandler('seekforward',(d)=>{audioEl.currentTime=Math.min(audioEl.duration||0,audioEl.currentTime+(d.seekOffset||15));});}catch(e){}
+  try{navigator.mediaSession.setActionHandler('seekto',(d)=>{if(d.seekTime!=null)audioEl.currentTime=d.seekTime;});}catch(e){}
+}
+
 (function initMusicPlayer() {
   const ALL_TRACKS = [
     'you-have-a-wanting-alan','building-short-wave',
@@ -1803,12 +1817,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     ctrlPlayIcon=document.getElementById('ctrl-play-icon'),ctrlPrev=document.getElementById('ctrl-prev'),
     ctrlNext=document.getElementById('ctrl-next'),featuredBtn=document.getElementById('featured-play-btn');
   const PLAY_PATH='M0 0l12 7-12 7z',PAUSE_PATH='M0 0h4v14H0zM8 0h4v14H8z';
-  let analyser=null;
-  function initAudioCtx(){
-    if(analyser)return;const ctx=new(window.AudioContext||window.webkitAudioContext)();
-    analyser=ctx.createAnalyser();analyser.fftSize=256;analyser.smoothingTimeConstant=.82;
-    ctx.createMediaElementSource(audio).connect(analyser);analyser.connect(ctx.destination);
-  }
   function fmtTime(s){if(!isFinite(s))return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
   function setPlayIcon(p){ctrlPlayIcon.setAttribute('d',p?PAUSE_PATH:PLAY_PATH);ctrlPlay.classList.toggle('playing',p)}
   function deactivate(e){if(e)e.classList.remove('active','paused')}
@@ -1823,11 +1831,14 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     currentTrackIndex=idx;const slug=ALL_TRACKS[idx],title=slugToTitle(slug);
     const entry=container.querySelector(`[data-slug="${slug}"]`);
     deactivate(activeEntry);activeEntry=entry||null;if(entry)entry.classList.add('active');
-    initAudioCtx();setPlayerGif();
+    setPlayerGif();
     audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/'+slug+'.mp3';
     audio.load();audio.play().catch(e=>console.warn('Playback blocked:',e.message));
     playerTitle.textContent=title;playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-    updateMediaSession(title);activateWidget(title);
+    updateMediaSession(title,'Original Works',audio,
+      ()=>playTrackByIndex(Math.max(0,currentTrackIndex-1)),
+      ()=>playTrackByIndex(Math.min(ALL_TRACKS.length-1,currentTrackIndex+1))
+    );activateWidget(title);
   }
   function handleTrackClick(entry,slug){
     if(activeEntry===entry){
@@ -1836,11 +1847,14 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     }else{
       const title=slugToTitle(slug);
       currentTrackIndex=ALL_TRACKS.indexOf(slug);deactivate(activeEntry);
-      activeEntry=entry;entry.classList.add('active');initAudioCtx();
+      activeEntry=entry;entry.classList.add('active');
       audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/'+slug+'.mp3';
       audio.load();audio.play().catch(e=>{console.warn(e.message);entry.classList.remove('active');activeEntry=null;currentTrackIndex=-1});
       playerTitle.textContent=title;playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-      updateMediaSession(title);activateWidget(title);
+      updateMediaSession(title,'Original Works',audio,
+      ()=>playTrackByIndex(Math.max(0,currentTrackIndex-1)),
+      ()=>playTrackByIndex(Math.min(ALL_TRACKS.length-1,currentTrackIndex+1))
+    );activateWidget(title);
     }
   }
   ctrlPlay.addEventListener('click',()=>{
@@ -1862,11 +1876,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   featuredGifEl.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/art/'+encodeURIComponent(pickGif());
   setPlayerGif();
   featuredBtn.addEventListener('click',()=>{
-    initAudioCtx();
     audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/for-jon.mp3';
     audio.load();audio.play().catch(e=>console.warn('Playback blocked:',e.message));
     playerTitle.textContent='For Jon';playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-    updateMediaSession('For Jon');
+    updateMediaSession('For Jon','Original Works',audio,null,
+      ()=>playTrackByIndex(0)
+    );
     setPlayerGif();activateWidget('For Jon');
   });
   playerProgress.addEventListener('click',e=>{
@@ -1889,36 +1904,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     else{currentTrackIndex=-1;setPlayIcon(false)}
   });
 
-  /* ── MEDIA SESSION (lock-screen / background playback) ── */
-  function updateMediaSession(title){
-    if(!('mediaSession' in navigator))return;
-    navigator.mediaSession.metadata=new MediaMetadata({
-      title:title,
-      artist:'PitchBlacKnight',
-      album:'Original Works',
-      artwork:[{src:'/https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/art/Orbit%20Wave.gif',sizes:'512x512',type:'image/gif'}]
-    });
-    navigator.mediaSession.setActionHandler('play',()=>{
-      audio.play().catch(()=>{});
-      if(activeEntry)activeEntry.classList.remove('paused');
-    });
-    navigator.mediaSession.setActionHandler('pause',()=>{
-      audio.pause();
-      if(activeEntry)activeEntry.classList.add('paused');
-    });
-    navigator.mediaSession.setActionHandler('previoustrack',()=>playTrackByIndex(Math.max(0,currentTrackIndex-1)));
-    navigator.mediaSession.setActionHandler('nexttrack',()=>playTrackByIndex(Math.min(ALL_TRACKS.length-1,currentTrackIndex+1)));
-    try{
-      navigator.mediaSession.setActionHandler('seekto',(d)=>{if(d.seekTime!=null)audio.currentTime=d.seekTime;});
-    }catch(e){}
-  }
-
-  /* Keep AudioContext alive when returning from background */
-  document.addEventListener('visibilitychange',()=>{
-    if(!document.hidden&&analyser&&analyser.context.state==='suspended'){
-      analyser.context.resume().catch(()=>{});
-    }
-  });
+  /* updateMediaSession defined globally above */
 
   function fmtTime(s){if(!isFinite(s)||s<0)return'—';const m=Math.floor(s/60);return m+':'+String(Math.floor(s%60)).padStart(2,'0');}
   function buildTrackRow(slug,idx){
@@ -2119,6 +2105,10 @@ function handleContactSubmit(e){
     if(window.PBK) window.PBK.activate(audio,title,'ARCHIVES',
       ()=>{if(idx>0)playRow(rows[idx-1]);},
       ()=>{if(idx<rows.length-1)playRow(rows[idx+1]);}
+    );
+    updateMediaSession(title,'The Archives',audio,
+      idx>0?()=>playRow(rows[idx-1]):null,
+      idx<rows.length-1?()=>playRow(rows[idx+1]):null
     );
   }
   rows.forEach(row=>{
