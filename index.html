@@ -1016,9 +1016,9 @@ footer{
       <img id="featured-gif" src="" alt="" class="mf-gif">
       <div class="mf-info">
         <span class="mf-badge">★ FEATURED TRACK</span>
-        <span class="mf-title">For Jon</span>
+        <span class="mf-title">Never Thought I Could</span>
       </div>
-      <button class="mf-play" id="featured-play-btn" title="Play For Jon">
+      <button class="mf-play" id="featured-play-btn" title="Play Never Thought I Could">
         <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M0 0l12 7-12 7z"/></svg>
       </button>
     </div>
@@ -1876,13 +1876,13 @@ function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
   featuredGifEl.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/art/'+encodeURIComponent(pickGif());
   setPlayerGif();
   featuredBtn.addEventListener('click',()=>{
-    audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/for-jon.mp3';
+    audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/never-thought-i-could.mp3';
     audio.load();audio.play().catch(e=>console.warn('Playback blocked:',e.message));
-    playerTitle.textContent='For Jon';playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-    updateMediaSession('For Jon','Original Works',audio,null,
+    playerTitle.textContent='Never Thought I Could';playerSub.textContent='Live improvisation · Single take · Unrepeatable';
+    updateMediaSession('Never Thought I Could','Original Works',audio,null,
       ()=>playTrackByIndex(0)
     );
-    setPlayerGif();activateWidget('For Jon');
+    setPlayerGif();activateWidget('Never Thought I Could');
   });
   playerProgress.addEventListener('click',e=>{
     if(!audio.duration)return;const rect=playerProgress.getBoundingClientRect();
