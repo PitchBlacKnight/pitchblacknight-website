@@ -1098,10 +1098,10 @@ footer{
       <img id="featured-gif" src="" alt="" class="mf-gif">
       <div class="mf-info">
         <span class="mf-badge">★ FEATURED TRACK</span>
-        <span class="mf-title">Fast Evening</span>
+        <span class="mf-title">Experimental 205 BPM — Not For Everyone</span>
         <span class="mf-note">This one goes fast — strange to most. Try it in headphones. It makes a whirlwind of visuals in the internal world's landscape. Grab on to the shiny, bright sounds. It won't be for everyone. Listen with an open mind.</span>
       </div>
-      <button class="mf-play" id="featured-play-btn" title="Play Fast Evening">
+      <button class="mf-play" id="featured-play-btn" title="Play Experimental 205 BPM — Not For Everyone">
         <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M0 0l12 7-12 7z"/></svg>
       </button>
     </div>
@@ -1948,7 +1948,8 @@ function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
     'speed-trip','tell-me-when-it-kicks-in','the-effect-you-have-on-others',
     'when-you-leave','dracula-grind-and-bump'
   ];
-  function slugToTitle(s){return s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}
+  const TRACK_TITLES={'fast-evening':'Experimental 205 BPM — Not For Everyone'};
+  function slugToTitle(s){return TRACK_TITLES[s]||s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}
   const CHUNK=12;let loaded=0,activeEntry=null,currentTrackIndex=-1;
   const audio=document.getElementById('ap'),container=document.getElementById('music-tracks'),
     loadMoreBtn=document.getElementById('load-more-btn'),playerTitle=document.getElementById('player-title'),
@@ -2019,11 +2020,11 @@ function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
   featuredBtn.addEventListener('click',()=>{
     audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/fast-evening.mp3';
     audio.load();audio.play().catch(e=>console.warn('Playback blocked:',e.message));
-    playerTitle.textContent='Fast Evening';playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-    updateMediaSession('Fast Evening','Original Works',audio,null,
+    playerTitle.textContent='Experimental 205 BPM — Not For Everyone';playerSub.textContent='Live improvisation · Single take · Unrepeatable';
+    updateMediaSession('Experimental 205 BPM — Not For Everyone','Original Works',audio,null,
       ()=>playTrackByIndex(0)
     );
-    setPlayerGif();activateWidget('Fast Evening');
+    setPlayerGif();activateWidget('Experimental 205 BPM — Not For Everyone');
   });
   playerProgress.addEventListener('click',e=>{
     if(!audio.duration)return;const rect=playerProgress.getBoundingClientRect();
