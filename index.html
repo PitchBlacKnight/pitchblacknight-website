@@ -622,29 +622,115 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .mte-dur{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);min-width:34px;text-align:right}
 .arch-dur{font-family:var(--font-mono);font-size:11px;color:rgba(6,6,6,.4);min-width:42px;text-align:right}
 /* ── FLOATING WIDGET ── */
-#pbk-widget{
-  position:fixed;bottom:0;left:0;right:0;z-index:9999;
-  background:rgba(6,6,6,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-top:1px solid rgba(255,255,255,.07);
-  height:56px;display:flex;align-items:center;gap:12px;padding:0 20px;
-  transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+/* ── AUDIO ORB ──────────────────────────────────────── */
+#pbk-orb{
+  position:fixed;bottom:28px;right:28px;width:80px;height:80px;
+  z-index:9999;user-select:none;touch-action:none;
+  opacity:0;pointer-events:none;transition:opacity .4s ease;
 }
-#pbk-widget.w-on{transform:translateY(0)}
-.pw-track{flex:1;min-width:0;overflow:hidden}
-.pw-source{font-size:9px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase;font-family:'Space Mono',monospace;display:block;line-height:1}
-.pw-title{font-size:13px;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:2px}
-.pw-controls{display:flex;align-items:center;gap:2px;flex-shrink:0}
-.pw-btn{background:none;border:none;color:rgba(255,255,255,.32);cursor:pointer;padding:6px;transition:color .15s;display:flex;align-items:center;justify-content:center}
-.pw-btn:hover{color:var(--white)}
-.pw-btn-play{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18)!important;color:rgba(255,255,255,.8)!important;flex-shrink:0}
-.pw-btn-play.w-playing{border-color:var(--orange)!important;color:var(--orange)!important}
-.pw-skip-txt{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.02em}
-.pw-prog-wrap{flex:0 0 110px;height:2px;background:rgba(255,255,255,.1);cursor:pointer;position:relative;border-radius:1px;align-self:center}
-.pw-prog-fill{position:absolute;left:0;top:0;height:100%;background:var(--orange);width:0;border-radius:1px;pointer-events:none}
-.pw-time{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);white-space:nowrap;flex-shrink:0}
-.pw-close{background:none;border:none;color:rgba(255,255,255,.22);cursor:pointer;font-size:15px;padding:4px;margin-left:2px;line-height:1;transition:color .15s;flex-shrink:0}
-.pw-close:hover{color:var(--white)}
-@media(max-width:520px){.pw-prog-wrap,.pw-time{display:none}}
+#pbk-orb.orb-on{opacity:1;pointer-events:auto;}
+#pbk-orb.orb-grab,.orb-scrubbing{cursor:grabbing!important;}
+.orb-bg{
+  position:absolute;top:5px;left:5px;width:70px;height:70px;
+  border-radius:50%;background:rgba(6,6,6,.96);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.08);transition:border-color .4s;
+}
+#pbk-orb.orb-playing .orb-bg{border-color:rgba(232,81,42,.45);}
+@keyframes orb-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(232,81,42,.4);}
+  55%{box-shadow:0 0 0 12px rgba(232,81,42,0);}
+}
+#pbk-orb.orb-playing .orb-bg{animation:orb-pulse 2.4s ease-in-out infinite;}
+.orb-svg{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  transform:rotate(-90deg);pointer-events:none;
+}
+.orb-ring-bg{fill:none;stroke:rgba(255,255,255,.07);stroke-width:3.5;}
+.orb-ring-fill{
+  fill:none;stroke:var(--orange);stroke-width:3.5;stroke-linecap:round;
+  stroke-dasharray:213.6;stroke-dashoffset:213.6;
+  transition:stroke-dashoffset .18s linear;
+}
+.orb-seek-layer{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  border-radius:50%;z-index:2;cursor:crosshair;
+}
+#orb-play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:60px;height:60px;border-radius:50%;background:none;border:none;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:rgba(240,240,240,.82);z-index:3;transition:color .2s;
+}
+#orb-play-btn:hover{color:var(--orange);}
+.orb-panel{
+  position:absolute;right:92px;bottom:0;top:auto;
+  transform:translateX(10px);
+  background:rgba(6,6,6,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.09);border-radius:3px;
+  padding:16px 18px;width:248px;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s ease,transform .22s ease;
+}
+#pbk-orb:hover .orb-panel,
+#pbk-orb.orb-panel-open .orb-panel{
+  opacity:1;pointer-events:auto;
+  transform:translateX(0);
+}
+.orb-p-src{
+  font-family:var(--font-mono);font-size:8px;letter-spacing:.22em;
+  color:var(--orange);display:block;margin-bottom:6px;
+}
+.orb-p-title{
+  font-family:var(--font-body);font-size:13px;color:var(--white);
+  display:block;margin-bottom:5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.orb-p-time{
+  font-family:var(--font-mono);font-size:9px;color:rgba(240,240,240,.32);
+  display:block;margin-bottom:11px;
+}
+.orb-scrub{
+  width:100%;height:3px;background:rgba(255,255,255,.1);
+  border-radius:2px;cursor:pointer;position:relative;margin-bottom:13px;
+}
+.orb-scrub-fill{
+  position:absolute;left:0;top:0;height:100%;
+  background:var(--orange);border-radius:2px;pointer-events:none;width:0;
+  transition:width .12s linear;
+}
+.orb-scrub-handle{
+  position:absolute;top:50%;width:10px;height:10px;border-radius:50%;
+  background:var(--orange);transform:translate(-50%,-50%);
+  pointer-events:none;opacity:0;transition:opacity .15s;left:0;
+}
+.orb-scrub:hover .orb-scrub-handle{opacity:1;}
+.orb-ctrl-row{display:flex;gap:5px;}
+.orb-ctl{
+  flex:1;background:none;border:1px solid rgba(255,255,255,.1);
+  color:rgba(240,240,240,.45);font-family:var(--font-mono);font-size:8px;
+  letter-spacing:.08em;padding:6px 0;border-radius:2px;cursor:pointer;
+  transition:color .15s,border-color .15s;text-align:center;
+}
+.orb-ctl:hover{color:var(--white);border-color:rgba(255,255,255,.35);}
+.orb-dismiss{
+  display:block;width:100%;margin-top:11px;padding:4px 0;
+  background:none;border:none;color:rgba(255,255,255,.15);
+  font-family:var(--font-mono);font-size:8px;letter-spacing:.16em;
+  cursor:pointer;text-align:center;transition:color .2s;
+}
+.orb-dismiss:hover{color:rgba(255,255,255,.5);}
+@media(max-width:520px){
+  #pbk-orb{bottom:20px;right:20px;}
+  .orb-panel{
+    right:auto;left:0;bottom:92px;top:auto;
+    transform:translateY(6px)!important;
+    width:calc(100vw - 40px);max-width:280px;
+  }
+  #pbk-orb:hover .orb-panel,#pbk-orb.orb-panel-open .orb-panel{
+    transform:translateY(0)!important;
+  }
+}
 
 /* ── LIVE BROADCAST ───────────────────────────────── */
 #live{background:#060606;border-top:1px solid rgba(255,255,255,.07);}
@@ -1763,6 +1849,36 @@ footer{
   </div>
 </footer>
 
+<div id="pbk-orb">
+  <div class="orb-bg"></div>
+  <svg class="orb-svg" viewBox="0 0 80 80">
+    <circle class="orb-ring-bg" cx="40" cy="40" r="34"/>
+    <circle class="orb-ring-fill" id="orb-ring" cx="40" cy="40" r="34"/>
+  </svg>
+  <div class="orb-seek-layer" id="orb-seek-layer"></div>
+  <button id="orb-play-btn" title="Play / Pause">
+    <svg width="14" height="16" viewBox="0 0 12 14" fill="currentColor">
+      <path id="orb-icon" d="M1 0l10 7-10 7z"/>
+    </svg>
+  </button>
+  <div class="orb-panel">
+    <span class="orb-p-src" id="orb-src">—</span>
+    <span class="orb-p-title" id="orb-ttl">—</span>
+    <span class="orb-p-time" id="orb-time">0:00 / —</span>
+    <div class="orb-scrub" id="orb-scrub">
+      <div class="orb-scrub-fill" id="orb-sf"></div>
+      <div class="orb-scrub-handle" id="orb-handle"></div>
+    </div>
+    <div class="orb-ctrl-row">
+      <button class="orb-ctl" id="orb-prev">◂ PREV</button>
+      <button class="orb-ctl" id="orb-back">−30s</button>
+      <button class="orb-ctl" id="orb-fwd">+30s</button>
+      <button class="orb-ctl" id="orb-next">NEXT ▸</button>
+    </div>
+    <button class="orb-dismiss" id="orb-dismiss">✕ &nbsp; STOP &amp; DISMISS</button>
+  </div>
+</div>
+
 <script>
 /* ── LOADER ──────────────────────────────────────────── */
 window.addEventListener('load', () => {
@@ -2303,64 +2419,118 @@ function handleContactSubmit(e){
   audio.addEventListener('play',()=>{if(curRow){curRow.classList.add('arch-playing');curRow.querySelector('.arch-play').innerHTML=PAUSE_ICON;}});
 })();
 
-/* ── FLOATING WIDGET ────────────────────────────────── */
-(function initWidget(){
-  const widget=document.getElementById('pbk-widget');if(!widget)return;
-  const pwTitle=document.getElementById('pw-title'),pwSource=document.getElementById('pw-source');
-  const pwPlay=document.getElementById('pw-play'),pwPlayIcon=document.getElementById('pw-play-icon');
-  const pwPrev=document.getElementById('pw-prev'),pwNext=document.getElementById('pw-next');
-  const pwBack=document.getElementById('pw-back'),pwFwd=document.getElementById('pw-fwd');
-  const pwFill=document.getElementById('pw-prog-fill'),pwWrap=document.getElementById('pw-prog-wrap');
-  const pwTime=document.getElementById('pw-time'),pwClose=document.getElementById('pw-close');
-  const PLAY_D='M0 0l10 6-10 6z',PAUSE_D='M0 0h3v12H0zM7 0h3v12H7z';
+/* ── AUDIO ORB ───────────────────────────────────────── */
+(function initOrb(){
+  const orb=document.getElementById('pbk-orb');if(!orb)return;
+  const orbRing=document.getElementById('orb-ring');
+  const orbIcon=document.getElementById('orb-icon');
+  const orbSeek=document.getElementById('orb-seek-layer');
+  const orbPlayBtn=document.getElementById('orb-play-btn');
+  const orbSrc=document.getElementById('orb-src');
+  const orbTtl=document.getElementById('orb-ttl');
+  const orbTime=document.getElementById('orb-time');
+  const orbScrub=document.getElementById('orb-scrub');
+  const orbSf=document.getElementById('orb-sf');
+  const orbHandle=document.getElementById('orb-handle');
+  const orbPrev=document.getElementById('orb-prev');
+  const orbNext=document.getElementById('orb-next');
+  const orbBack=document.getElementById('orb-back');
+  const orbFwd=document.getElementById('orb-fwd');
+  const orbDismiss=document.getElementById('orb-dismiss');
+  const CIRC=213.6;
+  const PLAY_D='M1 0l10 7-10 7z',PAUSE_D='M1 0h4v14H1zM7 0h4v14H7z';
   function fmt(s){if(!isFinite(s)||s<0)return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
-  window.PBK={
-    audio:null,_onPrev:null,_onNext:null,
-    activate(audioEl,title,source,onPrev,onNext){
-      if(this.audio&&this.audio!==audioEl)this.audio.pause();
-      this.audio=audioEl;this._onPrev=onPrev;this._onNext=onNext;
-      pwTitle.textContent=title;pwSource.textContent=source;
-      widget.classList.add('w-on');this._sync();
-    },
-    updateTitle(t){pwTitle.textContent=t;},
-    _sync(){if(!this.audio)return;const p=!this.audio.paused;pwPlayIcon.setAttribute('d',p?PAUSE_D:PLAY_D);pwPlay.classList.toggle('w-playing',p);}
-  };
-  pwPlay.addEventListener('click',()=>{const a=window.PBK.audio;if(!a)return;a.paused?a.play().catch(()=>{}):a.pause();});
-  pwPrev.addEventListener('click',()=>{if(window.PBK._onPrev)window.PBK._onPrev();});
-  pwNext.addEventListener('click',()=>{if(window.PBK._onNext)window.PBK._onNext();});
-  pwBack.addEventListener('click',()=>{const a=window.PBK.audio;if(a)a.currentTime=Math.max(0,a.currentTime-15);});
-  pwFwd.addEventListener('click',()=>{const a=window.PBK.audio;if(a&&a.duration)a.currentTime=Math.min(a.duration,a.currentTime+15);});
-  pwClose.addEventListener('click',()=>{const a=window.PBK.audio;if(a)a.pause();widget.classList.remove('w-on');});
-  pwWrap.addEventListener('click',e=>{const a=window.PBK.audio;if(!a||!a.duration)return;const r=pwWrap.getBoundingClientRect();a.currentTime=((e.clientX-r.left)/r.width)*a.duration;});
+
+  /* — drag — */
+  let dragging=false,dox=0,doy=0,sx=0,sy=0;
+  orb.addEventListener('pointerdown',e=>{
+    if(e.target.closest('#orb-play-btn,.orb-panel'))return;
+    const r=orb.getBoundingClientRect();
+    if(!orb.style.left){orb.style.right='';orb.style.bottom='';orb.style.left=r.left+'px';orb.style.top=r.top+'px';}
+    sx=e.clientX;sy=e.clientY;dox=e.clientX-r.left;doy=e.clientY-r.top;
+    dragging=false;orb.setPointerCapture(e.pointerId);
+  });
+  orb.addEventListener('pointermove',e=>{
+    if(!orb.hasPointerCapture(e.pointerId))return;
+    if(!dragging&&(Math.abs(e.clientX-sx)>5||Math.abs(e.clientY-sy)>5)){dragging=true;orb.classList.add('orb-grab');}
+    if(!dragging)return;
+    orb.style.left=Math.max(0,Math.min(window.innerWidth-80,e.clientX-dox))+'px';
+    orb.style.top=Math.max(0,Math.min(window.innerHeight-80,e.clientY-doy))+'px';
+  });
+  orb.addEventListener('pointerup',()=>{orb.classList.remove('orb-grab');dragging=false;});
+
+  /* — ring seek — */
+  orbSeek.addEventListener('click',e=>{
+    if(dragging)return;
+    const a=window.PBK.audio;if(!a||!a.duration)return;
+    const r=orbSeek.getBoundingClientRect();
+    const cx=r.left+r.width/2,cy=r.top+r.height/2;
+    const dist=Math.hypot(e.clientX-cx,e.clientY-cy);
+    if(dist<24)return; // center = play button, skip
+    let ang=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI+90;
+    if(ang<0)ang+=360;
+    a.currentTime=(ang/360)*a.duration;
+  });
+
+  /* — scrub bar — */
+  let scrubActive=false;
+  function applyScrub(e){
+    const a=window.PBK.audio;if(!a||!a.duration)return;
+    const r=orbScrub.getBoundingClientRect();
+    const pct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+    a.currentTime=pct*a.duration;
+    orbSf.style.width=(pct*100)+'%';
+    if(orbHandle)orbHandle.style.left=(pct*100)+'%';
+  }
+  orbScrub.addEventListener('mousedown',e=>{scrubActive=true;document.body.classList.add('orb-scrubbing');applyScrub(e);e.preventDefault();});
+  orbScrub.addEventListener('click',applyScrub);
+  document.addEventListener('mousemove',e=>{if(scrubActive)applyScrub(e);});
+  document.addEventListener('mouseup',()=>{if(scrubActive){scrubActive=false;document.body.classList.remove('orb-scrubbing');}});
+
+  /* — play/pause — */
+  orbPlayBtn.addEventListener('click',()=>{const a=window.PBK.audio;if(!a)return;a.paused?a.play().catch(()=>{}):a.pause();});
+
+  /* — skip controls — */
+  orbPrev.addEventListener('click',()=>{if(window.PBK._onPrev)window.PBK._onPrev();});
+  orbNext.addEventListener('click',()=>{if(window.PBK._onNext)window.PBK._onNext();});
+  orbBack.addEventListener('click',()=>{const a=window.PBK.audio;if(a)a.currentTime=Math.max(0,a.currentTime-30);});
+  orbFwd.addEventListener('click',()=>{const a=window.PBK.audio;if(a&&a.duration)a.currentTime=Math.min(a.duration,a.currentTime+30);});
+  orbDismiss.addEventListener('click',()=>{const a=window.PBK.audio;if(a)a.pause();orb.classList.remove('orb-on','orb-playing');});
+
+  /* — time sync — */
   ['ap','arch-audio'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     el.addEventListener('play',()=>{if(window.PBK.audio===el)window.PBK._sync();});
     el.addEventListener('pause',()=>{if(window.PBK.audio===el)window.PBK._sync();});
     el.addEventListener('timeupdate',()=>{
-      if(window.PBK.audio!==el)return;
-      const pct=el.duration?el.currentTime/el.duration*100:0;
-      pwFill.style.width=pct+'%';
-      pwTime.textContent=fmt(el.currentTime)+' / '+fmt(el.duration);
+      if(window.PBK.audio!==el||scrubActive)return;
+      const pct=el.duration?el.currentTime/el.duration:0;
+      orbRing.style.strokeDashoffset=CIRC*(1-pct);
+      orbSf.style.width=(pct*100)+'%';
+      if(orbHandle)orbHandle.style.left=(pct*100)+'%';
+      orbTime.textContent=fmt(el.currentTime)+' / '+fmt(el.duration);
     });
   });
+
+  /* — PBK interface — */
+  window.PBK={
+    audio:null,_onPrev:null,_onNext:null,
+    activate(audioEl,title,source,onPrev,onNext){
+      if(this.audio&&this.audio!==audioEl)this.audio.pause();
+      this.audio=audioEl;this._onPrev=onPrev;this._onNext=onNext;
+      orbSrc.textContent=source;orbTtl.textContent=title;
+      orbTime.textContent='0:00 / —';orbRing.style.strokeDashoffset=CIRC;
+      orbSf.style.width='0';if(orbHandle)orbHandle.style.left='0';
+      orb.classList.add('orb-on');this._sync();
+    },
+    _sync(){
+      if(!this.audio)return;
+      const p=!this.audio.paused;
+      orbIcon.setAttribute('d',p?PAUSE_D:PLAY_D);
+      orb.classList.toggle('orb-playing',p);
+    }
+  };
 })();
 </script>
-
-<div id="pbk-widget">
-  <div class="pw-track">
-    <span class="pw-source" id="pw-source">PLAYING</span>
-    <span class="pw-title" id="pw-title">—</span>
-  </div>
-  <div class="pw-controls">
-    <button class="pw-btn" id="pw-prev" title="Previous"><svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor"><rect x="0" y="0" width="2" height="12"/><path d="M12 0L3 6l9 6z"/></svg></button>
-    <button class="pw-btn" id="pw-back" title="Back 15s"><span class="pw-skip-txt">−15</span></button>
-    <button class="pw-btn pw-btn-play" id="pw-play" title="Play / Pause"><svg id="pw-play-icon" width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
-    <button class="pw-btn" id="pw-fwd" title="Forward 15s"><span class="pw-skip-txt">+15</span></button>
-    <button class="pw-btn" id="pw-next" title="Next"><svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor"><rect x="12" y="0" width="2" height="12"/><path d="M2 0l9 6-9 6z"/></svg></button>
-  </div>
-  <div class="pw-prog-wrap" id="pw-prog-wrap"><div class="pw-prog-fill" id="pw-prog-fill"></div></div>
-  <span class="pw-time" id="pw-time">0:00 / 0:00</span>
-  <button class="pw-close" id="pw-close" title="Dismiss">✕</button>
-</div>
 </body>
 </html>
