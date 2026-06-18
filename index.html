@@ -720,13 +720,6 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .music-track-entry.active .mte-title{color:var(--orange)}
 .mte-tag{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .mte-dots{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted)}
-.exp-drawer{margin-top:32px;border-top:1px solid rgba(255,255,255,.05);}
-.exp-toggle{background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.18);padding:16px 0;width:100%;text-align:center;transition:color .2s;}
-.exp-toggle:hover{color:rgba(255,255,255,.38);}
-.exp-list{display:none;padding-bottom:8px;}
-.exp-list.exp-open{display:block;}
-.exp-list .music-track-entry .mte-title{color:rgba(240,240,240,.5);}
-.exp-list .music-track-entry:hover .mte-title{color:var(--white);}
 .load-more-btn{
   display:block;width:100%;padding:16px;text-align:center;
   font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;
@@ -1145,10 +1138,6 @@ footer{
       <div>
         <div class="music-track-list" id="music-tracks"></div>
         <button class="load-more-btn" id="load-more-btn">LOAD 12 MORE ↓</button>
-        <div class="exp-drawer" id="exp-drawer">
-          <button class="exp-toggle" id="exp-toggle" onclick="document.getElementById('exp-list').classList.toggle('exp-open')">∙ ∙ ∙ &nbsp; experimental playtapes &nbsp; ∙ ∙ ∙</button>
-          <div class="exp-list" id="exp-list"></div>
-        </div>
         <audio id="ap" crossorigin="anonymous" playsinline></audio>
       </div>
     </div>
@@ -1958,11 +1947,7 @@ function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
     'speed-trip','tell-me-when-it-kicks-in','the-effect-you-have-on-others',
     'when-you-leave','dracula-grind-and-bump'
   ];
-  const EXPERIMENTAL_TRACKS=[
-    {slug:'fast-evening',title:'Experimental 205 BPM — Not For Everyone'}
-  ];
-  const TRACK_TITLES={'fast-evening':'Experimental 205 BPM — Not For Everyone'};
-  function slugToTitle(s){return TRACK_TITLES[s]||s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}
+  function slugToTitle(s){return s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}
   const CHUNK=12;let loaded=0,activeEntry=null,currentTrackIndex=-1;
   const audio=document.getElementById('ap'),container=document.getElementById('music-tracks'),
     loadMoreBtn=document.getElementById('load-more-btn'),playerTitle=document.getElementById('player-title'),
@@ -2077,12 +2062,6 @@ function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
     loaded=end;if(loaded>=ALL_TRACKS.length)loadMoreBtn.classList.add('hidden');
   }
   loadMoreBtn.addEventListener('click',loadChunk);loadChunk();
-  // render experimental tracks
-  const expList=document.getElementById('exp-list');
-  if(expList) EXPERIMENTAL_TRACKS.forEach((t,i)=>{
-    const row=buildTrackRow(t.slug, ALL_TRACKS.length+i);
-    expList.appendChild(row);
-  });
 })();
 
 /* ── CONTACT ─────────────────────────────────────────── */
