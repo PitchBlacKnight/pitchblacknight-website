@@ -546,7 +546,8 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .mf-info{display:flex;flex-direction:column;gap:4px;flex:1}
 
 /* ── ARCHIVES BANNER ── */
-#archives{background:#e8512a;padding:80px 40px}
+#archives{background:#e8512a;padding:80px 40px;position:relative;overflow:hidden}
+#arch-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.13;}
 .arch-inner{max-width:var(--max);margin:0 auto}
 .arch-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(6,6,6,.55);margin-bottom:20px;display:block}
 .arch-title{font-family:var(--font-display);font-size:clamp(52px,9vw,96px);line-height:.9;color:#060606;margin-bottom:8px}
@@ -1146,6 +1147,7 @@ footer{
 
 <!-- ══ ARCHIVES ══ -->
 <section id="archives">
+  <canvas id="arch-canvas"></canvas>
   <div class="arch-inner">
     <span class="arch-eyebrow">PitchBlacKnight · Original Mixtapes · 2013 – 2014</span>
     <div class="arch-title">THE<br>ARCHIVES.</div>
@@ -1158,64 +1160,57 @@ footer{
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Koolaide Kids"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
-      <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-02-gritty-kitty.mp3">
-        <span class="arch-num">02</span>
-        <span class="arch-name">Gritty Kitty</span>
-        <span class="arch-year">2013</span>
-        <span class="arch-dur">—</span>
-        <button class="arch-play" aria-label="Play Gritty Kitty"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
-      </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-03-beat-brulee.mp3">
-        <span class="arch-num">03</span>
+        <span class="arch-num">02</span>
         <span class="arch-name">Beat Brulee</span>
         <span class="arch-year">2013</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Beat Brulee"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-04-december-deleece.mp3">
-        <span class="arch-num">04</span>
+        <span class="arch-num">03</span>
         <span class="arch-name">December Deleece</span>
         <span class="arch-year">2013</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play December Deleece"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-05-march-tart.mp3">
-        <span class="arch-num">05</span>
+        <span class="arch-num">04</span>
         <span class="arch-name">March Tart</span>
         <span class="arch-year">2014</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play March Tart"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-06-thursday-night-li.mp3">
-        <span class="arch-num">06</span>
+        <span class="arch-num">05</span>
         <span class="arch-name">Thursday Night Live</span>
         <span class="arch-year">2014</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Thursday Night Live"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-07-nevermind-november.mp3">
-        <span class="arch-num">07</span>
+        <span class="arch-num">06</span>
         <span class="arch-name">Nevermind November</span>
         <span class="arch-year">2014</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Nevermind November"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-08-adrift.mp3">
-        <span class="arch-num">08</span>
+        <span class="arch-num">07</span>
         <span class="arch-name">Adrift</span>
         <span class="arch-year">2014</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Adrift"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-09-just-in-time.mp3">
-        <span class="arch-num">09</span>
+        <span class="arch-num">08</span>
         <span class="arch-name">Just in Time</span>
         <span class="arch-year">2014</span>
         <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Just in Time"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-10-well-alright.mp3">
-        <span class="arch-num">10</span>
+        <span class="arch-num">09</span>
         <span class="arch-name">Well Alright</span>
         <span class="arch-year">2014</span>
         <span class="arch-dur">—</span>
@@ -1937,9 +1932,9 @@ function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
 
 (function initMusicPlayer() {
   const ALL_TRACKS = [
-    'death-tinker','you-have-a-wanting-alan','building-short-wave','bright-swift-visions','hollow-heart','clicky-clock-low-stock',
+    'for-jon','death-tinker','you-have-a-wanting-alan','building-short-wave','bright-swift-visions','hollow-heart','clicky-clock-low-stock',
     'deeply-entertained','dreams-of-dying','dripping-magma','drop-tick',
-    'eh','everybody-flows','first-run','for-jon','fresh-like-lettuce',
+    'eh','everybody-flows','first-run','fresh-like-lettuce',
     'halloween-store','i-cant-go-for-that','i-like-you','never-thought-i-could',
     'new-york-i-thought-she-was','nice-groove','nice-matchup','old-fast',
     'piano-doodle','pleasure-pain-by-your-side','roughasf','simian',
@@ -2221,6 +2216,48 @@ function handleContactSubmit(e){
   if(next) next.addEventListener('click', () => { idx = (idx + 1) % QUOTES.length; show(idx); });
 })();
 /* ── ARCHIVES PLAYER ── */
+/* ── ARCHIVES CANVAS ANIMATION ──────────────────────── */
+(function archWave(){
+  const c=document.getElementById('arch-canvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let W,H,raf,t=0;
+  function resize(){
+    const sec=document.getElementById('archives');
+    W=c.width=sec.offsetWidth;H=c.height=sec.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+  // wave config: [yFraction, amplitude, frequency, speed, lineWidth]
+  const WAVES=[
+    [.11, 22, .0055, .22, 2.5],
+    [.22, 14, .009,  .30, 1.5],
+    [.34, 30, .0038, .16, 3.5],
+    [.45, 10, .012,  .40, 1.2],
+    [.57, 26, .006,  .19, 2.8],
+    [.68, 16, .0082, .33, 1.8],
+    [.79, 32, .0044, .14, 3.2],
+    [.90, 12, .010,  .28, 1.4],
+  ];
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle='#060606';
+    WAVES.forEach(([yf,amp,freq,spd,lw],i)=>{
+      const y0=H*yf;
+      const phase=t*spd+i*1.7;
+      ctx.lineWidth=lw;
+      ctx.beginPath();
+      for(let x=0;x<=W;x+=3){
+        const y=y0+Math.sin(x*freq+phase)*amp+Math.sin(x*freq*.5+phase*.7)*amp*.4;
+        x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    });
+    t+=0.018;
+    raf=requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
 (function initArchives(){
   const audio=document.getElementById('arch-audio');if(!audio)return;
   const rows=Array.from(document.querySelectorAll('.arch-row'));
