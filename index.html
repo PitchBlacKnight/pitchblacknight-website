@@ -615,6 +615,34 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
   justify-content:center;color:rgba(255,255,255,.78);
 }
 .ctrl-play.playing{border-color:var(--orange)!important;color:var(--orange)}
+.ctrl-skip{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.04em;color:rgba(255,255,255,.3);padding:4px 5px;transition:color .15s;display:flex;align-items:center}
+.ctrl-skip:hover{color:var(--white)}
+.mte-dur{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);min-width:34px;text-align:right}
+.arch-dur{font-family:var(--font-mono);font-size:11px;color:rgba(6,6,6,.4);min-width:42px;text-align:right}
+/* ── FLOATING WIDGET ── */
+#pbk-widget{
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:rgba(6,6,6,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,255,255,.07);
+  height:56px;display:flex;align-items:center;gap:12px;padding:0 20px;
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+#pbk-widget.w-on{transform:translateY(0)}
+.pw-track{flex:1;min-width:0;overflow:hidden}
+.pw-source{font-size:9px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase;font-family:'Space Mono',monospace;display:block;line-height:1}
+.pw-title{font-size:13px;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:2px}
+.pw-controls{display:flex;align-items:center;gap:2px;flex-shrink:0}
+.pw-btn{background:none;border:none;color:rgba(255,255,255,.32);cursor:pointer;padding:6px;transition:color .15s;display:flex;align-items:center;justify-content:center}
+.pw-btn:hover{color:var(--white)}
+.pw-btn-play{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18)!important;color:rgba(255,255,255,.8)!important;flex-shrink:0}
+.pw-btn-play.w-playing{border-color:var(--orange)!important;color:var(--orange)!important}
+.pw-skip-txt{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.02em}
+.pw-prog-wrap{flex:0 0 110px;height:2px;background:rgba(255,255,255,.1);cursor:pointer;position:relative;border-radius:1px;align-self:center}
+.pw-prog-fill{position:absolute;left:0;top:0;height:100%;background:var(--orange);width:0;border-radius:1px;pointer-events:none}
+.pw-time{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);white-space:nowrap;flex-shrink:0}
+.pw-close{background:none;border:none;color:rgba(255,255,255,.22);cursor:pointer;font-size:15px;padding:4px;margin-left:2px;line-height:1;transition:color .15s;flex-shrink:0}
+.pw-close:hover{color:var(--white)}
+@media(max-width:520px){.pw-prog-wrap,.pw-time{display:none}}
 
 /* Track list */
 .music-track-list{display:flex;flex-direction:column;gap:1px;background:var(--rule)}
@@ -1012,14 +1040,16 @@ footer{
           <span id="player-time-total">0:00</span>
         </div>
         <div class="player-controls">
-          <button class="ctrl-btn" id="ctrl-prev" title="Previous">
-            <svg width="16" height="14" viewBox="0 0 16 14" fill="currentColor"><rect x="0" y="0" width="2" height="14"/><path d="M14 0L3 7l11 7z"/></svg>
+          <button class="ctrl-btn" id="ctrl-prev" title="Previous track">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor"><rect x="0" y="0" width="2" height="12"/><path d="M12 0L3 6l9 6z"/></svg>
           </button>
+          <button class="ctrl-btn ctrl-skip" id="ctrl-back" title="Back 15s">−15</button>
           <button class="ctrl-btn ctrl-play" id="ctrl-play" title="Play/Pause">
             <svg id="ctrl-play-icon" width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M0 0l12 7-12 7z"/></svg>
           </button>
-          <button class="ctrl-btn" id="ctrl-next" title="Next">
-            <svg width="16" height="14" viewBox="0 0 16 14" fill="currentColor"><rect x="14" y="0" width="2" height="14"/><path d="M2 0l11 7-11 7z"/></svg>
+          <button class="ctrl-btn ctrl-skip" id="ctrl-fwd" title="Forward 15s">+15</button>
+          <button class="ctrl-btn" id="ctrl-next" title="Next track">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor"><rect x="12" y="0" width="2" height="12"/><path d="M2 0l9 6-9 6z"/></svg>
           </button>
         </div>
       </div>
@@ -1043,60 +1073,70 @@ footer{
         <span class="arch-num">01</span>
         <span class="arch-name">Koolaide Kids</span>
         <span class="arch-year">2013</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Koolaide Kids"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-02-gritty-kitty.mp3">
         <span class="arch-num">02</span>
         <span class="arch-name">Gritty Kitty</span>
         <span class="arch-year">2013</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Gritty Kitty"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-03-beat-brulee.mp3">
         <span class="arch-num">03</span>
         <span class="arch-name">Beat Brulee</span>
         <span class="arch-year">2013</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Beat Brulee"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-04-december-deleece.mp3">
         <span class="arch-num">04</span>
         <span class="arch-name">December Deleece</span>
         <span class="arch-year">2013</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play December Deleece"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-05-march-tart.mp3">
         <span class="arch-num">05</span>
         <span class="arch-name">March Tart</span>
         <span class="arch-year">2014</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play March Tart"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-06-thursday-night-li.mp3">
         <span class="arch-num">06</span>
         <span class="arch-name">Thursday Night Live</span>
         <span class="arch-year">2014</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Thursday Night Live"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-07-nevermind-november.mp3">
         <span class="arch-num">07</span>
         <span class="arch-name">Nevermind November</span>
         <span class="arch-year">2014</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Nevermind November"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-08-adrift.mp3">
         <span class="arch-num">08</span>
         <span class="arch-name">Adrift</span>
         <span class="arch-year">2014</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Adrift"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-09-just-in-time.mp3">
         <span class="arch-num">09</span>
         <span class="arch-name">Just in Time</span>
         <span class="arch-year">2014</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Just in Time"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
       <div class="arch-row" data-src="https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/mixes/episode-10-well-alright.mp3">
         <span class="arch-num">10</span>
         <span class="arch-name">Well Alright</span>
         <span class="arch-year">2014</span>
+        <span class="arch-dur">—</span>
         <button class="arch-play" aria-label="Play Well Alright"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
       </div>
     </div>
@@ -1772,6 +1812,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   function fmtTime(s){if(!isFinite(s))return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
   function setPlayIcon(p){ctrlPlayIcon.setAttribute('d',p?PAUSE_PATH:PLAY_PATH);ctrlPlay.classList.toggle('playing',p)}
   function deactivate(e){if(e)e.classList.remove('active','paused')}
+  function activateWidget(title){
+    if(window.PBK) window.PBK.activate(audio,title,'MUSIC',
+      ()=>playTrackByIndex(Math.max(0,currentTrackIndex-1)),
+      ()=>playTrackByIndex(Math.min(ALL_TRACKS.length-1,currentTrackIndex+1))
+    );
+  }
   function playTrackByIndex(idx){
     if(idx<0||idx>=ALL_TRACKS.length)return;
     currentTrackIndex=idx;const slug=ALL_TRACKS[idx],title=slugToTitle(slug);
@@ -1781,19 +1827,20 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/'+slug+'.mp3';
     audio.load();audio.play().catch(e=>console.warn('Playback blocked:',e.message));
     playerTitle.textContent=title;playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-    updateMediaSession(title);
+    updateMediaSession(title);activateWidget(title);
   }
   function handleTrackClick(entry,slug){
     if(activeEntry===entry){
       if(!audio.paused){audio.pause();entry.classList.add('paused')}
       else{audio.play();entry.classList.remove('paused')}
     }else{
+      const title=slugToTitle(slug);
       currentTrackIndex=ALL_TRACKS.indexOf(slug);deactivate(activeEntry);
       activeEntry=entry;entry.classList.add('active');initAudioCtx();
       audio.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/'+slug+'.mp3';
       audio.load();audio.play().catch(e=>{console.warn(e.message);entry.classList.remove('active');activeEntry=null;currentTrackIndex=-1});
-      playerTitle.textContent=slugToTitle(slug);playerSub.textContent='Live improvisation · Single take · Unrepeatable';
-      updateMediaSession(slugToTitle(slug));
+      playerTitle.textContent=title;playerSub.textContent='Live improvisation · Single take · Unrepeatable';
+      updateMediaSession(title);activateWidget(title);
     }
   }
   ctrlPlay.addEventListener('click',()=>{
@@ -1803,6 +1850,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   });
   ctrlPrev.addEventListener('click',()=>playTrackByIndex(Math.max(0,currentTrackIndex-1)));
   ctrlNext.addEventListener('click',()=>playTrackByIndex(Math.min(ALL_TRACKS.length-1,currentTrackIndex+1)));
+  document.getElementById('ctrl-back').addEventListener('click',()=>{if(audio.duration)audio.currentTime=Math.max(0,audio.currentTime-15);});
+  document.getElementById('ctrl-fwd').addEventListener('click',()=>{if(audio.duration)audio.currentTime=Math.min(audio.duration,audio.currentTime+15);});
   const GIFS=['10 Orbits.gif','3x Geo Twist.gif','All night long.gif','Amalgamation.gif','And what did you expect.gif','Arc flip.gif','As We Drift.gif','Asention.gif','Back to the beginning.gif','Black Sea.gif','Blurred Phase.gif','Box breaker.gif','Butterfly effect.gif','Bye for now.gif','CCCC.gif','Can you see me.gif','Chess anyone.gif','Circle drop.gif','Circle spheres.gif','Cloud twists.gif','Collapsing red and tan.gif','Coral Benz.gif','Cosmos.gif','Crank still.gif','Daisy Bloom.gif','Dance with me.gif','Dark skies.gif','Dark waves.gif','Data cycles.gif','Didn\'t mean to scare you.gif','Distant spin.gif','Divide and conquer.gif','Do you see the numbers.gif','Don\'t drowned.gif','Don\'t look away.gif','Double Vision v2.gif','Down we go.gif','Drip Row.gif','Drop in bucket.gif','Drugs.gif','Eggshell.gif','FAV0022.gif','Falling asleep.gif','Fast as you can.gif','Fibonacci twist.gif','Fire by the Sea.gif','Folding Time.gif','Follow Me.gif','Follow me into the dark.gif','Follow the leader.gif','For friends.gif','Forever and ever.gif','Forever balance.gif','Forever builder.gif','Forever configuration.gif','Forever drop.gif','Forever for you.gif','Forever wonder.gif','Grand Design.gif','Graph builds.gif','Grid collapse.gif','Halloween masks.gif','Hand drawing 2004.gif','Hand flicker.gif','Help me.gif','Here we go.gif','Hill and clouds in sky.gif','I Promise.gif','I can\'t see.gif','I commend you sir.gif','I like this one.gif','I like your idea.gif','I think I\'m lost.gif','Infinite dance.gif','Into the sea.gif','It\'s all numbers.gif','Joy waves.gif','Just one more thread.gif','Keep adding.gif','Keep building.gif','Lens effect.gif','Light dance.gif','Logo concept.gif','Logo orb.gif','Look at me.gif','Magic rain.gif','Masks.gif','Math class.gif','Maze falling.gif','Mind bender.gif','Modulus frame.gif','Moving sitting still.gif','Moving spectral.gif','Never still.gif','Night Moon.gif','Nightsun.gif','Noble owl.gif','Old memories.gif','Orbit Wave.gif','Orbit v4.gif','Orbitals.gif','Orbits and orbits.gif','Out We Go.gif','PBK Dark Flam.gif','PBK Logo.gif','Perfect sink.gif','Play me.gif','Prism drift.gif','Promise me forever.gif','Signal.gif','Simplicity.gif','Slices of me.gif','Slinky Forgo.gif','Slowly going inward.gif','Solar B:W.gif','Solve me.gif','Space Trip.gif','Spectral arc.gif','Speed shape.gif','Star twist.gif','Stay in line.gif','Still waiting.gif','Stone Ascension.gif','Strings of chance.gif','Swin me around.gif','Synchronization.gif','Tailspin.gif','Tall Noble owl.gif','The biggest box.gif','The collector.gif','The world is yours.gif','Threads of time.gif','Time scale.gif','Timebloom.gif','Tiny movements.gif','Tunnel Vision.gif','Twist Lattice.gif','Twist light.gif','Twisted sphere.gif','Twisting triangles.gif','Twisting vector.gif','Ultimate synchronization.gif','Under the cells.gif','Under the sea.gif','V.gif','Vector Spin.gif','Vector echo.gif','Vector life.gif','Walk the walk.gif','Water droplet.gif','Where am I.gif','Where is mom.gif','Wizard Stone.gif','Zen Circle.gif','Zip line logo.gif'];
   const playerGifEl=document.getElementById('player-gif'),featuredGifEl=document.getElementById('featured-gif');
   function pickGif(){return GIFS[Math.floor(Math.random()*GIFS.length)]}
@@ -1818,7 +1867,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     audio.load();audio.play().catch(e=>console.warn('Playback blocked:',e.message));
     playerTitle.textContent='For Jon';playerSub.textContent='Live improvisation · Single take · Unrepeatable';
     updateMediaSession('For Jon');
-    setPlayerGif();
+    setPlayerGif();activateWidget('For Jon');
   });
   playerProgress.addEventListener('click',e=>{
     if(!audio.duration)return;const rect=playerProgress.getBoundingClientRect();
@@ -1871,9 +1920,14 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     }
   });
 
+  function fmtTime(s){if(!isFinite(s)||s<0)return'—';const m=Math.floor(s/60);return m+':'+String(Math.floor(s%60)).padStart(2,'0');}
   function buildTrackRow(slug,idx){
     const div=document.createElement('div');div.className='music-track-entry';div.dataset.slug=slug;
-    div.innerHTML=`<div class="mte-num"><span class="num-label">${String(idx+1).padStart(2,'0')}</span><div class="mte-bar-wrap"><div class="mte-bar"></div><div class="mte-bar"></div><div class="mte-bar"></div><div class="mte-bar"></div><div class="mte-bar"></div></div></div><div class="mte-info"><p class="mte-title">${slugToTitle(slug)}</p><p class="mte-tag">Single take · Unrepeatable</p></div><div class="mte-dots">· · ·</div>`;
+    div.innerHTML=`<div class="mte-num"><span class="num-label">${String(idx+1).padStart(2,'0')}</span><div class="mte-bar-wrap"><div class="mte-bar"></div><div class="mte-bar"></div><div class="mte-bar"></div><div class="mte-bar"></div><div class="mte-bar"></div></div></div><div class="mte-info"><p class="mte-title">${slugToTitle(slug)}</p><p class="mte-tag">Single take · Unrepeatable</p></div><span class="mte-dur">—</span>`;
+    const durEl=div.querySelector('.mte-dur');
+    const tmp=new Audio();tmp.preload='metadata';
+    tmp.src='https://cauzutgwdhfconnjpsfv.supabase.co/storage/v1/object/public/audio/'+slug+'.mp3';
+    tmp.addEventListener('loadedmetadata',()=>{durEl.textContent=fmtTime(tmp.duration);tmp.src='';});
     div.addEventListener('click',()=>handleTrackClick(div,slug));return div;
   }
   function loadChunk(){
@@ -2041,50 +2095,105 @@ function handleContactSubmit(e){
   if(next) next.addEventListener('click', () => { idx = (idx + 1) % QUOTES.length; show(idx); });
 })();
 /* ── ARCHIVES PLAYER ── */
-(function initArchives() {
-  const audio = document.getElementById('arch-audio');
-  if (!audio) return;
-  const rows = document.querySelectorAll('.arch-row');
-  let current = null;
-
-  const PAUSE_ICON = '<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><rect x="0" y="0" width="3" height="12"/><rect x="7" y="0" width="3" height="12"/></svg>';
-  const PLAY_ICON  = '<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg>';
-
-  function resetAll() {
-    rows.forEach(r => {
-      r.classList.remove('arch-playing');
-      r.querySelector('.arch-play').innerHTML = PLAY_ICON;
-    });
+(function initArchives(){
+  const audio=document.getElementById('arch-audio');if(!audio)return;
+  const rows=Array.from(document.querySelectorAll('.arch-row'));
+  let curRow=null;
+  const PAUSE_ICON='<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><rect x="0" y="0" width="3" height="12"/><rect x="7" y="0" width="3" height="12"/></svg>';
+  const PLAY_ICON='<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg>';
+  function archFmt(s){if(!isFinite(s)||s<0)return'—';const m=Math.floor(s/60);return m+':'+String(Math.floor(s%60)).padStart(2,'0');}
+  // lazy-load durations
+  rows.forEach(row=>{
+    const durEl=row.querySelector('.arch-dur');if(!durEl)return;
+    const tmp=new Audio();tmp.preload='metadata';tmp.src=row.dataset.src;
+    tmp.addEventListener('loadedmetadata',()=>{durEl.textContent=archFmt(tmp.duration);tmp.src='';});
+  });
+  function resetAll(){rows.forEach(r=>{r.classList.remove('arch-playing');r.querySelector('.arch-play').innerHTML=PLAY_ICON;});}
+  function playRow(row){
+    resetAll();curRow=row;
+    audio.src=row.dataset.src;
+    audio.play().catch(()=>{});
+    row.classList.add('arch-playing');row.querySelector('.arch-play').innerHTML=PAUSE_ICON;
+    const title=row.querySelector('.arch-name').textContent;
+    const idx=rows.indexOf(row);
+    if(window.PBK) window.PBK.activate(audio,title,'ARCHIVES',
+      ()=>{if(idx>0)playRow(rows[idx-1]);},
+      ()=>{if(idx<rows.length-1)playRow(rows[idx+1]);}
+    );
   }
-
-  rows.forEach(row => {
-    row.addEventListener('click', () => {
-      const src = row.dataset.src;
-      if (current === row && !audio.paused) {
-        audio.pause();
-        resetAll();
-        current = null;
-        return;
-      }
-      resetAll();
-      current = row;
-      audio.src = src;
-      audio.play();
-      row.classList.add('arch-playing');
-      row.querySelector('.arch-play').innerHTML = PAUSE_ICON;
+  rows.forEach(row=>{
+    row.addEventListener('click',()=>{
+      if(curRow===row&&!audio.paused){audio.pause();return;}
+      if(curRow===row&&audio.paused){audio.play().catch(()=>{});if(window.PBK)window.PBK._sync();return;}
+      playRow(row);
     });
   });
+  audio.addEventListener('ended',()=>{
+    if(!curRow)return;const idx=rows.indexOf(curRow);resetAll();curRow=null;
+    if(idx<rows.length-1)playRow(rows[idx+1]);
+  });
+  audio.addEventListener('pause',()=>{if(curRow){curRow.classList.remove('arch-playing');curRow.querySelector('.arch-play').innerHTML=PLAY_ICON;}});
+  audio.addEventListener('play',()=>{if(curRow){curRow.classList.add('arch-playing');curRow.querySelector('.arch-play').innerHTML=PAUSE_ICON;}});
+})();
 
-  audio.addEventListener('ended', () => {
-    if (!current) return;
-    const rows_arr = Array.from(rows);
-    const idx = rows_arr.indexOf(current);
-    resetAll();
-    current = null;
-    const next = rows_arr[idx + 1];
-    if (next) next.click();
+/* ── FLOATING WIDGET ────────────────────────────────── */
+(function initWidget(){
+  const widget=document.getElementById('pbk-widget');if(!widget)return;
+  const pwTitle=document.getElementById('pw-title'),pwSource=document.getElementById('pw-source');
+  const pwPlay=document.getElementById('pw-play'),pwPlayIcon=document.getElementById('pw-play-icon');
+  const pwPrev=document.getElementById('pw-prev'),pwNext=document.getElementById('pw-next');
+  const pwBack=document.getElementById('pw-back'),pwFwd=document.getElementById('pw-fwd');
+  const pwFill=document.getElementById('pw-prog-fill'),pwWrap=document.getElementById('pw-prog-wrap');
+  const pwTime=document.getElementById('pw-time'),pwClose=document.getElementById('pw-close');
+  const PLAY_D='M0 0l10 6-10 6z',PAUSE_D='M0 0h3v12H0zM7 0h3v12H7z';
+  function fmt(s){if(!isFinite(s)||s<0)return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
+  window.PBK={
+    audio:null,_onPrev:null,_onNext:null,
+    activate(audioEl,title,source,onPrev,onNext){
+      if(this.audio&&this.audio!==audioEl)this.audio.pause();
+      this.audio=audioEl;this._onPrev=onPrev;this._onNext=onNext;
+      pwTitle.textContent=title;pwSource.textContent=source;
+      widget.classList.add('w-on');this._sync();
+    },
+    updateTitle(t){pwTitle.textContent=t;},
+    _sync(){if(!this.audio)return;const p=!this.audio.paused;pwPlayIcon.setAttribute('d',p?PAUSE_D:PLAY_D);pwPlay.classList.toggle('w-playing',p);}
+  };
+  pwPlay.addEventListener('click',()=>{const a=window.PBK.audio;if(!a)return;a.paused?a.play().catch(()=>{}):a.pause();});
+  pwPrev.addEventListener('click',()=>{if(window.PBK._onPrev)window.PBK._onPrev();});
+  pwNext.addEventListener('click',()=>{if(window.PBK._onNext)window.PBK._onNext();});
+  pwBack.addEventListener('click',()=>{const a=window.PBK.audio;if(a)a.currentTime=Math.max(0,a.currentTime-15);});
+  pwFwd.addEventListener('click',()=>{const a=window.PBK.audio;if(a&&a.duration)a.currentTime=Math.min(a.duration,a.currentTime+15);});
+  pwClose.addEventListener('click',()=>{const a=window.PBK.audio;if(a)a.pause();widget.classList.remove('w-on');});
+  pwWrap.addEventListener('click',e=>{const a=window.PBK.audio;if(!a||!a.duration)return;const r=pwWrap.getBoundingClientRect();a.currentTime=((e.clientX-r.left)/r.width)*a.duration;});
+  ['ap','arch-audio'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.addEventListener('play',()=>{if(window.PBK.audio===el)window.PBK._sync();});
+    el.addEventListener('pause',()=>{if(window.PBK.audio===el)window.PBK._sync();});
+    el.addEventListener('timeupdate',()=>{
+      if(window.PBK.audio!==el)return;
+      const pct=el.duration?el.currentTime/el.duration*100:0;
+      pwFill.style.width=pct+'%';
+      pwTime.textContent=fmt(el.currentTime)+' / '+fmt(el.duration);
+    });
   });
 })();
 </script>
+
+<div id="pbk-widget">
+  <div class="pw-track">
+    <span class="pw-source" id="pw-source">PLAYING</span>
+    <span class="pw-title" id="pw-title">—</span>
+  </div>
+  <div class="pw-controls">
+    <button class="pw-btn" id="pw-prev" title="Previous"><svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor"><rect x="0" y="0" width="2" height="12"/><path d="M12 0L3 6l9 6z"/></svg></button>
+    <button class="pw-btn" id="pw-back" title="Back 15s"><span class="pw-skip-txt">−15</span></button>
+    <button class="pw-btn pw-btn-play" id="pw-play" title="Play / Pause"><svg id="pw-play-icon" width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></button>
+    <button class="pw-btn" id="pw-fwd" title="Forward 15s"><span class="pw-skip-txt">+15</span></button>
+    <button class="pw-btn" id="pw-next" title="Next"><svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor"><rect x="12" y="0" width="2" height="12"/><path d="M2 0l9 6-9 6z"/></svg></button>
+  </div>
+  <div class="pw-prog-wrap" id="pw-prog-wrap"><div class="pw-prog-fill" id="pw-prog-fill"></div></div>
+  <span class="pw-time" id="pw-time">0:00 / 0:00</span>
+  <button class="pw-close" id="pw-close" title="Dismiss">✕</button>
+</div>
 </body>
 </html>
