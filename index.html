@@ -644,6 +644,33 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .pw-close:hover{color:var(--white)}
 @media(max-width:520px){.pw-prog-wrap,.pw-time{display:none}}
 
+/* ── JOURNAL ──────────────────────────────────────── */
+#journal{padding:96px 40px 80px;background:#060606;border-top:1px solid rgba(255,255,255,.07);}
+.jnl-inner{max-width:960px;margin:0 auto;}
+.jnl-hdr{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:52px;flex-wrap:wrap;}
+.jnl-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--orange);text-transform:uppercase;}
+.jnl-sub{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.1em;}
+.jnl-featured{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;border-top:1px solid rgba(255,255,255,.1);padding:44px 0;}
+.jnl-featured.jnl-no-photo{grid-template-columns:1fr;max-width:640px;}
+.je-img-wrap{overflow:hidden;border-radius:2px;aspect-ratio:3/2;}
+.je-img{width:100%;height:100%;object-fit:cover;display:block;}
+.je-meta{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.je-date{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase;}
+.je-mood{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;}
+.jnl-featured .je-title{font-family:var(--font-display);font-size:clamp(28px,4vw,52px);color:var(--white);line-height:1.04;margin-bottom:20px;font-weight:400;}
+.je-wisdom{font-family:var(--font-body);font-size:17px;line-height:1.78;color:rgba(240,240,240,.58);}
+.jnl-past-list{border-top:1px solid rgba(255,255,255,.1);}
+.jnl-past{display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.jnl-past .je-meta{flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:0;}
+.jnl-past .je-title{font-family:var(--font-display);font-size:clamp(18px,2vw,22px);color:var(--white);line-height:1.1;margin-bottom:8px;font-weight:400;}
+.jnl-past .je-wisdom{font-size:14px;line-height:1.6;color:rgba(240,240,240,.45);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:720px){
+  #journal{padding:72px 24px 60px;}
+  .jnl-featured{grid-template-columns:1fr;gap:28px;}
+  .jnl-past{grid-template-columns:1fr;gap:10px;}
+  .jnl-past .je-meta{flex-direction:row;}
+}
+
 /* Track list */
 .music-track-list{display:flex;flex-direction:column;gap:1px;background:var(--rule)}
 .music-track-entry{
@@ -948,6 +975,7 @@ footer{
       <span class="logo-p">PITCH</span><span class="logo-b">BLAC</span><span class="logo-k">KNIGHT</span>
     </a>
     <ul class="nav-links">
+      <li><a href="#journal" data-section="journal">DAILY</a></li>
       <li><a href="#manifesto" data-section="manifesto">ABOUT</a></li>
       <li><a href="#origin" data-section="origin">ORIGIN</a></li>
       <li><a href="#professional" data-section="professional">CV</a></li>
@@ -1001,6 +1029,17 @@ footer{
   <div class="hero-scroll">
     <span class="hero-scroll-lbl">SCROLL TO EXPLORE</span>
     <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ JOURNAL ══ -->
+<section id="journal">
+  <div class="jnl-inner">
+    <div class="jnl-hdr">
+      <span class="jnl-kicker">Field Notes</span>
+      <span class="jnl-sub">Daily · Unfiltered · Sent Forward</span>
+    </div>
+    <div id="jnl-feed"></div>
   </div>
 </section>
 
@@ -1780,6 +1819,41 @@ function closeLightbox() { document.getElementById('lightbox').classList.remove(
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
 /* ── MUSIC PLAYER ────────────────────────────────────── */
+/* ── JOURNAL ──────────────────────────────────────────── */
+/* Add new entries at the TOP of this array — newest first */
+const JOURNAL = [
+  {
+    date: "June 17, 2026",
+    mood: "Still figuring it out",
+    title: "The section is live — first entry coming",
+    wisdom: "This is where the daily field notes will live. Check back tomorrow.",
+    photo: ""
+  }
+];
+(function renderJournal(){
+  const feed = document.getElementById('jnl-feed');
+  if(!feed||!JOURNAL.length)return;
+  JOURNAL.forEach((e,i)=>{
+    const photoHTML = e.photo
+      ? `<div class="je-img-wrap"><img class="je-img" src="${e.photo}" alt="${e.title}" loading="lazy"></div>`
+      : '';
+    if(i===0){
+      const el=document.createElement('article');
+      el.className='jnl-featured'+(e.photo?'':' jnl-no-photo');
+      el.innerHTML=`${photoHTML}<div class="je-text"><div class="je-meta"><span class="je-date">${e.date.toUpperCase()}</span><span class="je-mood">${e.mood}</span></div><h2 class="je-title">${e.title}</h2><p class="je-wisdom">${e.wisdom}</p></div>`;
+      feed.appendChild(el);
+    } else {
+      if(i===1){const ul=document.createElement('div');ul.className='jnl-past-list';ul.id='jnl-past-list';feed.appendChild(ul);}
+      const past=document.getElementById('jnl-past-list');
+      if(!past)return;
+      const el=document.createElement('article');
+      el.className='jnl-past';
+      el.innerHTML=`<div class="je-meta"><span class="je-date">${e.date.toUpperCase()}</span><span class="je-mood">${e.mood}</span></div><div><h3 class="je-title">${e.title}</h3><p class="je-wisdom">${e.wisdom}</p></div>`;
+      past.appendChild(el);
+    }
+  });
+})();
+
 /* ── MEDIA SESSION — shared by music + archives players ── */
 function updateMediaSession(title,albumName,audioEl,onPrev,onNext){
   if(!('mediaSession' in navigator))return;
