@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/FCCW3/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worship Services — First Congregational Church of Wilmette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <meta name="description" content="Sunday worship at 10:00 AM at First Congregational Church of Wilmette, IL. Plan your first visit, learn what to expect, and explore our sermon archive." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Worship Services — First Congregational Church of Wilmette" />
+  <meta property="og:description" content="Sunday worship at 10:00 AM in Wilmette, IL. Open &amp; Affirming. Come as you are — no dress code, no expectations, just a warm welcome." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.fccw.org/services" />
+  <meta property="og:image" content="https://www.fccw.org/images/OUR-MUSIC-2.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Worship Services — FCCW Wilmette" />
+  <meta name="twitter:description" content="Sunday worship at 10:00 AM. Come as you are." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="images/FCCW-UCC_Logo_800x200.png" alt="FCCW mark" loading="lazy" />
+    </div>
+    <div class="nav-logo-wordmark">
+      <span class="nav-logo-name">First Congregational</span>
+      <span class="nav-logo-sub">Church of Wilmette · Est. 1875</span>
+    </div>
+  </a>
+  <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="about.html">About Us</a>
+    <a href="services.html" class="active">Worship</a>
+    <a href="groups.html">Get Involved</a>
+    <a href="events.html">Events</a>
+    <a href="give.html">Give</a>
+    <a href="services.html#visit" class="nav-cta">Plan a Visit</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="background-image:linear-gradient(135deg, rgba(30,41,59,0.88) 0%, rgba(15,23,42,0.93) 100%), url('images/OUR-MUSIC-2.jpeg'); background-size:cover; background-position:center top;">
+  <div class="page-hero-inner">
+    <p class="section-label" style="color:var(--teal-mid); margin-bottom:0.5rem;">Worship</p>
+    <h1>Sunday Services</h1>
+    <p>Thoughtful worship for thinking people. Come with your questions — there's room for all of them.</p>
+  </div>
+</div>
+
+<!-- OPEN COMMUNION -->
+<section style="background:var(--teal-lt); padding:3rem 2rem; text-align:center; border-bottom:1px solid var(--midgray);">
+  <div class="section-inner" style="max-width:640px; margin:0 auto;">
+    <p class="section-label">Open Communion</p>
+    <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,1.9rem); margin-bottom:1rem;">All are welcome at the table.</h2>
+    <p style="color:var(--body); line-height:1.75;">FCCW offers open communion on the first Sunday of each month. ALL are welcome — no exceptions, no prerequisites. Regardless of your faith background, your questions, or where you are on your journey, there is a place for you at this table.</p>
+  </div>
+</section>
+
+<!-- SERVICE TIMES -->
+<section style="background:var(--teal); color:var(--white); padding:3rem 2rem;">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; text-align:center;">
+      <div>
+        <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:0.5rem;">Sunday Worship</div>
+        <div style="font-size:2rem; font-weight:700; margin-bottom:0.25rem;">10:00 AM</div>
+        <div style="font-size:0.9rem; color:rgba(255,255,255,0.75);">In-person &amp; livestreamed</div>
+      </div>
+      <div>
+        <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:0.5rem;">Location</div>
+        <div style="font-size:1.25rem; font-weight:700; margin-bottom:0.25rem;">1125 Wilmette Avenue</div>
+        <div style="font-size:0.9rem; color:rgba(255,255,255,0.75);">Wilmette, IL 60091</div>
+      </div>
+      <div>
+        <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:0.5rem;">Parking</div>
+        <div style="font-size:1.25rem; font-weight:700; margin-bottom:0.25rem;">Free Lot</div>
+        <div style="font-size:0.9rem; color:rgba(255,255,255,0.75);">Behind the building on Greenleaf</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section id="what-to-expect">
+  <div class="section-inner">
+    <p class="section-label">For First-Time Visitors</p>
+    <h2 class="section-title">What to expect on Sunday.</h2>
+    <p class="section-sub">We want you to feel at ease. Here's what a typical Sunday at FCCW looks like — no surprises, no pressure.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <div style="display:flex; flex-direction:column; gap:1.75rem;">
+          <div style="display:flex; gap:1.25rem; align-items:flex-start;">
+            <div style="flex-shrink:0; width:40px; height:40px; background:var(--teal-lt); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--teal); font-size:1rem;">1</div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Arrive &amp; be welcomed</div>
+              <div style="font-size:0.93rem; color:var(--body); line-height:1.65;">Greeters meet you at the door with a bulletin and a genuine hello. The sanctuary opens about 20 minutes before service. Come as you are — jeans, dress, whatever feels right.</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1.25rem; align-items:flex-start;">
+            <div style="flex-shrink:0; width:40px; height:40px; background:var(--teal-lt); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--teal); font-size:1rem;">2</div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Children get settled</div>
+              <div style="font-size:0.93rem; color:var(--body); line-height:1.65;">Children through 5th grade start in the sanctuary and are dismissed to Sunday School after the first hymn. Nursery care for infants and toddlers is available the whole time.</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1.25rem; align-items:flex-start;">
+            <div style="flex-shrink:0; width:40px; height:40px; background:var(--teal-lt); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--teal); font-size:1rem;">3</div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Worship together</div>
+              <div style="font-size:0.93rem; color:var(--body); line-height:1.65;">About 60–75 minutes of music, prayer, scripture, and a sermon. Our worship is rooted in the UCC tradition — open, thoughtful, and never boring. Communion is celebrated monthly.</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1.25rem; align-items:flex-start;">
+            <div style="flex-shrink:0; width:40px; height:40px; background:var(--teal-lt); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--teal); font-size:1rem;">4</div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Stay for coffee hour</div>
+              <div style="font-size:0.93rem; color:var(--body); line-height:1.65;">After service, everyone gathers in Fellowship Hall for coffee, snacks, and conversation. This is where the community really happens — and you'll be introduced, not ignored.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="background:var(--ltgray); border-radius:16px; padding:2rem; margin-bottom:1.5rem;">
+          <h3 style="font-size:1.05rem; font-weight:600; color:var(--dark); margin-bottom:1.25rem;">Common Questions</h3>
+          <div style="display:flex; flex-direction:column; gap:1.25rem;">
+            <div>
+              <div style="font-weight:600; color:var(--dark); font-size:0.93rem; margin-bottom:0.3rem;">Do I need to be a member?</div>
+              <div style="font-size:0.9rem; color:var(--body);">Not at all. You're welcome to attend as long as you like with no obligation to join.</div>
+            </div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); font-size:0.93rem; margin-bottom:0.3rem;">Is FCCW affirming of LGBTQ+ people?</div>
+              <div style="font-size:0.9rem; color:var(--body);">Yes — fully and joyfully. We are an Open &amp; Affirming congregation. Everyone is welcome at every table.</div>
+            </div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); font-size:0.93rem; margin-bottom:0.3rem;">What if I'm not sure what I believe?</div>
+              <div style="font-size:0.9rem; color:var(--body);">You're in good company. Questions and doubts are not obstacles to faith here — they're part of it.</div>
+            </div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); font-size:0.93rem; margin-bottom:0.3rem;">What's the dress code?</div>
+              <div style="font-size:0.9rem; color:var(--body);">There isn't one. Come in whatever you'd wear on a relaxed Sunday morning.</div>
+            </div>
+            <div>
+              <div style="font-weight:600; color:var(--dark); font-size:0.93rem; margin-bottom:0.3rem;">Can I watch online?</div>
+              <div style="font-size:0.9rem; color:var(--body);">Yes! Worship is livestreamed every Sunday and recordings are available on our YouTube channel.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PLAN YOUR VISIT -->
+<section id="visit" style="background:var(--ltgray);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+      <div>
+        <p class="section-label">Plan a Visit</p>
+        <h2 class="section-title">We're saving a seat for you.</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Let us know you're coming and we'll make sure someone's ready to greet you by name. No forms, no pressure — just a friendly heads-up.</p>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">Or just show up. That works too.</p>
+        <div style="display:flex; flex-direction:column; gap:0.85rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.95rem; color:var(--body);">
+            <span style="color:var(--teal);">📍</span> 1125 Wilmette Avenue, Wilmette, IL 60091
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.95rem; color:var(--body);">
+            <span style="color:var(--teal);">📞</span> (847) 251-6660
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.95rem; color:var(--body);">
+            <span style="color:var(--teal);">✉️</span> 1stchurch@fccw.org
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.95rem; color:var(--body);">
+            <span style="color:var(--teal);">🕙</span> Sundays at 10:00 AM
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--white); border-radius:16px; padding:2.5rem; border:1px solid var(--midgray);">
+        <h3 style="font-size:1.2rem; font-weight:600; color:var(--dark); margin-bottom:1.5rem;">Let us know you're coming</h3>
+        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" id="plan-visit-form" style="display:flex; flex-direction:column; gap:1rem;">
+          <input type="hidden" name="_subject" value="New Plan a Visit Request — FCCW" />
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Your Name</label>
+            <input type="text" placeholder="First and last name" style="width:100%; padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-family:var(--font); font-size:0.93rem; color:var(--dark); outline:none;" />
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Email Address</label>
+            <input type="email" placeholder="you@email.com" style="width:100%; padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-family:var(--font); font-size:0.93rem; color:var(--dark); outline:none;" />
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Planning to Visit</label>
+            <select style="width:100%; padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-family:var(--font); font-size:0.93rem; color:var(--dark); outline:none; background:var(--white);">
+              <option>This Sunday</option>
+              <option>Next Sunday</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--dark); margin-bottom:0.35rem;">Anything we should know? (optional)</label>
+            <textarea rows="3" placeholder="Kids coming along? Questions? Just say hi." style="width:100%; padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-family:var(--font); font-size:0.93rem; color:var(--dark); outline:none; resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERMON ARCHIVE -->
+<section id="sermons">
+  <div class="section-inner">
+    <p class="section-label">Sermons</p>
+    <h2 class="section-title">Recent Messages</h2>
+    <p class="section-sub">Missed a Sunday? Each sermon is recorded and available to watch or listen to at any time.</p>
+
+    <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:2.5rem;">
+      <div style="display:flex; gap:1.5rem; padding:1.25rem 1.5rem; border:1px solid var(--midgray); border-radius:12px; align-items:center; background:var(--white);">
+        <div style="flex-shrink:0; width:56px; height:56px; background:var(--teal-lt); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">🎙️</div>
+        <div style="flex:1;">
+          <div style="font-weight:600; color:var(--dark); margin-bottom:0.2rem;">"The Courage to Belong"</div>
+          <div style="font-size:0.85rem; color:var(--slate);">Reverend Mary Herbig · May 18, 2026</div>
+        </div>
+        <a href="#" class="btn btn-ghost" style="font-size:0.85rem; padding:0.5rem 1rem;">Watch</a>
+      </div>
+      <div style="display:flex; gap:1.5rem; padding:1.25rem 1.5rem; border:1px solid var(--midgray); border-radius:12px; align-items:center; background:var(--white);">
+        <div style="flex-shrink:0; width:56px; height:56px; background:var(--teal-lt); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">🎙️</div>
+        <div style="flex:1;">
+          <div style="font-weight:600; color:var(--dark); margin-bottom:0.2rem;">"Roots &amp; Wings" — Mother's Day</div>
+          <div style="font-size:0.85rem; color:var(--slate);">Reverend Mary Herbig · May 11, 2026</div>
+        </div>
+        <a href="#" class="btn btn-ghost" style="font-size:0.85rem; padding:0.5rem 1rem;">Watch</a>
+      </div>
+      <div style="display:flex; gap:1.5rem; padding:1.25rem 1.5rem; border:1px solid var(--midgray); border-radius:12px; align-items:center; background:var(--white);">
+        <div style="flex-shrink:0; width:56px; height:56px; background:var(--teal-lt); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">🎙️</div>
+        <div style="flex:1;">
+          <div style="font-weight:600; color:var(--dark); margin-bottom:0.2rem;">"What Earth Asks of Us"</div>
+          <div style="font-size:0.85rem; color:var(--slate);">Reverend Mary Herbig · May 4, 2026</div>
+        </div>
+        <a href="#" class="btn btn-ghost" style="font-size:0.85rem; padding:0.5rem 1rem;">Watch</a>
+      </div>
+      <div style="display:flex; gap:1.5rem; padding:1.25rem 1.5rem; border:1px solid var(--midgray); border-radius:12px; align-items:center; background:var(--white);">
+        <div style="flex-shrink:0; width:56px; height:56px; background:var(--teal-lt); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">🎙️</div>
+        <div style="flex:1;">
+          <div style="font-weight:600; color:var(--dark); margin-bottom:0.2rem;">"The Long Work of Belonging"</div>
+          <div style="font-size:0.85rem; color:var(--slate);">Guest Preacher · Apr 27, 2026</div>
+        </div>
+        <a href="#" class="btn btn-ghost" style="font-size:0.85rem; padding:0.5rem 1rem;">Watch</a>
+      </div>
+    </div>
+
+    <a href="#" class="btn btn-dark">Full Sermon Archive on YouTube →</a>
+  </div>
+</section>
+
+<!-- SPECIAL SERVICES -->
+<section class="band" id="special-services">
+  <div class="section-inner">
+    <p class="section-label">Throughout the Year</p>
+    <h2 class="section-title">Special Services &amp; Seasons</h2>
+    <p class="section-sub">Our worship year follows the rhythms of the church calendar, with special services that mark the sacred seasons.</p>
+    <div class="grid-3">
+      <div class="ministry-card">
+        <div class="ministry-title">Advent &amp; Christmas Eve</div>
+        <div class="ministry-text">The season of waiting and wonder. Candlelight Christmas Eve worship is one of our most beloved annual gatherings — all are welcome.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Easter &amp; Holy Week</div>
+        <div class="ministry-text">From Palm Sunday through the resurrection — a full week of services marking the central story of our faith.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">All Saints Remembrance</div>
+        <div class="ministry-text">A service of remembrance for those we love who have died. Candles lit, names read, grief honored in community.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Interfaith Blessing of the Animals</div>
+        <div class="ministry-text">Bring your pets for a blessing in our tradition of honoring all of creation. A beloved autumn tradition open to the whole community.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Sound Bath &amp; Contemplative Prayer</div>
+        <div class="ministry-text">Spiritual enrichment beyond Sunday — sound bath meditation, wisdom walks in nature, and contemplative practices offered throughout the year.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Study Series</div>
+        <div class="ministry-text">Seasonal study series exploring scripture, theology, and current events through a faith lens. Open to all — members and guests alike.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PASTOR BIO -->
+<section class="band">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:auto 1fr; gap:3rem; align-items:center; max-width:820px;">
+      <div style="width:120px; height:120px; border-radius:50%; background:var(--midgray); border:4px solid var(--teal-lt); flex-shrink:0; overflow:hidden;">
+        <img src="images/Mary_Herbig-1.jpg" alt="Reverend Mary Herbig" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+      <div>
+        <p class="section-label">Our Pastor</p>
+        <h2 style="font-size:1.6rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem;">Reverend Mary Herbig</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1rem;">Rev. Herbig brings warmth, intellectual depth, and a genuine love for people to everything she does. She is passionate about building an inclusive community where everyone — regardless of background, belief, or life experience — finds a home. Her preaching is honest, thoughtful, and never preachy.</p>
+        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost" style="font-size:0.9rem;">Email Rev. Herbig</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">First Congregational Church of Wilmette</div>
+        <p class="footer-tagline">An Open &amp; Affirming United Church of Christ congregation where everyone belongs — no matter where you are on life's journey.</p>
+        <p style="font-size:0.85rem;">1125 Wilmette Avenue · Wilmette, IL 60091<br />(847) 251-6660 · 1stchurch@fccw.org</p>
+        <p style="font-size:0.85rem; margin-top:0.75rem;">
+          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Facebook</a>
+          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Instagram</a>
+          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none;">YouTube</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">About Us</a>
+        <a href="groups.html">Get Involved</a>
+        <a href="services.html">Worship</a>
+        <a href="events.html">Events</a>
+        <a href="outreach.html">Outreach</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="services.html#visit">Plan a Visit</a>
+        <a href="services.html#what-to-expect">What to Expect</a>
+        <a href="services.html#sermons">Sermon Archive</a>
+        <a href="#">Directions &amp; Parking</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Newsletter Signup</a>
+        <a href="give.html">Give</a>
+        <a href="mailto:1stchurch@fccw.org">Contact Us</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 First Congregational Church of Wilmette · All rights reserved.</span>
+      <span style="opacity:0.5;">Website by PBK Studio, LLC · mikelrosenthal.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+</script>
+
+<script>
+  // FCCW Custom Event Tracking — GA4
+  (function () {
+    if (typeof gtag === 'undefined') return;
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        gtag('event', 'cta_click', {
+          button_text: btn.textContent.trim(),
+          destination: btn.href || ''
+        });
+      });
+    });
+    document.querySelectorAll('a').forEach(function (link) {
+      if (/give|tithe|donat/i.test(link.href + link.textContent)) {
+        link.addEventListener('click', function () {
+          gtag('event', 'giving_intent', { source: window.location.pathname });
+        });
+      }
+    });
+    document.querySelectorAll('form').forEach(function (form) {
+      form.addEventListener('submit', function () {
+        gtag('event', 'form_submit', {
+          form_id: form.id || form.className || 'unnamed',
+          page: window.location.pathname
+        });
+      });
+    });
+    document.querySelectorAll('a[href^="mailto"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        gtag('event', 'email_click', { address: link.href.replace('mailto:', '') });
+      });
+    });
+    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+      if (link.hostname !== window.location.hostname) {
+        link.addEventListener('click', function () {
+          gtag('event', 'outbound_click', { url: link.href });
+        });
+      }
+    });
+    document.querySelectorAll('a[href*="visit"], a[href*="#visit"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        gtag('event', 'plan_visit_click', { source: window.location.pathname });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

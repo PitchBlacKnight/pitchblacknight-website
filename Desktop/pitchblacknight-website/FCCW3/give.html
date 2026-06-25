@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/FCCW3/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Give — First Congregational Church of Wilmette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <meta name="description" content="Support the mission of First Congregational Church of Wilmette. Give online, by mail, or by phone. Every gift sustains 150 years of faith, community, and service." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Give — First Congregational Church of Wilmette" />
+  <meta property="og:description" content="Your generosity makes everything FCCW does possible. Give online, by mail, or by phone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.fccw.org/give" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="images/FCCW-UCC_Logo_800x200.png" alt="FCCW mark" loading="lazy" />
+    </div>
+    <div class="nav-logo-wordmark">
+      <span class="nav-logo-name">First Congregational</span>
+      <span class="nav-logo-sub">Church of Wilmette · Est. 1875</span>
+    </div>
+  </a>
+  <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="about.html">About Us</a>
+    <a href="services.html">Worship</a>
+    <a href="groups.html">Get Involved</a>
+    <a href="events.html">Events</a>
+    <a href="give.html" class="active">Give</a>
+    <a href="services.html#visit" class="nav-cta">Plan a Visit</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO — dark gradient, no photo -->
+<div class="page-hero" style="background:linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);">
+  <div class="page-hero-inner">
+    <p class="section-label" style="color:var(--teal-mid); margin-bottom:0.5rem;">Generosity</p>
+    <h1>Give</h1>
+    <p>Your generosity makes everything FCCW does possible.</p>
+  </div>
+</div>
+
+<!-- GIVING OPTIONS -->
+<section style="padding:5rem 2rem; background:var(--white);">
+  <div class="section-inner">
+    <p class="section-label">Ways to Give</p>
+    <h2 class="section-title">Support our mission</h2>
+    <p class="section-sub">Every gift — large or small — sustains 150 years of faith, community, and service in Wilmette and beyond.</p>
+
+    <div class="grid-3" style="margin-top:3rem;">
+      <!-- Online Giving -->
+      <div style="background:var(--ltgray); border-radius:16px; padding:2rem;">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Online Giving</div>
+        <h3 style="font-size:1.3rem; font-weight:600; color:var(--dark); margin-bottom:1rem;">Give via Tithe.ly</h3>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Secure online giving through Tithe.ly is coming soon. In the meantime, please give by mail or phone — or contact the office for assistance.</p>
+        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Contact the Office →</a>
+      </div>
+
+      <!-- Give by Mail -->
+      <div style="background:var(--ltgray); border-radius:16px; padding:2rem;">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Give by Mail</div>
+        <h3 style="font-size:1.3rem; font-weight:600; color:var(--dark); margin-bottom:1rem;">Send a Check</h3>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:0.5rem;">Make checks payable to:</p>
+        <p style="font-weight:600; color:var(--dark); line-height:1.65; margin-bottom:0.5rem;">First Congregational Church of Wilmette</p>
+        <p style="color:var(--body);">1125 Wilmette Avenue<br />Wilmette, IL 60091</p>
+      </div>
+
+      <!-- Give by Phone -->
+      <div style="background:var(--ltgray); border-radius:16px; padding:2rem;">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Give by Phone</div>
+        <h3 style="font-size:1.3rem; font-weight:600; color:var(--dark); margin-bottom:1rem;">Call the Office</h3>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1rem;">Our office team is happy to assist with your gift by phone Monday through Friday.</p>
+        <p style="font-size:1.5rem; font-weight:700; color:var(--teal);">(847) 251-6660</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEWARDSHIP CAMPAIGN -->
+<section style="background:var(--ltgray); padding:5rem 2rem; text-align:center;">
+  <div class="section-inner" style="max-width:640px; margin:0 auto;">
+    <p class="section-label">2026 Stewardship Campaign</p>
+    <h2 class="section-title">Trailblazing Together</h2>
+    <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Our 2026 pledge drive invites every member and friend of FCCW to join in sustaining this community for the next generation. Every commitment — large or small — helps FCCW continue its 150-year mission of welcome, worship, and justice.</p>
+    <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">To make a pledge or learn more about the campaign, contact the church office.</p>
+    <a href="mailto:1stchurch@fccw.org" class="btn btn-primary">Make a Pledge →</a>
+  </div>
+</section>
+
+<!-- WHERE YOUR GIFT GOES -->
+<section style="padding:5rem 2rem; background:var(--white);">
+  <div class="section-inner">
+    <p class="section-label">Your Impact</p>
+    <h2 class="section-title">Where your gift goes</h2>
+    <p class="section-sub">Every dollar given to FCCW stays at work in this community and beyond.</p>
+    <div class="grid-3" style="margin-top:2rem;">
+      <div class="ministry-card">
+        <div class="ministry-title">Worship &amp; Music</div>
+        <div class="ministry-text">Sustaining Sunday worship, our music ministry, and the special services that mark the sacred seasons of the year.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Community Outreach</div>
+        <div class="ministry-text">Supporting our work with Connections for the Homeless, community meals, and our interfaith partnerships.</div>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Building &amp; Grounds</div>
+        <div class="ministry-text">Maintaining our 1875 building so it continues to serve the congregation, Gates Manor residents, and the broader community.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">First Congregational Church of Wilmette</div>
+        <p class="footer-tagline">An Open &amp; Affirming United Church of Christ congregation where everyone belongs — no matter where you are on life's journey.</p>
+        <p style="font-size:0.85rem;">1125 Wilmette Avenue · Wilmette, IL 60091<br />(847) 251-6660 · 1stchurch@fccw.org</p>
+        <p style="font-size:0.85rem; margin-top:0.75rem;">
+          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Facebook</a>
+          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Instagram</a>
+          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none;">YouTube</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">About Us</a>
+        <a href="groups.html">Get Involved</a>
+        <a href="services.html">Worship</a>
+        <a href="events.html">Events</a>
+        <a href="outreach.html">Outreach</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="services.html#visit">Plan a Visit</a>
+        <a href="services.html#what-to-expect">What to Expect</a>
+        <a href="services.html#sermons">Sermon Archive</a>
+        <a href="#">Directions &amp; Parking</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Newsletter Signup</a>
+        <a href="give.html">Give</a>
+        <a href="mailto:1stchurch@fccw.org">Contact Us</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 First Congregational Church of Wilmette · All rights reserved.</span>
+      <span style="opacity:0.5;">Website by PBK Studio, LLC · mikelrosenthal.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+</script>
+
+<script>
+  // FCCW Custom Event Tracking — GA4
+  (function () {
+    if (typeof gtag === 'undefined') return;
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        gtag('event', 'cta_click', {
+          button_text: btn.textContent.trim(),
+          destination: btn.href || ''
+        });
+      });
+    });
+    document.querySelectorAll('a').forEach(function (link) {
+      if (/give|tithe|donat/i.test(link.href + link.textContent)) {
+        link.addEventListener('click', function () {
+          gtag('event', 'giving_intent', { source: window.location.pathname });
+        });
+      }
+    });
+    document.querySelectorAll('form').forEach(function (form) {
+      form.addEventListener('submit', function () {
+        gtag('event', 'form_submit', {
+          form_id: form.id || form.className || 'unnamed',
+          page: window.location.pathname
+        });
+      });
+    });
+    document.querySelectorAll('a[href^="mailto"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        gtag('event', 'email_click', { address: link.href.replace('mailto:', '') });
+      });
+    });
+    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+      if (link.hostname !== window.location.hostname) {
+        link.addEventListener('click', function () {
+          gtag('event', 'outbound_click', { url: link.href });
+        });
+      }
+    });
+    document.querySelectorAll('a[href*="visit"], a[href*="#visit"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        gtag('event', 'plan_visit_click', { source: window.location.pathname });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

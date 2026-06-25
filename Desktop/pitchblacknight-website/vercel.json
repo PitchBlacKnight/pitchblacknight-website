@@ -7,6 +7,12 @@
     { "src": "/Lindsey-Bingaman/schedule",         "dest": "/Lindsey-Bingaman/schedule.html" },
     { "src": "/Lindsey-Bingaman/(.*)",             "dest": "/Lindsey-Bingaman/$1" },
     { "src": "/Lindsey-Bingaman",                  "dest": "/Lindsey-Bingaman/index.html" },
+    { "src": "/FCCW/(.*)",                         "dest": "/FCCW/$1" },
+    { "src": "/FCCW",                              "dest": "/FCCW/index.html" },
+    { "src": "/FCCW2/(.*)",                        "dest": "/FCCW2/$1" },
+    { "src": "/FCCW2",                             "dest": "/FCCW2/index.html" },
+    { "src": "/FCCW3/(.*)",                        "dest": "/FCCW3/$1" },
+    { "src": "/FCCW3",                             "dest": "/FCCW3/index.html" },
     { "src": "/",                                  "dest": "/index.html" }
   ]
 }

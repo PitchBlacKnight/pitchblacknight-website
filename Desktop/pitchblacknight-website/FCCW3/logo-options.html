@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCCW Logo Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f172a;
+      font-family: 'DM Sans', sans-serif;
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .option {
+      background: #1E293B;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Simulate the nav bar */
+    .nav-bar {
+      height: 72px;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-links-mock {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .nav-links-mock span {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+    }
+    .nav-links-mock .cta {
+      background: #0D9488;
+      color: white;
+      border-radius: 7px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+    }
+
+    .option-label {
+      padding: 1rem 2.5rem 1.25rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── OPTION 1: UCC Mark + Elegant Type ── */
+    .logo-1 {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .logo-1-mark {
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+    .logo-1-mark img {
+      height: 48px;
+      width: auto;
+    }
+    .logo-1-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-1-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .logo-1-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.3rem;
+    }
+
+    /* ── OPTION 2: SVG Flame Cross ── */
+    .logo-2 {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .logo-2-icon {
+      flex-shrink: 0;
+    }
+    .logo-2-text {}
+    .logo-2-main {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: white;
+      line-height: 1;
+      letter-spacing: 0.03em;
+    }
+    .logo-2-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #14B8A6;
+      margin-top: 0.35rem;
+    }
+
+    /* ── OPTION 3: Cinzel Monogram ── */
+    .logo-3 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-3-badge {
+      width: 46px;
+      height: 46px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .logo-3-badge::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+    }
+    .logo-3-mono {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 0.05em;
+    }
+    .logo-3-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.2);
+      flex-shrink: 0;
+    }
+    .logo-3-text {}
+    .logo-3-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: white;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+    }
+    .logo-3-city {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>FCCW · Logo Options · Choose One</h1>
+
+<div class="options">
+
+  <!-- OPTION 1 -->
+  <div class="option">
+    <div class="nav-bar">
+      <div class="logo-1">
+        <div class="logo-1-mark">
+          <img src="images/FCCW-UCC_Logo_800x200.png" alt="FCCW mark" />
+        </div>
+        <div class="logo-1-text">
+          <div class="logo-1-name">First Congregational</div>
+          <div class="logo-1-sub">Church of Wilmette · Est. 1875</div>
+        </div>
+      </div>
+      <div class="nav-links-mock">
+        <span>Events</span><span>Groups</span><span>Services</span><span>Outreach</span>
+        <span class="cta">Plan a Visit</span>
+      </div>
+    </div>
+    <div class="option-label">Option A — UCC Mark + Cormorant Serif</div>
+  </div>
+
+  <!-- OPTION 2 -->
+  <div class="option">
+    <div class="nav-bar">
+      <div class="logo-2">
+        <!-- SVG Flame Cross -->
+        <svg class="logo-2-icon" width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Flame -->
+          <path d="M18 2 C18 2, 26 10, 26 18 C26 23, 22 26, 18 28 C14 26, 10 23, 10 18 C10 10, 18 2, 18 2Z" fill="url(#flame)"/>
+          <!-- Cross stem -->
+          <rect x="16.5" y="22" width="3" height="22" rx="1.5" fill="white" opacity="0.9"/>
+          <!-- Cross arm -->
+          <rect x="8" y="30" width="20" height="3" rx="1.5" fill="white" opacity="0.9"/>
+          <defs>
+            <linearGradient id="flame" x1="18" y1="2" x2="18" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f97316"/>
+              <stop offset="30%" stop-color="#eab308"/>
+              <stop offset="60%" stop-color="#22c55e"/>
+              <stop offset="100%" stop-color="#14B8A6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-2-text">
+          <div class="logo-2-main">First Congregational</div>
+          <div class="logo-2-sub">Church of Wilmette · UCC · Est. 1875</div>
+        </div>
+      </div>
+      <div class="nav-links-mock">
+        <span>Events</span><span>Groups</span><span>Services</span><span>Outreach</span>
+        <span class="cta">Plan a Visit</span>
+      </div>
+    </div>
+    <div class="option-label">Option B — Custom Flame Cross + Serif</div>
+  </div>
+
+  <!-- OPTION 3 -->
+  <div class="option">
+    <div class="nav-bar">
+      <div class="logo-3">
+        <div class="logo-3-badge">
+          <span class="logo-3-mono">FC</span>
+        </div>
+        <div class="logo-3-divider"></div>
+        <div class="logo-3-text">
+          <div class="logo-3-name">First Congregational<br/>Church of Wilmette</div>
+          <div class="logo-3-city">United Church of Christ · Est. 1875</div>
+        </div>
+      </div>
+      <div class="nav-links-mock">
+        <span>Events</span><span>Groups</span><span>Services</span><span>Outreach</span>
+        <span class="cta">Plan a Visit</span>
+      </div>
+    </div>
+    <div class="option-label">Option C — Cinzel Monogram Badge + Stacked Name</div>
+  </div>
+
+</div>
+
+</body>
+</html>
