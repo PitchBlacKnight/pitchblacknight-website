@@ -4,7 +4,7 @@
   <base href="/" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mission &amp; Outreach — First Congregational Church of Wilmette</title>
+  <title>Connect — First Congregational Church of Wilmette</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
@@ -15,10 +15,10 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <meta name="description" content="Mission and Outreach at First Congregational Church of Wilmette — serving our neighbors through financial grants, volunteer service, and community outreach." />
+  <meta name="description" content="Connect with First Congregational Church of Wilmette. Fill out a connection card, plan a visit, find our address and hours, or subscribe to our newsletter." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Mission &amp; Outreach — First Congregational Church of Wilmette" />
-  <meta property="og:description" content="A community of faith, sharing our treasure with those in need through mission giving and active service." />
+  <meta property="og:title" content="Connect — First Congregational Church of Wilmette" />
+  <meta property="og:description" content="Reach out for fellowship. Sunday worship at 10am. 1125 Wilmette Avenue, Wilmette, IL." />
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="FCCW3/style.css" />
 </head>
@@ -63,76 +63,98 @@
 </nav>
 
 <!-- PAGE HERO -->
-<div class="page-hero" style="background-image:linear-gradient(135deg, rgba(26,39,68,0.88) 0%, rgba(15,23,42,0.93) 100%), url('FCCW3/images/Hands_holding_seedling_1920x1280.jpg'); background-size:cover; background-position:center;">
+<div class="page-hero" style="background:linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);">
   <div class="page-hero-inner">
-    <h1>Mission &amp; Outreach</h1>
-    <p>A community of faith, sharing our treasure with those in need.</p>
+    <h1>Connect</h1>
+    <p>Reach Out for Fellowship</p>
   </div>
 </div>
 
-<!-- INTRO -->
+<!-- WORSHIP / LIVESTREAM -->
 <section style="padding:5rem 2rem; background:var(--white);">
   <div class="section-inner">
-    <h2 class="section-title">A community of faith, sharing our treasure with those in need</h2>
-    <p style="color:var(--body); line-height:1.75; max-width:760px; margin-bottom:2.5rem;">The church describes itself as "a community of faith, sharing our treasure with those in need through our Mission giving." Members actively participate in service projects and aim to be "a beacon of Christian love through outreach."</p>
-    <div class="grid-3">
-      <div class="ministry-card">
-        <div class="ministry-title">Financial grants to recipients</div>
-      </div>
-      <div class="ministry-card">
-        <div class="ministry-title">Active service through donation of time and goods</div>
-      </div>
-      <div class="ministry-card">
-        <div class="ministry-title">Community outreach and communications</div>
-      </div>
+    <h2 class="section-title">Worship with Us</h2>
+    <p style="font-size:1.15rem; font-weight:700; color:var(--teal); margin-bottom:1.25rem;">SUNDAYS AT 10 A.M.</p>
+    <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">Can't make it to the sanctuary? Join Our Live Stream</p>
+    <div style="background:var(--ltgray); border-radius:14px; padding:3rem; text-align:center; margin-bottom:2rem; border:1px solid var(--midgray); max-width:700px;">
+      <p style="color:var(--slate);">Live Stream — YouTube embed goes here</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICE ACTIVITIES -->
+<!-- CONNECTION CARD -->
 <section style="background:var(--ltgray); padding:5rem 2rem;">
   <div class="section-inner">
-    <h2 class="section-title">Our Service Activities</h2>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
       <div>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">The congregation collects and distributes school backpacks, socks, and underwear. They prepare monthly meals at Connections for the Homeless and provide Christmas gifts to homeless individuals. Additional efforts involve gathering clothing for immigrants, supporting the community nursery school diaper drive, donating to food banks, and stocking community refrigerators in Evanston.</p>
+        <h2 class="section-title">Fill Out a Connection Card</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">Comments, Questions, Prayer and Childcare Requests</p>
+        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+          <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white);" />
+          <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white);" />
+          <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white);" />
+          <textarea name="message" placeholder="Comments / Questions / Prayer Request / Childcare Request" rows="5" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; resize:vertical; background:var(--white);"></textarea>
+          <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:var(--body); cursor:pointer;">
+            <input type="checkbox" name="newsletter" value="yes" />
+            Sign me up for the newsletter
+          </label>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-        <img src="FCCW3/images/1402v1_Serving_Dinner-for-the-Homeless.jpg" alt="Serving dinner for the homeless" loading="lazy" style="width:100%; border-radius:10px; object-fit:cover; height:200px;" />
-        <img src="FCCW3/images/1403v3_Homeless_Playing_with_Kids.jpg" alt="Homeless community outreach" loading="lazy" style="width:100%; border-radius:10px; object-fit:cover; height:200px;" />
+      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+        <div style="background:var(--white); border-radius:12px; padding:1.5rem; border:1px solid var(--midgray);">
+          <h4 style="font-size:0.85rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--teal); margin-bottom:0.75rem;">Services</h4>
+          <p style="color:var(--body); font-size:0.95rem;">Worship: Sundays at 10am</p>
+        </div>
+        <div style="background:var(--white); border-radius:12px; padding:1.5rem; border:1px solid var(--midgray);">
+          <h4 style="font-size:0.85rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--teal); margin-bottom:0.75rem;">Address</h4>
+          <p style="color:var(--body); font-size:0.95rem; line-height:1.65;">1125 Wilmette Avenue<br />Wilmette, IL 60091<br />Office Hours: 9am–3pm, M–F</p>
+        </div>
+        <div style="background:var(--white); border-radius:12px; padding:1.5rem; border:1px solid var(--midgray);">
+          <h4 style="font-size:0.85rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--teal); margin-bottom:0.75rem;">Phone &amp; Email</h4>
+          <p style="color:var(--body); font-size:0.95rem; line-height:1.65;">(847) 251-6660<br /><a href="mailto:1stchurch@fccw.org" style="color:var(--teal);">1stchurch@fccw.org</a></p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NEW TRIER MULTI-FAITH ALLIANCE -->
+<!-- PLAN A VISIT / SHARE SPACE / NEWSLETTER -->
 <section style="padding:5rem 2rem; background:var(--white);">
   <div class="section-inner">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
-      <div>
-        <h2 class="section-title">New Trier Multi-Faith Alliance</h2>
-        <p style="color:var(--body); line-height:1.75;">The church participates in the New Trier Multi-Faith Alliance, sharing events through their communications and attending activities hosted by other faith communities.</p>
+    <div class="grid-3">
+      <div class="ministry-card">
+        <div class="ministry-title">Plan a Visit</div>
+        <p class="ministry-text" style="margin-bottom:1.25rem;">Come as you are. Our love for one another and our community is what holds us together.</p>
+        <a href="FCCW3/services.html#visit" class="btn btn-ghost" style="font-size:0.9rem;">Plan a Visit</a>
       </div>
-      <div>
-        <img src="FCCW3/images/NEW-WISDOM-WALK2_cropped.jpg" alt="Wisdom Walk" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; max-height:280px;" />
+      <div class="ministry-card">
+        <div class="ministry-title">Share Our Space</div>
+        <p class="ministry-text" style="margin-bottom:1.25rem;">We provide a shared space where you can connect, collaborate, and create a better future together.</p>
+        <a href="FCCW3/space.html" class="btn btn-ghost" style="font-size:0.9rem;">Find Out More</a>
+      </div>
+      <div class="ministry-card">
+        <div class="ministry-title">Keep in Touch</div>
+        <p class="ministry-text" style="margin-bottom:1.25rem;">Subscribe to our newsletter for event updates and announcements.</p>
+        <a href="#footer-newsletter" class="btn btn-ghost" style="font-size:0.9rem;">Subscribe Now</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GET INVOLVED CTA -->
-<section style="background:var(--teal); padding:4rem 2rem; text-align:center;">
+<!-- SOCIAL MEDIA -->
+<section style="background:var(--dark); padding:3rem 2rem; text-align:center;">
   <div class="section-inner">
-    <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); font-weight:700; color:var(--white); margin-bottom:1rem;">Ready to get involved?</h2>
-    <p style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:480px; margin:0 auto 2rem; line-height:1.65;">There are many ways to serve. Join us for one-time events or become a regular volunteer.</p>
-    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a href="FCCW3/groups.html" class="btn" style="background:var(--white); color:var(--teal); font-weight:600;">Get Involved</a>
-      <a href="FCCW3/give.html" class="btn btn-outline">Give</a>
+    <p style="color:rgba(255,255,255,0.7); margin-bottom:1.25rem;">Follow us on social media</p>
+    <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://www.facebook.com/fccwilmette" target="_blank" rel="noopener" class="btn btn-outline">Facebook</a>
+      <a href="https://www.instagram.com/fccwilmette" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
+      <a href="https://www.youtube.com/@FCCWilmette" target="_blank" rel="noopener" class="btn btn-outline">YouTube</a>
     </div>
   </div>
 </section>
 
-<footer>
+<footer id="footer-newsletter">
   <div class="footer-inner">
     <div class="footer-grid">
       <div>

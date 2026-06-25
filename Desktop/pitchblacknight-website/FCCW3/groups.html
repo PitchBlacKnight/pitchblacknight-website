@@ -15,243 +15,358 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <meta name="description" content="Explore groups and ministries at First Congregational Church of Wilmette — music, craft &amp; chat, spiritual wellness, outreach, book discussion, meal prep, gardening, and more." />
+  <meta name="description" content="Get involved at FCCW — from music to meals to meaningful conversation. Find your place in our community." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Get Involved — First Congregational Church of Wilmette" />
-  <meta property="og:description" content="Find your place at FCCW. Music ministry, craft &amp; chat, spiritual wellness, helping the unhoused, book discussion, and more in Wilmette, IL." />
+  <meta property="og:description" content="Find your place at FCCW — from music to meals to meaningful conversation." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.fccw.org/groups" />
-  <meta property="og:image" content="https://www.fccw.org/images/OUR-MUSIC-2.jpeg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Get Involved — FCCW Wilmette" />
-  <meta name="twitter:description" content="Find your place at First Congregational Church of Wilmette." />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="FCCW3/style.css" />
 </head>
 <body>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-mark">
-      <img src="images/FCCW-UCC_Logo_800x200.png" alt="FCCW mark" loading="lazy" />
-    </div>
-    <div class="nav-logo-wordmark">
-      <span class="nav-logo-name">First Congregational</span>
-      <span class="nav-logo-sub">Church of Wilmette · Est. 1875</span>
-    </div>
+  <a href="FCCW3/index.html" class="nav-logo">
+    <img src="FCCW3/images/FCCW-UCC_Logo_800x200.png" alt="First Congregational Church of Wilmette" loading="lazy" style="height:52px; width:auto;" />
   </a>
   <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="nav-links">
-    <a href="about.html">About Us</a>
-    <a href="services.html">Worship</a>
-    <a href="groups.html" class="active">Get Involved</a>
-    <a href="events.html">Events</a>
-    <a href="give.html">Give</a>
-    <a href="services.html#visit" class="nav-cta">Plan a Visit</a>
+    <a href="FCCW3/index.html">Home</a>
+    <div class="nav-item">
+      <a href="FCCW3/about.html">About Us</a>
+      <div class="dropdown">
+        <a href="FCCW3/about.html">About Our Church</a>
+        <a href="FCCW3/outreach.html">Mission &amp; Outreach</a>
+        <a href="FCCW3/partners.html">Community Partners</a>
+      </div>
+    </div>
+    <a href="FCCW3/groups.html">Get Involved</a>
+    <div class="nav-item">
+      <a href="FCCW3/services.html">Worship and Learn</a>
+      <div class="dropdown">
+        <a href="FCCW3/services.html">Faith Community</a>
+        <a href="FCCW3/services.html#music">Our Music</a>
+      </div>
+    </div>
+    <a href="FCCW3/events.html">Calendar</a>
+    <div class="nav-item">
+      <a href="FCCW3/contact.html">Connect</a>
+      <div class="dropdown">
+        <a href="FCCW3/contact.html">Contact Us</a>
+        <a href="FCCW3/services.html#visit">Plan a Visit</a>
+        <a href="FCCW3/space.html">Sharing Our Space</a>
+      </div>
+    </div>
+    <a href="FCCW3/give.html" class="nav-cta">Give</a>
   </div>
 </nav>
 
 <!-- PAGE HERO -->
-<div class="page-hero" style="background-image:linear-gradient(135deg, rgba(30,41,59,0.88) 0%, rgba(15,23,42,0.93) 100%), url('images/OUR-MUSIC-2.jpeg'); background-size:cover; background-position:center;">
+<div class="page-hero" style="background-image:linear-gradient(135deg, rgba(26,39,68,0.88) 0%, rgba(15,23,42,0.93) 100%), url('FCCW3/images/Get_Involved_Banner02-1.jpg'); background-size:cover; background-position:center;">
   <div class="page-hero-inner">
-    <p class="section-label" style="color:var(--teal-mid); margin-bottom:0.5rem;">Get Involved</p>
-    <h1>Find Your Place Here</h1>
-    <p>There's something for everyone at FCCW — from music to meals to meaningful conversation.</p>
+    <h1>Get Involved</h1>
+    <p>Find your place at FCCW — from music to meals to meaningful conversation.</p>
   </div>
 </div>
 
-<!-- ANCHOR QUICK-JUMP NAV -->
-<div style="background:var(--dark); padding:1rem 2rem; position:sticky; top:68px; z-index:50;">
-  <div class="section-inner" style="display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center;">
-    <a href="#music" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Music</a>
-    <a href="#craft" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Craft &amp; Chat</a>
-    <a href="#wellness" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Spiritual Wellness</a>
-    <a href="#unhoused" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Helping the Unhoused</a>
-    <a href="#books" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Book Discussion</a>
-    <a href="#meals" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Meal Prep</a>
-    <a href="#gardening" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Gardening</a>
-    <a href="#decorating" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Sanctuary Decorating</a>
+<!-- JUMP LINKS -->
+<div style="background:var(--dark); padding:1rem 2rem; position:sticky; top:72px; z-index:50; overflow-x:auto;">
+  <div class="section-inner" style="display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; white-space:nowrap;">
+    <a href="#craft" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Craft and Chat</a>
+    <a href="#spiritual" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Spiritual Wellness</a>
+    <a href="#unhoused" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Helping the Unhoused</a>
+    <a href="#book" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Book Discussion Group</a>
+    <a href="#decorating" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Sanctuary Decorating Team</a>
+    <a href="#video" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Photo Video Team</a>
+    <a href="#music" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Music Opportunities</a>
+    <a href="#gardening" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Gardening Team</a>
+    <a href="#cooking" style="color:rgba(255,255,255,0.7); font-size:0.78rem; font-weight:500; text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;">Meal Preparation</a>
   </div>
 </div>
 
-<!-- SECTION 1: MUSIC -->
-<section id="music" style="padding:5rem 2rem; background:var(--white);">
+<!-- GROUP 1: CRAFT AND CHAT -->
+<section id="craft" style="padding:5rem 2rem; background:var(--white);">
   <div class="section-inner">
-    <img src="images/OUR-MUSIC-2.jpeg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="FCCW choir and music ministry" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-      <div>
-        <h2 class="section-title">Music Ministry</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Music is central to worship at FCCW. Our choir rehearses Wednesday evenings and sings most Sundays. Directed by Katherine Hughes. Instrumentalists and vocalists of all levels are welcome — no audition required.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Email the Music Director →</a>
-      </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-        <img src="images/1504v2_Music_Banjo_and_Violin_800x600.jpg" loading="lazy" style="width:100%; border-radius:10px; object-fit:cover; height:180px;" alt="Banjo and violin" />
-        <img src="images/1507v2_Music_Mary_Piano.jpg" loading="lazy" style="width:100%; border-radius:10px; object-fit:cover; height:180px;" alt="Pianist at FCCW" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 2: CRAFT & CHAT -->
-<section id="craft" style="padding:5rem 2rem; background:var(--ltgray);">
-  <div class="section-inner">
-    <img src="images/knitting_square.jpg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="Craft and Chat group" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-      <div>
-        <h2 class="section-title">Craft &amp; Chat</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Bring your favorite craft to this warm, welcoming group, every Thursday in the Library from 1:00–3:00 PM. Knitters, quilters, and crafters of all kinds gather for good company and creative time. No experience necessary.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Sign Up for Craft &amp; Chat Alerts →</a>
-      </div>
-      <div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3: SPIRITUAL WELLNESS -->
-<section id="wellness" style="padding:5rem 2rem; background:var(--white);">
-  <div class="section-inner">
-    <img src="images/1801v3_Spiritual_Soundbath.jpg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="Spiritual wellness sound bath" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-      <div>
-        <h2 class="section-title">Spiritual Wellness</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Nurturing body, mind, and spirit — FCCW offers sound bath meditation, wisdom walks in nature, and other contemplative practices throughout the year. All are welcome, regardless of background or tradition.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Sign Up for Wellness Updates →</a>
-      </div>
-      <div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 4: HELPING THE UNHOUSED -->
-<section id="unhoused" style="padding:5rem 2rem; background:var(--ltgray);">
-  <div class="section-inner">
-    <img src="images/1402v1_Serving_Dinner-for-the-Homeless.jpg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="Serving dinner for the unhoused" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-      <div>
-        <h2 class="section-title">Helping the Unhoused</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">FCCW partners with Connections for the Homeless in Evanston. Our members volunteer at the shelter and help prepare and serve meals — showing up in a tangible way for people in their most vulnerable moments. No special skills required, just a willingness to show up.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Sign Up to Volunteer →</a>
+        <img src="FCCW3/images/knitting_square.jpg" alt="Knitting at Craft and Chat" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+        <img src="FCCW3/images/1302v1_Painting_Poinsettias_3people.jpg" alt="Painting at Craft and Chat" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
       </div>
       <div>
-        <div class="pull-quote">
-          <p>"When we set the table, everyone has a place."</p>
-          <cite>— FCCW Core Value</cite>
+        <h2 class="section-title">FCCW Craft and Chat combines socializing and creativity.</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">Bring your favorite craft to this group, every Thursday in the Library from 1-3. Or just come and chat, and give positive feedback to the artists and crafters.</p>
+        <div style="background:var(--ltgray); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">I need some new creative friends. Send me info. Here is your chance to combine creativity and socializing.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="craft" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 5: BOOK DISCUSSION -->
-<section id="books" style="padding:5rem 2rem; background:var(--white);">
+<!-- GROUP 2: SPIRITUAL WELLNESS -->
+<section id="spiritual" style="padding:5rem 2rem; background:var(--ltgray);">
   <div class="section-inner">
-    <img src="images/Book_Discussion.jpg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="Book discussion group" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
       <div>
-        <h2 class="section-title">Book Discussion Group</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Our Book Discussion Group meets monthly to explore fiction, nonfiction, memoir, and more. It's a space for open conversation, diverse perspectives, and genuine community. New members always welcome.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Sign Up for Book Group Updates →</a>
+        <img src="FCCW3/images/1801v3_Spiritual_Soundbath.jpg" alt="Spiritual Sound Bath" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; max-height:320px;" />
       </div>
-      <div></div>
+      <div>
+        <h2 class="section-title">Meditation, Prayer and Spiritual Wellness Opportunities at FCCW</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">You'll find a mix of opportunities for exploring spiritual wellness at FCCW, from contemplative prayer to sound bath, to yoga, to nature walks.</p>
+        <div style="background:var(--white); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">When is the next FCCW event? I need inner peace. We will send you notice of upcoming Spiritual Wellness events.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="spiritual" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 6: MEAL PREPARATION -->
-<section id="meals" style="padding:5rem 2rem; background:var(--ltgray);">
+<!-- GROUP 3: HELPING THE UNHOUSED -->
+<section id="unhoused" style="padding:5rem 2rem; background:var(--white);">
   <div class="section-inner">
-    <img src="images/1602v4_picnic_dinner_Dave_grilling.jpg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="Community meal preparation" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <img src="FCCW3/images/1403v3_Homeless_Playing_with_Kids.jpg" alt="Community outreach with families" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+        <img src="FCCW3/images/1402v1_Serving_Dinner-for-the-Homeless.jpg" alt="Serving dinner for the homeless" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+      </div>
+      <div>
+        <h2 class="section-title">Helping the Unhoused</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">Our church has supported several homeless agencies over the past decades. Currently we offer various types of volunteer opportunities with Connections for the Homeless in Evanston.</p>
+        <div style="background:var(--ltgray); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">How can I help? Send me more information. Join with our group for a one-time event at the homeless shelter.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="unhoused" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP 4: BOOK DISCUSSION -->
+<section id="book" style="padding:5rem 2rem; background:var(--ltgray);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <img src="FCCW3/images/Book_Discussion.jpg" alt="Book Discussion Group" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; max-height:320px;" />
+      </div>
+      <div>
+        <h2 class="section-title">FCCW Book Discussion Group Brings Together Book Lovers for Interesting Discussions.</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">The Book Discussion Group meets on the third Thursday of each month at 3:00 p.m. in the Library. The discussion is a convergence of opinions and ideas in a spirit of camaraderie and fun. All are welcome.</p>
+        <div style="background:var(--white); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">Sign up to get our monthly Book Alert. Find out meeting date, time and the next book we will be discussing.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="book" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP 5: SANCTUARY DECORATING -->
+<section id="decorating" style="padding:5rem 2rem; background:var(--white);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <img src="FCCW3/images/1102v3_Easter_fabric_and_flowers.jpg" alt="Easter sanctuary decorating" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+        <img src="FCCW3/images/1101v1_SanctuaryPurpleLentBanners.jpg" alt="Lent banners in sanctuary" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+      </div>
+      <div>
+        <h2 class="section-title">Tap Your Creativity with Our Sanctuary Decorating Team.</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">Use flowers, plants, fabrics, stones, lights or other materials to decorate our worship space. Set your imagination free.</p>
+        <div style="background:var(--ltgray); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">Sign up for our Decorating Calendar. We'll notify you about upcoming opportunities and team meetings for sanctuary decorating.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="decorating" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP 6: PHOTO/VIDEO TEAM -->
+<section id="video" style="padding:5rem 2rem; background:var(--ltgray);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <img src="FCCW3/images/Video_Team.jpg" alt="FCCW Video Team" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; max-height:320px;" />
+      </div>
+      <div>
+        <h2 class="section-title">FCCW Needs Your Talent for Photography and Video</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">If you enjoy photography or video we want you on our team. We need photos for our website, our email newsletter, and to document our activities over the year. And we'll put your video talents to work for streaming our worship services, plus adult education events.</p>
+        <div style="background:var(--white); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">How can I participate? Send me details. See a great photo? Grab it! And we can always use help with our streaming.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="video" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP 7: MUSIC -->
+<section id="music" style="padding:5rem 2rem; background:var(--white);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <img src="FCCW3/images/1507v2_Music_Mary_Piano.jpg" alt="Music at FCCW" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+        <img src="FCCW3/images/OUR-MUSIC-2.jpeg" alt="FCCW choir" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+        <img src="FCCW3/images/1504v2_Music_Banjo_and_Violin_800x600.jpg" alt="Banjo and violin at FCCW" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+      </div>
+      <div>
+        <h2 class="section-title">Music Opportunities</h2>
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem;">Join the Choir</h3>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">The FCCW Choir rehearses on Wednesday nights, and performs Sunday morning at worship.</p>
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem;">Sing or Play Your Instrument</h3>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">We have lots of opportunities for you to share your musical talents for one-time special performances. String, bass and woodwind players, guitarists, keyboard players and percussionists can find a place in our worship plans.</p>
+        <div style="background:var(--ltgray); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">I want to know more about FCCW musical opportunities. We will send you information about the choir, and one-time events.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="music" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP 8: GARDENING -->
+<section id="gardening" style="padding:5rem 2rem; background:var(--ltgray);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <img src="FCCW3/images/1350v3_two_gardeners.jpg" alt="Gardeners at FCCW" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+        <img src="FCCW3/images/1351v3_Gretchen_Margie.jpg" alt="Gretchen and Margie gardening" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:220px;" />
+      </div>
+      <div>
+        <h2 class="section-title">Enjoy Gardening? FCCW Gardening Team needs you!</h2>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">We need willing gardeners to keep our outdoor spaces beautiful. It can be a one-time commitment, or a regular outing. Join our team!</p>
+        <div style="background:var(--white); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">When is the next gardening day? Send me info. Gardening opportunities are flexible – do a little bit, or be a team regular.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="gardening" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP 9: MEAL PREPARATION / COOKING -->
+<section id="cooking" style="padding:5rem 2rem; background:var(--white);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <img src="FCCW3/images/Church-Cooking-Alt.jpeg" alt="Church cooking" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+        <img src="FCCW3/images/1602v4_picnic_dinner_Dave_grilling.jpg" alt="Dave grilling at church picnic" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+        <img src="FCCW3/images/Rich-_-Church_Cooking.jpeg" alt="Church cooking volunteers" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+        <img src="FCCW3/images/1605v4_Cooking_HotCrossBuns_CoffeeHour.jpg" alt="Hot cross buns at coffee hour" loading="lazy" style="width:100%; border-radius:12px; object-fit:cover; height:180px;" />
+      </div>
       <div>
         <h2 class="section-title">Meal Preparation</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Volunteers help prepare and serve meals for community programs throughout the year — from Thanksgiving baskets to summer gatherings. A tangible way to feed neighbors and build friendship at the same time.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Sign Up for Meal Prep Alerts →</a>
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem;">FCCW Lunches and Dinners Need Volunteers.</h3>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">If cooking or party/meal planning is your interest, we want you on our team!</p>
+        <div style="background:var(--ltgray); border-radius:14px; padding:2rem; margin-top:1.5rem;">
+          <p style="font-weight:600; color:var(--dark); margin-bottom:1.25rem;">Sign me up for Cooking Alerts. Roll up your sleeves and join our cooking team.</p>
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+            <input type="hidden" name="group" value="cooking" />
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
       </div>
-      <div></div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 7: GARDENING -->
-<section id="gardening" style="padding:5rem 2rem; background:var(--white);">
-  <div class="section-inner">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-      <div>
-        <h2 class="section-title">Gardening Team</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Our Gardening Team tends the church grounds, cultivating beauty and calm for everyone who passes through. Whether you have a green thumb or just love being outside, all are welcome to help plant, weed, and grow.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Sign Up to Garden →</a>
-      </div>
-      <div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 8: SANCTUARY DECORATING -->
-<section id="decorating" style="padding:5rem 2rem; background:var(--ltgray);">
-  <div class="section-inner">
-    <img src="images/1101v1_SanctuaryPurpleLentBanners.jpg" loading="lazy" style="width:100%; border-radius:14px; object-fit:cover; max-height:380px; margin-bottom:2rem;" alt="FCCW sanctuary with purple Lent banners" />
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-      <div>
-        <h2 class="section-title">Sanctuary Decorating Team</h2>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">The Sanctuary Decorating Team transforms our worship space for each season of the church year — from the purples of Lent to the greens of ordinary time. Creative souls of all kinds are welcome to help make our space reflect the spirit of the season.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Join the Decorating Team →</a>
-      </div>
-      <div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CLOSING CTA -->
-<section style="background:var(--teal); padding:4rem 2rem; text-align:center;">
-  <div class="section-inner">
-    <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); font-weight:700; color:var(--white); margin-bottom:1rem;">Not sure where to start?</h2>
-    <p style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:480px; margin:0 auto 2rem; line-height:1.65;">Reach out and we'll help you find the right fit. There's no wrong door here.</p>
-    <a href="mailto:1stchurch@fccw.org" class="btn" style="background:var(--white); color:var(--teal); font-weight:600;">Email Us →</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">First Congregational Church of Wilmette</div>
-        <p class="footer-tagline">An Open &amp; Affirming United Church of Christ congregation where everyone belongs — no matter where you are on life's journey.</p>
-        <p style="font-size:0.85rem;">1125 Wilmette Avenue · Wilmette, IL 60091<br />(847) 251-6660 · 1stchurch@fccw.org</p>
-        <p style="font-size:0.85rem; margin-top:0.75rem;">
-          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Facebook</a>
-          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Instagram</a>
-          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none;">YouTube</a>
+        <img src="FCCW3/images/FCCW-UCC_Logo_white_800x200.png" alt="FCCW Logo" loading="lazy" style="height:50px; width:auto; margin-bottom:1.25rem;" />
+        <p style="font-size:0.85rem; line-height:1.7; margin-bottom:1rem;">Worship: Sundays at 10am</p>
+        <p style="font-size:0.85rem; line-height:1.7; margin-bottom:1rem;">1125 Wilmette Avenue<br />Wilmette, IL 60091<br />Office Hours: 9am-3pm, M-F</p>
+        <p style="font-size:0.85rem; margin-bottom:1.25rem;">(847) 251-6660<br /><a href="mailto:1stchurch@fccw.org" style="color:rgba(255,255,255,0.6);">1stchurch@fccw.org</a></p>
+        <p style="font-size:0.85rem;">
+          <a href="https://www.facebook.com/fccwilmette" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Facebook</a>
+          <a href="https://www.instagram.com/fccwilmette" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Instagram</a>
+          <a href="https://www.youtube.com/@FCCWilmette" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); text-decoration:none;">YouTube</a>
         </p>
       </div>
       <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="about.html">About Us</a>
-        <a href="groups.html">Get Involved</a>
-        <a href="services.html">Worship</a>
-        <a href="events.html">Events</a>
-        <a href="outreach.html">Outreach</a>
+        <h4>About Us</h4>
+        <a href="FCCW3/about.html">About Our Church</a>
+        <a href="FCCW3/outreach.html">Mission and Outreach</a>
+        <a href="FCCW3/partners.html">Community Partners</a>
       </div>
       <div class="footer-col">
-        <h4>Visit</h4>
-        <a href="services.html#visit">Plan a Visit</a>
-        <a href="services.html#what-to-expect">What to Expect</a>
-        <a href="services.html#sermons">Sermon Archive</a>
-        <a href="#">Directions &amp; Parking</a>
+        <h4>Worship and Learn</h4>
+        <a href="FCCW3/services.html">Faith Community</a>
+        <a href="FCCW3/services.html#music">Our Music</a>
+        <a href="FCCW3/events.html">Calendar</a>
+        <a href="FCCW3/groups.html">Get Involved</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
-        <a href="#">Newsletter Signup</a>
-        <a href="give.html">Give</a>
-        <a href="mailto:1stchurch@fccw.org">Contact Us</a>
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a>
+        <a href="FCCW3/contact.html">Contact Us</a>
+        <a href="FCCW3/services.html#visit">Plan a Visit</a>
+        <a href="FCCW3/space.html">Sharing Our Space</a>
+        <a href="FCCW3/give.html">Give</a>
       </div>
     </div>
+    <div style="margin-bottom:2rem; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; max-width:400px;">
+      <h4 style="color:white; font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem;">Newsletter Sign-up</h4>
+      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <input type="email" name="email" placeholder="Your email" required style="flex:1; min-width:180px; padding:0.6rem 0.9rem; border-radius:6px; border:none; font-size:0.9rem;" />
+        <button type="submit" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.9rem;">Subscribe</button>
+      </form>
+    </div>
     <div class="footer-bottom">
-      <span>© 2025 First Congregational Church of Wilmette · All rights reserved.</span>
-      <span style="opacity:0.5;">Website by PBK Studio, LLC · mikelrosenthal.com</span>
+      <span>&copy; 2025 First Congregational Church of Wilmette &middot; All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -261,49 +376,17 @@
     document.getElementById('nav-links').classList.toggle('open');
   }
 </script>
-
 <script>
-  // FCCW Custom Event Tracking — GA4
   (function () {
     if (typeof gtag === 'undefined') return;
     document.querySelectorAll('.btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        gtag('event', 'cta_click', {
-          button_text: btn.textContent.trim(),
-          destination: btn.href || ''
-        });
+        gtag('event', 'cta_click', { button_text: btn.textContent.trim(), destination: btn.href || '' });
       });
-    });
-    document.querySelectorAll('a').forEach(function (link) {
-      if (/give|tithe|donat/i.test(link.href + link.textContent)) {
-        link.addEventListener('click', function () {
-          gtag('event', 'giving_intent', { source: window.location.pathname });
-        });
-      }
     });
     document.querySelectorAll('form').forEach(function (form) {
       form.addEventListener('submit', function () {
-        gtag('event', 'form_submit', {
-          form_id: form.id || form.className || 'unnamed',
-          page: window.location.pathname
-        });
-      });
-    });
-    document.querySelectorAll('a[href^="mailto"]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        gtag('event', 'email_click', { address: link.href.replace('mailto:', '') });
-      });
-    });
-    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
-      if (link.hostname !== window.location.hostname) {
-        link.addEventListener('click', function () {
-          gtag('event', 'outbound_click', { url: link.href });
-        });
-      }
-    });
-    document.querySelectorAll('a[href*="visit"], a[href*="#visit"]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        gtag('event', 'plan_visit_click', { source: window.location.pathname });
+        gtag('event', 'form_submit', { form_id: form.id || form.className || 'unnamed', page: window.location.pathname });
       });
     });
   })();

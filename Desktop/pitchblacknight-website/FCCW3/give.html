@@ -15,116 +15,173 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <meta name="description" content="Support the mission of First Congregational Church of Wilmette. Give online, by mail, or by phone. Every gift sustains 150 years of faith, community, and service." />
+  <meta name="description" content="Support the mission of First Congregational Church of Wilmette. Give by Zelle, credit card, PayPal, or check. Your generosity makes everything FCCW does possible." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Give — First Congregational Church of Wilmette" />
-  <meta property="og:description" content="Your generosity makes everything FCCW does possible. Give online, by mail, or by phone." />
+  <meta property="og:description" content="Give in Faith, Grow in Love. Your generosity makes everything FCCW does possible." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.fccw.org/give" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="FCCW3/style.css" />
 </head>
 <body>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-mark">
-      <img src="images/FCCW-UCC_Logo_800x200.png" alt="FCCW mark" loading="lazy" />
-    </div>
-    <div class="nav-logo-wordmark">
-      <span class="nav-logo-name">First Congregational</span>
-      <span class="nav-logo-sub">Church of Wilmette · Est. 1875</span>
-    </div>
+  <a href="FCCW3/index.html" class="nav-logo">
+    <img src="FCCW3/images/FCCW-UCC_Logo_800x200.png" alt="First Congregational Church of Wilmette" loading="lazy" style="height:52px; width:auto;" />
   </a>
   <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="nav-links">
-    <a href="about.html">About Us</a>
-    <a href="services.html">Worship</a>
-    <a href="groups.html">Get Involved</a>
-    <a href="events.html">Events</a>
-    <a href="give.html" class="active">Give</a>
-    <a href="services.html#visit" class="nav-cta">Plan a Visit</a>
+    <a href="FCCW3/index.html">Home</a>
+    <div class="nav-item">
+      <a href="FCCW3/about.html">About Us</a>
+      <div class="dropdown">
+        <a href="FCCW3/about.html">About Our Church</a>
+        <a href="FCCW3/outreach.html">Mission &amp; Outreach</a>
+        <a href="FCCW3/partners.html">Community Partners</a>
+      </div>
+    </div>
+    <a href="FCCW3/groups.html">Get Involved</a>
+    <div class="nav-item">
+      <a href="FCCW3/services.html">Worship and Learn</a>
+      <div class="dropdown">
+        <a href="FCCW3/services.html">Faith Community</a>
+        <a href="FCCW3/services.html#music">Our Music</a>
+      </div>
+    </div>
+    <a href="FCCW3/events.html">Calendar</a>
+    <div class="nav-item">
+      <a href="FCCW3/contact.html">Connect</a>
+      <div class="dropdown">
+        <a href="FCCW3/contact.html">Contact Us</a>
+        <a href="FCCW3/services.html#visit">Plan a Visit</a>
+        <a href="FCCW3/space.html">Sharing Our Space</a>
+      </div>
+    </div>
+    <a href="FCCW3/give.html" class="nav-cta">Give</a>
   </div>
 </nav>
 
-<!-- PAGE HERO — dark gradient, no photo -->
-<div class="page-hero" style="background:linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);">
+<!-- PAGE HERO -->
+<div class="page-hero" style="background-image:linear-gradient(135deg, rgba(26,39,68,0.88) 0%, rgba(15,23,42,0.93) 100%), url('FCCW3/images/Sunrise_Sky_Give.jpg'); background-size:cover; background-position:center;">
   <div class="page-hero-inner">
-    <p class="section-label" style="color:var(--teal-mid); margin-bottom:0.5rem;">Generosity</p>
     <h1>Give</h1>
-    <p>Your generosity makes everything FCCW does possible.</p>
+    <h2 style="font-size:1.5rem; font-weight:400; color:rgba(255,255,255,0.85); margin-top:0.5rem; font-family:var(--font);">Give in Faith, Grow in Love</h2>
+    <p style="font-style:italic; color:rgba(255,255,255,0.7); margin-top:0.5rem;">"For where your treasure is, there your heart will be also." (Matthew 6:21)</p>
   </div>
 </div>
 
-<!-- GIVING OPTIONS -->
+<!-- INTRO -->
+<section style="padding:5rem 2rem; background:var(--white); text-align:center;">
+  <div class="section-inner" style="max-width:760px; margin:0 auto;">
+    <p style="color:var(--body); line-height:1.85; font-size:1.05rem;">Generosity is a spiritual practice, and we are grateful if you choose to practice it with First Congregational Church of Wilmette. At FCCW we know generosity comes in many forms whether we invest our time, talent or treasure. Donations to FCCW help sustain our ministries and operations as well as support a variety of outside ministries that bring God's love and compassion to ourselves and others.</p>
+  </div>
+</section>
+
+<!-- GIVE BY ZELLE -->
+<section style="background:var(--ltgray); padding:5rem 2rem;">
+  <div class="section-inner">
+    <h2 class="section-title">Give using Zelle</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <img src="FCCW3/images/Zelle-logo.png" alt="Zelle" loading="lazy" style="max-width:200px; margin-bottom:1.5rem; display:block;" />
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1.25rem;">Using this method means that more of your gift goes toward our mission as there are no fees with Zelle (Credit Card payments deduct a fee).</p>
+        <p style="color:var(--body); line-height:1.75;">Just one small step before you send us a contribution via Zelle. We want to know who you are, how to thank you and where we can send your tax letter (your donation is tax deductible). Please fill this out first!</p>
+      </div>
+      <div>
+        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+          <input type="hidden" name="payment_method" value="Zelle" />
+          <select name="fund" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white); color:var(--dark);">
+            <option value="">I want my contribution to be used for:</option>
+            <option>Mission</option>
+            <option>Music</option>
+            <option>FCCW Sustaining Fund</option>
+            <option>FCCW Legacy Endowment Fund</option>
+            <option>General Contribution</option>
+          </select>
+          <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <textarea name="note" placeholder="Add a note (optional)" rows="3" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; resize:vertical;"></textarea>
+          <input type="text" name="amount" placeholder="How much do you plan on donating?" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <p style="font-size:0.85rem; color:var(--slate); font-style:italic;">This is not a payment! The next screen will let you know the Zelle address to send the payment to.</p>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; color:var(--body);">Of course, if you don't use Zelle, please feel free to give using a Credit Card, PayPal or check.</p>
+  </div>
+</section>
+
+<!-- GIVE BY CHECK -->
 <section style="padding:5rem 2rem; background:var(--white);">
   <div class="section-inner">
-    <p class="section-label">Ways to Give</p>
-    <h2 class="section-title">Support our mission</h2>
-    <p class="section-sub">Every gift — large or small — sustains 150 years of faith, community, and service in Wilmette and beyond.</p>
+    <h2 class="section-title">Give by Check</h2>
+    <p style="color:var(--body); line-height:1.75; margin-bottom:1.25rem;">To donate by check, please mail your donation to:</p>
+    <div style="background:var(--ltgray); border-radius:12px; padding:2rem; max-width:360px; margin-bottom:1.5rem;">
+      <p style="color:var(--dark); font-weight:600; line-height:1.85;">First Congregational Church of Wilmette<br />Attn: Donations<br />1125 Wilmette Ave, Wilmette, IL 60091</p>
+    </div>
+    <p style="color:var(--slate); font-size:0.93rem;">Note: If you are giving to a specific effort, please make a note in the memo line of your check.</p>
+  </div>
+</section>
 
-    <div class="grid-3" style="margin-top:3rem;">
-      <!-- Online Giving -->
-      <div style="background:var(--ltgray); border-radius:16px; padding:2rem;">
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Online Giving</div>
-        <h3 style="font-size:1.3rem; font-weight:600; color:var(--dark); margin-bottom:1rem;">Give via Tithe.ly</h3>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Secure online giving through Tithe.ly is coming soon. In the meantime, please give by mail or phone — or contact the office for assistance.</p>
-        <a href="mailto:1stchurch@fccw.org" class="btn btn-ghost">Contact the Office →</a>
+<!-- GIVE BY CREDIT CARD / PAYPAL -->
+<section style="background:var(--ltgray); padding:5rem 2rem;">
+  <div class="section-inner">
+    <h2 class="section-title">Give with Credit Card or PayPal</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Securely give by credit card or PayPal. Your generosity makes all we do possible.</p>
       </div>
-
-      <!-- Give by Mail -->
-      <div style="background:var(--ltgray); border-radius:16px; padding:2rem;">
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Give by Mail</div>
-        <h3 style="font-size:1.3rem; font-weight:600; color:var(--dark); margin-bottom:1rem;">Send a Check</h3>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:0.5rem;">Make checks payable to:</p>
-        <p style="font-weight:600; color:var(--dark); line-height:1.65; margin-bottom:0.5rem;">First Congregational Church of Wilmette</p>
-        <p style="color:var(--body);">1125 Wilmette Avenue<br />Wilmette, IL 60091</p>
-      </div>
-
-      <!-- Give by Phone -->
-      <div style="background:var(--ltgray); border-radius:16px; padding:2rem;">
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Give by Phone</div>
-        <h3 style="font-size:1.3rem; font-weight:600; color:var(--dark); margin-bottom:1rem;">Call the Office</h3>
-        <p style="color:var(--body); line-height:1.75; margin-bottom:1rem;">Our office team is happy to assist with your gift by phone Monday through Friday.</p>
-        <p style="font-size:1.5rem; font-weight:700; color:var(--teal);">(847) 251-6660</p>
+      <div>
+        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:0.85rem;">
+          <input type="hidden" name="payment_method" value="Credit Card or PayPal" />
+          <select name="fund" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white); color:var(--dark);">
+            <option value="">I want my contribution to be used for:</option>
+            <option>Mission</option>
+            <option>Music</option>
+            <option>FCCW Sustaining Fund</option>
+            <option>FCCW Legacy Endowment Fund</option>
+            <option>General Contribution</option>
+          </select>
+          <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <input type="email" name="email" placeholder="Email Address" required style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <textarea name="note" placeholder="Add a note (optional)" rows="3" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; resize:vertical;"></textarea>
+          <select name="level" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white); color:var(--dark);">
+            <option value="">Select donation level</option>
+            <option>$50</option>
+            <option>$100</option>
+            <option>$250</option>
+            <option>$500</option>
+            <option>$1000</option>
+            <option>Donate Your Own Amount</option>
+          </select>
+          <input type="text" name="amount" placeholder="Donation Amount" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem;" />
+          <select name="frequency" style="padding:0.7rem 0.9rem; border:1px solid var(--midgray); border-radius:8px; font-size:0.93rem; background:var(--white); color:var(--dark);">
+            <option>One Time Gift</option>
+            <option>Monthly Gift</option>
+          </select>
+          <p style="font-size:0.85rem; color:var(--slate);">We accept Credit Card and PayPal.</p>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STEWARDSHIP CAMPAIGN -->
-<section style="background:var(--ltgray); padding:5rem 2rem; text-align:center;">
-  <div class="section-inner" style="max-width:640px; margin:0 auto;">
-    <p class="section-label">2026 Stewardship Campaign</p>
-    <h2 class="section-title">Trailblazing Together</h2>
-    <p style="color:var(--body); line-height:1.75; margin-bottom:1.5rem;">Our 2026 pledge drive invites every member and friend of FCCW to join in sustaining this community for the next generation. Every commitment — large or small — helps FCCW continue its 150-year mission of welcome, worship, and justice.</p>
-    <p style="color:var(--body); line-height:1.75; margin-bottom:2rem;">To make a pledge or learn more about the campaign, contact the church office.</p>
-    <a href="mailto:1stchurch@fccw.org" class="btn btn-primary">Make a Pledge →</a>
+<!-- STOCK TRANSFER -->
+<section style="padding:4rem 2rem; background:var(--white);">
+  <div class="section-inner">
+    <h2 style="font-size:1.5rem; font-weight:700; color:var(--dark); margin-bottom:1rem;">Stock Transfer</h2>
+    <p style="color:var(--body); line-height:1.75;">If you wish to make a stock transfer, please contact <a href="mailto:amoly@fccw.org" style="color:var(--teal);">amoly@fccw.org</a> for specific instructions.</p>
   </div>
 </section>
 
-<!-- WHERE YOUR GIFT GOES -->
-<section style="padding:5rem 2rem; background:var(--white);">
+<!-- TAX INFO -->
+<section style="background:var(--ltgray); padding:3rem 2rem;">
   <div class="section-inner">
-    <p class="section-label">Your Impact</p>
-    <h2 class="section-title">Where your gift goes</h2>
-    <p class="section-sub">Every dollar given to FCCW stays at work in this community and beyond.</p>
-    <div class="grid-3" style="margin-top:2rem;">
-      <div class="ministry-card">
-        <div class="ministry-title">Worship &amp; Music</div>
-        <div class="ministry-text">Sustaining Sunday worship, our music ministry, and the special services that mark the sacred seasons of the year.</div>
-      </div>
-      <div class="ministry-card">
-        <div class="ministry-title">Community Outreach</div>
-        <div class="ministry-text">Supporting our work with Connections for the Homeless, community meals, and our interfaith partnerships.</div>
-      </div>
-      <div class="ministry-card">
-        <div class="ministry-title">Building &amp; Grounds</div>
-        <div class="ministry-text">Maintaining our 1875 building so it continues to serve the congregation, Gates Manor residents, and the broader community.</div>
-      </div>
-    </div>
+    <p style="color:var(--slate); font-size:0.93rem; line-height:1.75; max-width:700px;">The First Congregational Church of Wilmette is a 501(c)(3) organization (Federal Tax ID: 36-2196425). Your donation is tax deductible to the fullest extent allowed by law.</p>
   </div>
 </section>
 
@@ -132,42 +189,46 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">First Congregational Church of Wilmette</div>
-        <p class="footer-tagline">An Open &amp; Affirming United Church of Christ congregation where everyone belongs — no matter where you are on life's journey.</p>
-        <p style="font-size:0.85rem;">1125 Wilmette Avenue · Wilmette, IL 60091<br />(847) 251-6660 · 1stchurch@fccw.org</p>
-        <p style="font-size:0.85rem; margin-top:0.75rem;">
-          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Facebook</a>
-          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Instagram</a>
-          <a href="#" style="color:rgba(255,255,255,0.6); text-decoration:none;">YouTube</a>
+        <img src="FCCW3/images/FCCW-UCC_Logo_white_800x200.png" alt="FCCW Logo" loading="lazy" style="height:50px; width:auto; margin-bottom:1.25rem;" />
+        <p style="font-size:0.85rem; line-height:1.7; margin-bottom:1rem;">Worship: Sundays at 10am</p>
+        <p style="font-size:0.85rem; line-height:1.7; margin-bottom:1rem;">1125 Wilmette Avenue<br />Wilmette, IL 60091<br />Office Hours: 9am-3pm, M-F</p>
+        <p style="font-size:0.85rem; margin-bottom:1.25rem;">(847) 251-6660<br /><a href="mailto:1stchurch@fccw.org" style="color:rgba(255,255,255,0.6);">1stchurch@fccw.org</a></p>
+        <p style="font-size:0.85rem;">
+          <a href="https://www.facebook.com/fccwilmette" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Facebook</a>
+          <a href="https://www.instagram.com/fccwilmette" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); text-decoration:none; margin-right:1rem;">Instagram</a>
+          <a href="https://www.youtube.com/@FCCWilmette" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); text-decoration:none;">YouTube</a>
         </p>
       </div>
       <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="about.html">About Us</a>
-        <a href="groups.html">Get Involved</a>
-        <a href="services.html">Worship</a>
-        <a href="events.html">Events</a>
-        <a href="outreach.html">Outreach</a>
+        <h4>About Us</h4>
+        <a href="FCCW3/about.html">About Our Church</a>
+        <a href="FCCW3/outreach.html">Mission and Outreach</a>
+        <a href="FCCW3/partners.html">Community Partners</a>
       </div>
       <div class="footer-col">
-        <h4>Visit</h4>
-        <a href="services.html#visit">Plan a Visit</a>
-        <a href="services.html#what-to-expect">What to Expect</a>
-        <a href="services.html#sermons">Sermon Archive</a>
-        <a href="#">Directions &amp; Parking</a>
+        <h4>Worship and Learn</h4>
+        <a href="FCCW3/services.html">Faith Community</a>
+        <a href="FCCW3/services.html#music">Our Music</a>
+        <a href="FCCW3/events.html">Calendar</a>
+        <a href="FCCW3/groups.html">Get Involved</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
-        <a href="#">Newsletter Signup</a>
-        <a href="give.html">Give</a>
-        <a href="mailto:1stchurch@fccw.org">Contact Us</a>
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a>
+        <a href="FCCW3/contact.html">Contact Us</a>
+        <a href="FCCW3/services.html#visit">Plan a Visit</a>
+        <a href="FCCW3/space.html">Sharing Our Space</a>
+        <a href="FCCW3/give.html">Give</a>
       </div>
     </div>
+    <div style="margin-bottom:2rem; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; max-width:400px;">
+      <h4 style="color:white; font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem;">Newsletter Sign-up</h4>
+      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <input type="email" name="email" placeholder="Your email" required style="flex:1; min-width:180px; padding:0.6rem 0.9rem; border-radius:6px; border:none; font-size:0.9rem;" />
+        <button type="submit" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.9rem;">Subscribe</button>
+      </form>
+    </div>
     <div class="footer-bottom">
-      <span>© 2025 First Congregational Church of Wilmette · All rights reserved.</span>
-      <span style="opacity:0.5;">Website by PBK Studio, LLC · mikelrosenthal.com</span>
+      <span>&copy; 2025 First Congregational Church of Wilmette &middot; All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -177,49 +238,17 @@
     document.getElementById('nav-links').classList.toggle('open');
   }
 </script>
-
 <script>
-  // FCCW Custom Event Tracking — GA4
   (function () {
     if (typeof gtag === 'undefined') return;
     document.querySelectorAll('.btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        gtag('event', 'cta_click', {
-          button_text: btn.textContent.trim(),
-          destination: btn.href || ''
-        });
+        gtag('event', 'cta_click', { button_text: btn.textContent.trim(), destination: btn.href || '' });
       });
-    });
-    document.querySelectorAll('a').forEach(function (link) {
-      if (/give|tithe|donat/i.test(link.href + link.textContent)) {
-        link.addEventListener('click', function () {
-          gtag('event', 'giving_intent', { source: window.location.pathname });
-        });
-      }
     });
     document.querySelectorAll('form').forEach(function (form) {
       form.addEventListener('submit', function () {
-        gtag('event', 'form_submit', {
-          form_id: form.id || form.className || 'unnamed',
-          page: window.location.pathname
-        });
-      });
-    });
-    document.querySelectorAll('a[href^="mailto"]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        gtag('event', 'email_click', { address: link.href.replace('mailto:', '') });
-      });
-    });
-    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
-      if (link.hostname !== window.location.hostname) {
-        link.addEventListener('click', function () {
-          gtag('event', 'outbound_click', { url: link.href });
-        });
-      }
-    });
-    document.querySelectorAll('a[href*="visit"], a[href*="#visit"]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        gtag('event', 'plan_visit_click', { source: window.location.pathname });
+        gtag('event', 'form_submit', { form_id: form.id || form.className || 'unnamed', page: window.location.pathname });
       });
     });
   })();
